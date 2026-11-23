@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login | GenAlpha Workbooks</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #07152e, #123c70);
+            color: white;
+        }
+
+        .login-container {
+            width: 90%;
+            max-width: 420px;
+            padding: 40px;
+            background-color: #10233f;
+            border: 1px solid #29486e;
+            border-radius: 18px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.4);
+        }
+
+        .logo {
+            text-align: center;
+            font-size: 34px;
+            font-weight: bold;
+            color: #58a6ff;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 27px;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #a9bad0;
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px;
+            margin-bottom: 20px;
+            border: 1px solid #385577;
+            border-radius: 8px;
+            background-color: #091a31;
+            color: white;
+            font-size: 15px;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #58a6ff;
+            box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.15);
+        }
+
+        .options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            margin-bottom: 25px;
+            gap: 10px;
+        }
+
+        .remember {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+
+        .remember input {
+            width: auto;
+            margin: 0;
+        }
+
+        a {
+            color: #58a6ff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .login-button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(90deg, #1674dc, #3999ff);
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .login-button:hover {
+            background: linear-gradient(90deg, #3999ff, #1674dc);
+            transform: translateY(-2px);
+        }
+
+        .register {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 14px;
+            color: #a9bad0;
+        }
+
+        .footer {
+            text-align: center;
+            color: #7188a5;
+            font-size: 12px;
+            margin-top: 25px;
+        }
+
+        @media (max-width: 450px) {
+            .login-container {
+                padding: 28px 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login-container">
+
+        <div class="logo">GAW</div>
+
+        <h1>Welcome Back!</h1>
+
+        <p class="subtitle">
+            Sign in to your account to continue.
+        </p>
+
+        <form action="login.php" method="POST">
+
+            <label for="email">Email Address</label>
+
+            <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Enter your email"
+                required
+                autocomplete="username"
+            >
+
+            <label for="password">Password</label>
+
+            <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Enter your password"
+                required
+                autocomplete="current-password"
+            >
+
+            <div class="options">
+
+                <label class="remember">
+                    <input type="checkbox" name="remember">
+                    Remember me
+                </label>
+
+                <a href="forgotpassword.html">
+                    Forgot password?
+                </a>
+
+            </div>
+
+            <button type="submit" class="login-button">
+                Sign In
+            </button>
+
+        </form>
+
+        <div class="register">
+            Don't have an account?
+            <a href="register.html">Create one</a>
+        </div>
+
+        <div class="footer">
+            © 2026 GenAlpha Workbooks. All rights reserved.
+        </div>
+
+    </div>
+
+</body>
+</html>

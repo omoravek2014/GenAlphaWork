@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Register | GenAlpha Workbooks</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #07152e, #123c70);
+            color: white;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 430px;
+            padding: 40px;
+            background: #10233f;
+            border: 1px solid #29486e;
+            border-radius: 18px;
+            box-shadow: 0 15px 45px #0006;
+        }
+
+        .logo {
+            text-align: center;
+            font-size: 34px;
+            font-weight: bold;
+            color: #58a6ff;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #a9bad0;
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px;
+            margin-bottom: 20px;
+            border: 1px solid #385577;
+            border-radius: 8px;
+            background: #091a31;
+            color: white;
+            font-size: 15px;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background: #2584eb;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #3999ff;
+        }
+
+        .message {
+            text-align: center;
+            margin-top: 18px;
+        }
+
+        .footer {
+            text-align: center;
+            color: #7188a5;
+            font-size: 12px;
+            margin-top: 25px;
+        }
+
+        a {
+            color: #58a6ff;
+            text-decoration: none;
+        }
+
+        @media(max-width: 450px) {
+            .container {
+                padding: 28px 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="logo">GAW</div>
+
+    <h1>Create Account</h1>
+
+    <p class="subtitle">
+        Join GenAlpha Workbooks today!
+    </p>
+
+    <form id="registerForm">
+
+        <label for="email">Email Address</label>
+
+        <input
+            type="email"
+            id="email"
+            placeholder="Enter your email"
+            required
+        >
+
+        <label for="password">Password</label>
+
+        <input
+            type="password"
+            id="password"
+            placeholder="Create a password"
+            minlength="8"
+            required
+        >
+
+        <label for="confirmPassword">Confirm Password</label>
+
+        <input
+            type="password"
+            id="confirmPassword"
+            placeholder="Confirm your password"
+            minlength="8"
+            required
+        >
+
+        <button type="submit">Create Account</button>
+
+    </form>
+
+    <p class="message" id="message"></p>
+
+    <p class="subtitle">
+        Already have an account?
+        <a href="loginbackend.html">Sign In</a>
+    </p>
+
+    <div class="footer">
+        © 2026 GenAlpha Workbooks
+    </div>
+
+</div>
+
+<script type="module">
+
+    import { initializeApp } from
+    "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
+
+    import {
+        getAuth,
+        createUserWithEmailAndPassword
+    } from
+    "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
+
+    // INSERT YOUR FIREBASE CONFIGURATION HERE
+
+    const firebaseConfig = {
+        apiKey: "YOUR_API_KEY",
+        authDomain: "YOUR_PROJECT.firebaseapp.com",
+        projectId: "YOUR_PROJECT_ID",
+        appId: "YOUR_APP_ID"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    const form = document.getElementById("registerForm");
+    const message = document.getElementById("message");
+
+    form.addEventListener("submit", async (event) => {
+
+        event.preventDefault();
+
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        const confirmPassword = document.getElementById("confirmPassword").value;
+
+        if (password !== confirmPassword) {
+            message.textContent = "Passwords do not match!";
+            return;
+        }
+
+        try {
+
+            await createUserWithEmailAndPassword(
+                auth,
+                email,
+                password
+            );
+
+            window.location.href = "dashboard.html";
+
+        } catch (error) {
+
+            message.textContent = error.message;
+
+        }
+
+    });
+
+</script>
+
+</body>
+</html>
