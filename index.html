@@ -1,134 +1,439 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>genalphaworkbooks/helpusout.com</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GenAlpha Workbooks | Learn, Create, Discover</title>
 
     <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            background-color: #4c4baf;
-            font-family: 'Times New Roman';
             margin: 0;
+            font-family: 'Trebuchet MS', Arial, sans-serif;
+            background-color: #f4faff;
+            color: #263653;
         }
 
-        /* Header box */
+        /* Navigation */
+
         header {
-            background-color: hsl(199, 100%, 50%);
-            color: white;
-            text-align: center;
-            padding: 170px;
-        }
-
-        /* Main layout */
-        .container {
+            background-color: white;
+            padding: 18px 7%;
             display: flex;
-            padding: 3px;
-            gap: 3px;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.06);
         }
 
-        /* Side box */
-        aside {
-            background-color: #5867c5;
-            padding: 125px;
-            width: 35%;
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #2878e8;
         }
 
-        /* Main content box */
-        main {
-            background-color: #18119c;
-            padding: 110px;
-            width: 40%;
+        nav {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
         }
 
-        /* Footer box */
-        footer {
-            background-color: #030D44;
+        nav a {
+            text-decoration: none;
+            color: #344563;
+            font-weight: bold;
+            padding: 10px 15px;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #e4f1ff;
+            color: #2878e8;
+        }
+
+        /* Hero section */
+
+        .hero {
+            background: linear-gradient(135deg, #54c8ff, #7587ff);
             color: white;
             text-align: center;
-            padding: 75px;
+            padding: 100px 20px;
         }
 
-        /* Picture styling */
-        img {
-            max-width: 100%;
-            height: auto;
+        .hero h1 {
+            font-size: 52px;
+            margin-bottom: 15px;
         }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 650px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+
+        .main-button {
+            display: inline-block;
+            background-color: #ffdc58;
+            color: #263653;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 17px;
+            transition: 0.3s;
+        }
+
+        .main-button:hover {
+            background-color: #ffe990;
+            transform: translateY(-3px);
+        }
+
+        /* General sections */
+
+        section {
+            padding: 65px 8%;
+            text-align: center;
+        }
+
+        section h2 {
+            font-size: 34px;
+            margin-bottom: 15px;
+            color: #2878e8;
+        }
+
+        .section-description {
+            color: #64748b;
+            font-size: 17px;
+            margin-bottom: 35px;
+        }
+
+        /* Feature cards */
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .card {
+            background-color: white;
+            padding: 30px 22px;
+            border-radius: 22px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.06);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        }
+
+        .card-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            font-size: 22px;
+            color: #344563;
+        }
+
+        .card p {
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        .card a {
+            display: inline-block;
+            margin-top: 12px;
+            color: #2878e8;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .card a:hover {
+            text-decoration: underline;
+        }
+
+        /* About section */
+
+        .about {
+            background-color: #e7f6ff;
+        }
+
+        .about p {
+            max-width: 750px;
+            margin: auto;
+            line-height: 1.8;
+            font-size: 18px;
+            color: #52627a;
+        }
+
+        /* Call to action */
+
+        .cta {
+            background-color: #fff0b8;
+            border-radius: 25px;
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 55px 25px;
+        }
+
+        .cta h2 {
+            color: #344563;
+        }
+
+        .cta p {
+            font-size: 17px;
+            margin-bottom: 25px;
+        }
+
+        /* Footer */
+
+        footer {
+            background-color: #263653;
+            color: white;
+            text-align: center;
+            padding: 30px 15px;
+            margin-top: 50px;
+        }
+
+        footer a {
+            color: #ffdc58;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Mobile compatibility */
+
+        @media (max-width: 650px) {
+
+            header {
+                justify-content: center;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            .hero {
+                padding: 70px 20px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            section {
+                padding: 45px 6%;
+            }
+
+        }
+
     </style>
+
 </head>
 
 <body>
 
+    <!-- Navigation -->
+
     <header>
-        <h1>Generation Alpha Workbooks</h1>
 
-        <p>Welcome to our curing website!</p>
+        <div class="logo">
+            📚 GenAlpha Workbooks
+        </div>
 
-        <b style="font-size: large;">
-            Here, you can sign up and add your child to your
-            "Children's Folders". Enjoy your stay.
-        </b>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="gaaboutuspage.html">About Us</a>
+            <a href="gaworkbooksfaq.html">FAQ</a>
+            <a href="loginbackend.html">Log In</a>
+        </nav>
+
     </header>
 
-    <div class="container">
 
-        <aside>
+    <!-- Welcome section -->
 
-            <a href="about.html">
-                <button style="font-size: 30px; background-color: rgb(0, 225, 255); font-family: 'Times New Roman'; color: white; border-radius: 9px;">
-                    About Us
-                </button>
-            </a>
+    <div class="hero">
 
-            <br><br>
+        <h1>Welcome to GenAlpha Workbooks! 🌟</h1>
 
-            <a href="gasignuppage.html" style="text-decoration: none;">
-                <button style="font-size: 30px; background-color: rgb(0, 140, 255); font-family: 'Times New Roman'; color: white; border-radius: 9px;">
-                    Sign Up
-                </button>
-            </a>
+        <p>
+            Discover, learn, create and explore!
+            A place where learning becomes an exciting adventure.
+        </p>
 
-        </aside>
-
-        <main>
-
-            <img src="1.jpg" alt="Workbooks" width="400">
-
-        </main>
+        <a href="loginbackend.html" class="main-button">
+            Get Started 🚀
+        </a>
 
     </div>
 
-    <footer>
 
-        <p style="font-size: larger;">
-            Created by GenAlpha Co.
+    <!-- Features -->
+
+    <section>
+
+        <h2>What Can You Discover? 🎨</h2>
+
+        <p class="section-description">
+            Explore the different features of GenAlpha Workbooks.
         </p>
 
-        <a href="report.html" style="text-decoration: none;">
-            <button style="font-size: 24px; background-color: rgb(255, 0, 0); font-family: 'Times New Roman'; color: white; border-radius: 9px;">
-                Report bugs
-            </button>
-        </a>
+        <div class="cards">
 
-        <a href="feedback.html">
-            <button style="font-size: 24px; background-color: blue; font-family: 'Times New Roman'; color: white; border-radius: 11px;">
-                Send Feedback
-            </button>
-        </a>
+            <div class="card">
 
-        <br><br>
+                <div class="card-icon">📖</div>
 
-        <a href="faq.html" style="text-decoration: none;">
-            <button style="font-size: 22px; background-color: rgb(0, 174, 255); font-family: 'Times New Roman'; color: white; border-radius: 9px;">
-                Frequently Asked Questions - FAQ
-            </button>
-        </a>
+                <h3>Workbooks</h3>
 
-        <br><br>
+                <p>
+                    Discover educational materials
+                    and exciting learning activities.
+                </p>
 
-        <b style="font-size: small;">
-            Made by Ing. Tung Tung Sahurr | 2026 Copyright. | All rights reserved.
-        </b>
+                <a href="workbooks.html">Explore →</a>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon">📁</div>
+
+                <h3>Children's Folder</h3>
+
+                <p>
+                    Organize your content and
+                    explore your personal folder.
+                </p>
+
+                <a href="mychildrensfolder.html">Open Folder →</a>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon">❓</div>
+
+                <h3>Frequently Asked Questions</h3>
+
+                <p>
+                    Find answers to common questions
+                    about our project.
+                </p>
+
+                <a href="gaworkbooksfaq.html">Read FAQ →</a>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon">👋</div>
+
+                <h3>About Us</h3>
+
+                <p>
+                    Learn more about GenAlpha Workbooks
+                    and what makes our project special.
+                </p>
+
+                <a href="gaaboutuspage.html">Learn More →</a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- About section -->
+
+    <section class="about">
+
+        <h2>Learning Should Be Fun! 💡</h2>
+
+        <p>
+            GenAlpha Workbooks aims to make learning
+            more interesting, accessible and enjoyable.
+            We believe that curiosity and creativity
+            are important parts of education.
+        </p>
+
+    </section>
+
+
+    <!-- Call to action -->
+
+    <section>
+
+        <div class="cta">
+
+            <h2>Ready to Explore? 🚀</h2>
+
+            <p>
+                Discover what GenAlpha Workbooks has
+                to offer and start exploring!
+            </p>
+
+            <a href="loginbackend.html" class="main-button">
+                Join Us!
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>
+            © 2026 GenAlpha Workbooks.
+            All rights reserved.
+        </p>
+
+        <p>
+            <a href="index.html">Home</a>
+            |
+            <a href="gaaboutuspage.html">About Us</a>
+            |
+            <a href="gaworkbooksfaq.html">FAQ</a>
+            |
+            <a href="loginbackend.html">Log In</a>
+        </p>
+
+        <p>
+            Learn • Create • Discover
+        </p>
 
     </footer>
 
 </body>
+
 </html>
