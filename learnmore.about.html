@@ -1,91 +1,291 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>gaaboutuspage.com</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GenAlpha Workbooks | Learn More</title>
 
     <style>
-        body {
-            background-color: #117f85;
-            font-family: "Times New Roman";
-            margin: 0;
+
+        * {
+            box-sizing: border-box;
         }
 
-        /* Header box */
+        body {
+            margin: 0;
+            font-family: 'Trebuchet MS', Arial, sans-serif;
+            background-color: #e8f4ff;
+            color: #263653;
+        }
+
+        /* Header */
+
         header {
             background-color: #054c99;
             color: white;
             text-align: center;
-            padding: 131px;
+            padding: 55px 20px;
+        }
+
+        header h1 {
+            font-size: 42px;
+            margin: 0 0 12px;
+        }
+
+        header p {
+            font-size: 19px;
+            margin: 0;
         }
 
         /* Main layout */
+
         .container {
             display: flex;
-            padding: 2px;
-            gap: 2px;
+            gap: 25px;
+            max-width: 1150px;
+            margin: 40px auto;
+            padding: 20px;
+            flex-wrap: wrap;
         }
 
         /* Side box */
+
         aside {
             background-color: #131c57;
-            padding: 100px;
-            width: 35%;
+            color: white;
+            padding: 30px;
+            flex: 1;
+            min-width: 230px;
+            border-radius: 18px;
         }
 
-        /* Main content box */
+        aside h2 {
+            color: #ffdc58;
+        }
+
+        aside p {
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        /* Main content */
+
         main {
-            background-color: #09019e;
+            background-color: white;
             padding: 35px;
-            width: 60%;
+            flex: 2;
+            min-width: 280px;
+            border-radius: 18px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.07);
         }
 
-        /* Footer box */
+        main h2 {
+            color: #2878e8;
+            font-size: 28px;
+        }
+
+        main p {
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        .question {
+            font-weight: bold;
+            color: #054c99;
+            margin-top: 30px;
+        }
+
+        /* Buttons */
+
+        .button {
+            display: inline-block;
+            padding: 13px 22px;
+            margin: 10px 8px 0 0;
+            border-radius: 10px;
+            color: white;
+            font-size: 19px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .yes-button {
+            background-color: #16b83e;
+        }
+
+        .yes-button:hover {
+            background-color: #108d30;
+            transform: translateY(-3px);
+        }
+
+        .no-button {
+            background-color: #dc3030;
+        }
+
+        .no-button:hover {
+            background-color: #ad2020;
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+
         footer {
-            background-color: #05156e;
+            background-color: #263653;
             color: white;
             text-align: center;
-            padding: 75px;
+            padding: 30px 15px;
+            margin-top: 40px;
         }
 
-        /* Picture styling */
-        img {
-            max-width: 91%;
-            height: auto;
+        footer p {
+            font-size: 16px;
         }
+
+        footer a {
+            color: #ffdc58;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Mobile compatibility */
+
+        @media (max-width: 650px) {
+
+            header h1 {
+                font-size: 32px;
+            }
+
+            .container {
+                flex-direction: column;
+                margin: 15px auto;
+            }
+
+            aside, main {
+                width: 100%;
+            }
+
+            .button {
+                font-size: 17px;
+            }
+
+        }
+
     </style>
+
 </head>
 
 <body>
 
-    <h1>Learn more about us!</h1>
+    <!-- Header -->
 
-    <p>
-        We are a corporation that is designed to help people
-        with their children under 8 years old, because we want
-        to help their parents out by helping the children learn
-        and graduate in college and get a good job, etc.
-        That is why we made workbooks for the children to not
-        do nothing and make the parents their servants.
-        That is how the webpage operates.
-    </p>
+    <header>
 
-    <b>Would you like to see a whole page about our history?</b>
+        <h1>Learn More About Us!</h1>
 
-    <br><br>
+        <p>Discover the purpose behind GenAlpha Workbooks.</p>
 
-    <!-- YES BUTTON -->
-    <a href="historyofgenalphacorporation.html">
-        <button style="font-size: 24px; background-color: rgb(9, 255, 0); font-family: Times New Roman; color: white; border-radius: 9px">
-            Yes, please
-        </button>
-    </a>
+    </header>
 
-    <!-- NO BUTTON -->
-    <a href="about.html">
-        <button style="font-size: 24px; background-color: rgb(255, 0, 0); font-family: Times New Roman; color: white; border-radius: 9px">
-            No, thanks
-        </button>
-    </a>
+
+    <!-- Main layout -->
+
+    <div class="container">
+
+        <!-- Side box -->
+
+        <aside>
+
+            <h2>Our Mission 📚</h2>
+
+            <p>
+                We want to make learning more interesting,
+                accessible and enjoyable for young children.
+            </p>
+
+            <p>
+                We also want to give parents helpful resources
+                that can support their children's education.
+            </p>
+
+        </aside>
+
+
+        <!-- Main content -->
+
+        <main>
+
+            <h2>What Do We Do?</h2>
+
+            <p>
+                We are a corporation designed to help families
+                with children under eight years old.
+
+                Our goal is to support parents by providing
+                educational workbooks and activities that help
+                children learn, develop their skills and prepare
+                for their future education.
+
+                We believe that children should have opportunities
+                to explore, practise and discover new things.
+
+                That is why we created GenAlpha Workbooks:
+                a place where learning can become an exciting
+                adventure for children.
+            </p>
+
+            <p class="question">
+                Would you like to read a whole page about
+                the history of our corporation?
+            </p>
+
+            <!-- YES BUTTON -->
+
+            <a href="./historyofgenalphacorporation.html"
+               class="button yes-button">
+
+                Yes, please!
+
+            </a>
+
+
+            <!-- NO BUTTON -->
+
+            <a href="./about.html"
+               class="button no-button">
+
+                No, thanks
+
+            </a>
+
+        </main>
+
+    </div>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>
+            &copy; 2026 GenAlpha Workbooks.
+            All rights reserved.
+        </p>
+
+        <p>
+            <a href="./index.html">Back to Homepage</a>
+        </p>
+
+        <p>
+            Learn • Create • Discover
+        </p>
+
+    </footer>
 
 </body>
+
 </html>

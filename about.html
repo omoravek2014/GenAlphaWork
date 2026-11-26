@@ -1,70 +1,224 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>gaaboutuspage.com</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GenAlpha Workbooks | About Us</title>
 
     <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            background-color: #117f85 ;
-            font-family:Times New Roman;
+            background-color: #117f85;
+            font-family: 'Times New Roman', serif;
             margin: 0;
+            color: white;
         }
 
         /* Header box */
+
         header {
             background-color: #054c99;
             color: white;
             text-align: center;
-            padding: 131px;
+            padding: 60px 20px;
+        }
+
+        header h1 {
+            font-size: 45px;
         }
 
         /* Main layout */
+
         .container {
             display: flex;
-            padding: 2px;
-            gap: 2px;
+            padding: 20px;
+            gap: 20px;
+            flex-wrap: wrap;
         }
 
         /* Side box */
+
         aside {
             background-color: #131c57;
-            padding: 100px;
-            width: 35%;
+            padding: 30px;
+            flex: 1;
+            min-width: 250px;
+            border-radius: 12px;
         }
 
         /* Main content box */
+
         main {
-            background-color:#09019e;
+            background-color: #09019e;
             padding: 35px;
-            width: 60%;
+            flex: 2;
+            min-width: 280px;
+            border-radius: 12px;
         }
 
-        /* Footer box */
+        main p {
+            font-size: 21px;
+            line-height: 1.7;
+        }
+
+        aside p {
+            font-size: 19px;
+            line-height: 1.6;
+        }
+
+        /* Buttons */
+
+        .button {
+            display: inline-block;
+            font-size: 22px;
+            font-family: 'Times New Roman', serif;
+            color: white;
+            text-decoration: none;
+            border-radius: 9px;
+            padding: 12px 20px;
+            margin: 10px 5px;
+            transition: 0.3s;
+        }
+
+        .learn-more {
+            background-color: rgb(0, 255, 34);
+        }
+
+        .learn-more:hover {
+            background-color: rgb(0, 200, 25);
+        }
+
+        .back-button {
+            background-color: rgb(196, 22, 22);
+        }
+
+        .back-button:hover {
+            background-color: rgb(150, 15, 15);
+        }
+
+        /* Footer */
+
         footer {
             background-color: #05156e;
             color: white;
             text-align: center;
-            padding: 75px;
+            padding: 35px;
+            margin-top: 20px;
         }
 
-        /* Picture styling */
-        img {
-            max-width: 91%;
-            height: auto;
+        footer p {
+            font-size: 18px;
         }
+
+        /* Mobile compatibility */
+
+        @media (max-width: 700px) {
+
+            header {
+                padding: 35px 15px;
+            }
+
+            header h1 {
+                font-size: 32px;
+            }
+
+            .container {
+                flex-direction: column;
+            }
+
+            aside, main {
+                width: 100%;
+            }
+
+            main p {
+                font-size: 18px;
+            }
+
+            .button {
+                font-size: 18px;
+            }
+
+        }
+
     </style>
+
 </head>
 
 <body>
-    <h1> ABOUT OUR BUSINESS</h1>
 
-    <p> This is our first helpful webpage. We are here to encourage children born in Gen Alpha to learn more and focus on their studies. Our business was made in 2016 in Úholičky by a famous 12 year old Ing. Tung Tung Sahurr. To this day, we are still offering some cash for the cure of the Tungsahur disease. Don't worry! We will take care of your child as soon as possible! We will offer you 2000$ for the treatment.  </p>
-        <a  href="learnmore.about.html">
-        	<button style="font-size: 24px; background-color: rgb(0, 255, 34); font-family: Times New Roman; color: white; border-radius: 9px"> Learn More About GenAlpha Co. </button>
-            
-        <a  href="index.html">
-        	<button style="font-size: 24px; background-color: rgb(196, 22, 22); font-family: Times New Roman; color: white; border-radius: 9px"> Back to homescreen </button>
-</a>
+    <!-- Header -->
+
+    <header>
+        <h1>ABOUT OUR BUSINESS</h1>
+    </header>
+
+
+    <!-- Main layout -->
+
+    <div class="container">
+
+        <!-- Side box -->
+
+        <aside>
+
+            <h2>GenAlpha Workbooks</h2>
+
+            <p>
+                Learn more about our business,
+                our goals and our mission.
+            </p>
+
+        </aside>
+
+
+        <!-- Main content -->
+
+        <main>
+
+            <h2>Who Are We?</h2>
+
+            <p>
+                This is our first helpful webpage. We are here to
+                encourage children born in Gen Alpha to learn more
+                and focus on their studies. Our business was made
+                in 2016 in Úholičky by a famous 12 year old
+                Ing. Tung Tung Sahurr. To this day, we are still
+                offering some cash for the cure of the Tungsahur
+                disease. Don't worry! We will take care of your
+                child as soon as possible! We will offer you
+                2000$ for the treatment.
+            </p>
+
+            <a href="learnmore.about.html" class="button learn-more">
+                Learn More About GenAlpha Co.
+            </a>
+
+            <a href="index.html" class="button back-button">
+                Back to homescreen
+            </a>
+
+        </main>
+
+    </div>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>
+            &copy; 2026 GenAlpha Workbooks.
+            All rights reserved.
+        </p>
+
+    </footer>
 
 </body>
+
 </html>

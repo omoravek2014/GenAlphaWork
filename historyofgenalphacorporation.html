@@ -1,71 +1,371 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>gaworkbookshistoryaboutuspage.com</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GenAlpha Workbooks | Our History</title>
 
     <style>
-        body {
-            background-color: #117f85 ;
-            font-family:Times New Roman;
-            margin: 0;
+
+        * {
+            box-sizing: border-box;
         }
 
-        /* Header box */
+        body {
+            margin: 0;
+            font-family: 'Trebuchet MS', Arial, sans-serif;
+            background-color: #e8f4ff;
+            color: #263653;
+        }
+
+        /* Header */
+
         header {
             background-color: #054c99;
             color: white;
             text-align: center;
-            padding: 131px;
+            padding: 55px 20px;
+        }
+
+        header h1 {
+            font-size: 42px;
+            margin: 0 0 12px;
+        }
+
+        header p {
+            font-size: 19px;
+            margin: 0;
         }
 
         /* Main layout */
+
         .container {
             display: flex;
-            padding: 2px;
-            gap: 2px;
+            gap: 25px;
+            max-width: 1150px;
+            margin: 40px auto;
+            padding: 20px;
+            flex-wrap: wrap;
         }
 
-        /* Side box */
+        /* Sidebar */
+
         aside {
             background-color: #131c57;
-            padding: 100px;
-            width: 35%;
+            color: white;
+            padding: 30px;
+            flex: 1;
+            min-width: 230px;
+            border-radius: 18px;
         }
 
-        /* Main content box */
+        aside h2 {
+            color: #ffdc58;
+        }
+
+        aside p {
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        /* Main content */
+
         main {
-            background-color:#09019e;
+            background-color: white;
             padding: 35px;
-            width: 60%;
+            flex: 2;
+            min-width: 280px;
+            border-radius: 18px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.07);
         }
 
-        /* Footer box */
+        main h2 {
+            color: #2878e8;
+            font-size: 28px;
+        }
+
+        main p {
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+        /* Timeline */
+
+        .timeline-item {
+            background-color: #f0f8ff;
+            border-left: 5px solid #2878e8;
+            padding: 18px 22px;
+            margin: 22px 0;
+            border-radius: 10px;
+        }
+
+        .timeline-item h3 {
+            color: #054c99;
+            font-size: 23px;
+            margin: 0 0 10px;
+        }
+
+        .timeline-item p {
+            margin: 0;
+        }
+
+        /* Back button */
+
+        .button {
+            display: inline-block;
+            padding: 13px 22px;
+            margin: 20px 8px 0 0;
+            border-radius: 10px;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .back-button {
+            background-color: #dc3030;
+        }
+
+        .back-button:hover {
+            background-color: #ad2020;
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+
         footer {
-            background-color: #05156e;
+            background-color: #263653;
             color: white;
             text-align: center;
-            padding: 75px;
+            padding: 30px 15px;
+            margin-top: 40px;
         }
 
-        /* Picture styling */
-        img {
-            max-width: 91%;
-            height: auto;
+        footer p {
+            font-size: 16px;
         }
+
+        footer a {
+            color: #ffdc58;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Mobile compatibility */
+
+        @media (max-width: 650px) {
+
+            header h1 {
+                font-size: 32px;
+            }
+
+            .container {
+                flex-direction: column;
+                margin: 15px auto;
+            }
+
+            aside, main {
+                width: 100%;
+            }
+
+            .timeline-item h3 {
+                font-size: 20px;
+            }
+
+            .button {
+                font-size: 16px;
+            }
+
+        }
+
     </style>
+
 </head>
 
 <body>
-    <h1>Full History Of GAW</h1>
 
-    <p> This is our first helpful webpage. We are here to encourage children born in Gen Alpha to learn more and focus on their studies. Our business was made in 2016 in Úholičky by a famous 12 year old Ing. Tung Tung Sahurr. To this day, we are still offering some cash for the cure of the Tungsahur disease. Don't worry! We will take care of your child as soon as possible! We will offer you 2000$ for the treatment. Also, we are a corporation that is designed to help people with their children under 8 years old, because we want to help their parents out by helping the children learn and graduate in college and get a good job, etc. That is why we made workbooks for the children to not do nothing and make the
-        the parents his servants. That is how the webpage operates. In 2017, the website claimed the award as the most kind-hearted website on Earth achieving 340000$ in advance, and it still has gotten better to this day. Also in 2017, the website recieved so many messages that the website updated all the old features and renewed them. And to this day, the website is still making progress every day. In 2020 however, things took a dark turn. Covid-19 showed up in China, then slowly spread across the world. This website was useless, because onmline classes showed up and the parents had to learn with their children, and if they opened a new tab, the facetime tab would be deleted from the tab bar. And in 2022, this website made the biggest comeback in history of webpages.  </p>
-   <a  href="about.html">
-        	<button style="font-size: 24px; background-color: rgb(196, 22, 22); font-family: Times New Roman; color: white; border-radius: 9px"> Back </button>
-            
-          
-            
-        </a>
+    <!-- Header -->
+
+    <header>
+
+        <h1>Full History of GAW</h1>
+
+        <p>Discover the story behind GenAlpha Workbooks.</p>
+
+    </header>
+
+
+    <!-- Main layout -->
+
+    <div class="container">
+
+        <!-- Sidebar -->
+
+        <aside>
+
+            <h2>Our Timeline 📚</h2>
+
+            <p>
+                Explore the major events in the history
+                of GenAlpha Workbooks.
+            </p>
+
+            <p>2016 – The beginning</p>
+            <p>2017 – New achievements</p>
+            <p>2020 – A difficult period</p>
+            <p>2022 – A comeback</p>
+
+        </aside>
+
+
+        <!-- Main content -->
+
+        <main>
+
+            <h2>Our Story</h2>
+
+            <p>
+                GenAlpha Workbooks was created to encourage
+                children to learn more and focus on their studies.
+                The following timeline describes the history
+                of our corporation.
+            </p>
+
+
+            <!-- 2016 -->
+
+            <div class="timeline-item">
+
+                <h3>2016 – The Beginning</h3>
+
+                <p>
+                    Our business was founded in 2016 in Úholičky
+                    by a 12-year-old founder known as
+                    Ing. Tung Tung Sahurr.
+
+                    The original story also mentions efforts
+                    to support families affected by a condition
+                    called Tungsahur disease, including a proposed
+                    contribution of $2,000 toward treatment.
+                </p>
+
+            </div>
+
+
+            <!-- 2017 -->
+
+            <div class="timeline-item">
+
+                <h3>2017 – New Achievements</h3>
+
+                <p>
+                    In 2017, the website claimed an award
+                    as the most kind-hearted website on Earth.
+                    It also reported receiving $340,000 in advance.
+
+                    During the same year, the website received
+                    many messages from visitors. This encouraged
+                    the team to update older features and renew
+                    parts of the website.
+                </p>
+
+            </div>
+
+
+            <!-- 2020 -->
+
+            <div class="timeline-item">
+
+                <h3>2020 – A Difficult Period</h3>
+
+                <p>
+                    In 2020, the COVID-19 pandemic began
+                    affecting everyday life around the world.
+
+                    Online classes became increasingly important,
+                    and parents often had to help their children
+                    with schoolwork at home.
+
+                    This created new challenges for the website.
+                    Our original story describes this period
+                    as a difficult time for the corporation.
+                </p>
+
+            </div>
+
+
+            <!-- 2022 -->
+
+            <div class="timeline-item">
+
+                <h3>2022 – The Comeback</h3>
+
+                <p>
+                    In 2022, GenAlpha Workbooks made what
+                    the original story describes as its biggest
+                    comeback in the history of the website.
+
+                    The project continued developing and
+                    introducing improvements.
+                </p>
+
+            </div>
+
+
+            <!-- Closing paragraph -->
+
+            <h2>And the Story Continues!</h2>
+
+            <p>
+                GenAlpha Workbooks continues to focus on
+                making learning more interesting, accessible
+                and enjoyable.
+
+                We believe that learning should be an adventure
+                filled with curiosity and creativity!
+            </p>
+
+
+            <!-- Back button -->
+
+            <a href="./index.html" class="button back-button">
+                Back
+            </a>
+
+        </main>
+
+    </div>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>
+            &copy; 2026 GenAlpha Workbooks.
+            All rights reserved.
+        </p>
+
+        <p>
+            <a href="./index.html">Homepage</a>
+            |
+            <a href="./about.html">About Us</a>
+            |
+            <a href="./faq.html">FAQ</a>
+        </p>
+
+        <p>
+            Learn • Create • Discover
+        </p>
+
+    </footer>
+
 </body>
-</html>
 
+</html>
