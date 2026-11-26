@@ -8,7 +8,6 @@
     <title>GenAlpha Workbooks | My Children's Folder</title>
 
     <style>
-
         * {
             box-sizing: border-box;
         }
@@ -16,55 +15,40 @@
         body {
             margin: 0;
             font-family: 'Trebuchet MS', Arial, sans-serif;
-            background-color: var(--page-bg, #f4faff);
-            color: var(--text-color, #263653);
-            opacity: 1;
-            transform: translateY(0);
+            background: var(--page-bg, #f4faff);
+            color: #263653;
             transition: opacity 0.32s ease, transform 0.32s ease;
         }
 
-        /* Theme variables */
-
         body.theme-light {
             --page-bg: #f4faff;
-            --text-color: #263653;
             --hero-bg: linear-gradient(135deg, #54c8ff, #7587ff);
-            --container-bg: white;
+            --accent: #2878e8;
             --info-bg: #e7f6ff;
             --info-heading: #054c99;
             --empty-bg: #f4faff;
             --empty-border: #9bc8f5;
-            --accent: #2878e8;
-            --card-text: #52627a;
         }
 
         body.theme-blue {
             --page-bg: #e5f0ff;
-            --text-color: #16345c;
             --hero-bg: linear-gradient(135deg, #1765c1, #46a5ff);
-            --container-bg: #ffffff;
+            --accent: #1765c1;
             --info-bg: #d7ebff;
             --info-heading: #104c91;
             --empty-bg: #edf6ff;
             --empty-border: #72a9e9;
-            --accent: #1765c1;
-            --card-text: #395c82;
         }
 
         body.theme-purple {
             --page-bg: #f5edff;
-            --text-color: #3b2856;
             --hero-bg: linear-gradient(135deg, #a56aff, #7055db);
-            --container-bg: #ffffff;
+            --accent: #8055db;
             --info-bg: #efe3ff;
             --info-heading: #6435a5;
             --empty-bg: #f8f2ff;
             --empty-border: #c5a5ef;
-            --accent: #8055db;
-            --card-text: #65527e;
         }
-
-        /* Page transition */
 
         body.page-leaving {
             opacity: 0;
@@ -74,7 +58,7 @@
         /* Header */
 
         header {
-            background-color: white;
+            background: white;
             padding: 18px 7%;
             display: flex;
             justify-content: space-between;
@@ -107,12 +91,12 @@
         }
 
         nav a:hover {
-            background-color: #e4f1ff;
+            background: #e4f1ff;
             color: #2878e8;
             transform: translateY(-3px);
         }
 
-        /* Hero section */
+        /* Hero */
 
         .hero {
             background: var(--hero-bg);
@@ -133,7 +117,7 @@
             line-height: 1.6;
         }
 
-        /* Main content */
+        /* Main */
 
         main {
             max-width: 1100px;
@@ -142,7 +126,7 @@
         }
 
         .folder-container {
-            background-color: var(--container-bg);
+            background: white;
             padding: 35px;
             border-radius: 22px;
             box-shadow: 0 5px 18px rgba(0,0,0,0.06);
@@ -163,7 +147,7 @@
         /* Folder information */
 
         .folder-info {
-            background-color: var(--info-bg);
+            background: var(--info-bg);
             padding: 25px;
             border-radius: 15px;
             margin-top: 25px;
@@ -175,15 +159,15 @@
         }
 
         .folder-info p {
-            color: var(--card-text);
+            color: #52627a;
             font-size: 17px;
             line-height: 1.7;
         }
 
-        /* Empty folder area */
+        /* Empty folder */
 
         .empty-folder {
-            background-color: var(--empty-bg);
+            background: var(--empty-bg);
             border: 2px dashed var(--empty-border);
             border-radius: 18px;
             padding: 45px 20px;
@@ -207,82 +191,125 @@
             line-height: 1.6;
         }
 
+        /* Children's list */
+
+        .children-section {
+            margin-top: 30px;
+        }
+
+        .children-section h2 {
+            margin-bottom: 10px;
+        }
+
+        .children-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .child-card {
+            background: var(--empty-bg);
+            border: 1px solid var(--empty-border);
+            border-radius: 16px;
+            padding: 22px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .child-name {
+            font-size: 19px;
+            font-weight: bold;
+            color: var(--accent);
+            overflow-wrap: anywhere;
+        }
+
+        .child-icon {
+            font-size: 27px;
+            margin-right: 8px;
+        }
+
+        .remove-button {
+            background: #dc3030;
+            border: none;
+            color: white;
+            font-family: inherit;
+            font-weight: bold;
+            font-size: 14px;
+            padding: 10px 14px;
+            border-radius: 9px;
+            cursor: pointer;
+            transition: 0.25s;
+        }
+
+        .remove-button:hover {
+            background: #ad2020;
+            transform: translateY(-2px);
+        }
+
         /* Buttons */
 
         .button {
             display: inline-block;
             text-decoration: none;
+            border: none;
             border-radius: 12px;
             padding: 14px 23px;
             margin: 12px 8px 0 0;
             font-size: 18px;
             font-weight: bold;
-            font-family: 'Trebuchet MS', Arial, sans-serif;
+            font-family: inherit;
             color: white;
+            cursor: pointer;
             transition: transform 0.25s ease,
                         background-color 0.25s ease,
                         box-shadow 0.25s ease;
         }
 
         .add-button {
-            background-color: var(--accent);
+            background: var(--accent);
         }
 
         .add-button:hover {
-            background-color: #145bb5;
+            background: #145bb5;
             transform: translateY(-3px) scale(1.04);
             box-shadow: 0 6px 15px rgba(40,120,232,0.25);
         }
 
         .settings-button {
-            background-color: #6c63ff;
+            background: #6c63ff;
         }
 
         .settings-button:hover {
-            background-color: #5146d8;
+            background: #5146d8;
             transform: translateY(-3px) scale(1.04);
-            box-shadow: 0 6px 15px rgba(108,99,255,0.25);
         }
 
         .back-button {
-            background-color: #dc3030;
+            background: #dc3030;
         }
 
         .back-button:hover {
-            background-color: #ad2020;
+            background: #ad2020;
             transform: translateY(-3px) scale(1.04);
         }
 
-        /* Button press animation */
+        /* Status */
 
-        @keyframes buttonPress {
-
-            0% {
-                transform: scale(1);
-            }
-
-            40% {
-                transform: scale(0.90);
-            }
-
-            75% {
-                transform: scale(1.06);
-            }
-
-            100% {
-                transform: scale(1);
-            }
-
-        }
-
-        a.is-pressed {
-            animation: buttonPress 0.32s ease;
+        #folderStatus {
+            min-height: 24px;
+            text-align: center;
+            margin-top: 20px;
+            font-weight: bold;
         }
 
         /* Footer */
 
         footer {
-            background-color: #263653;
+            background: #263653;
             color: white;
             text-align: center;
             padding: 30px 15px;
@@ -303,7 +330,19 @@
             text-decoration: underline;
         }
 
-        /* Disable animations when setting is off */
+        /* Animations */
+
+        @keyframes buttonPress {
+            0% { transform: scale(1); }
+            40% { transform: scale(0.90); }
+            75% { transform: scale(1.06); }
+            100% { transform: scale(1); }
+        }
+
+        a.is-pressed,
+        button.is-pressed {
+            animation: buttonPress 0.32s ease;
+        }
 
         body.animations-off,
         body.animations-off *,
@@ -313,10 +352,9 @@
             transition: none !important;
         }
 
-        /* Mobile compatibility */
+        /* Mobile */
 
         @media (max-width: 650px) {
-
             header {
                 justify-content: center;
             }
@@ -345,24 +383,20 @@
             .button {
                 font-size: 16px;
             }
-
         }
 
         /* Accessibility */
 
         @media (prefers-reduced-motion: reduce) {
-
             *,
             *::before,
             *::after {
                 animation-duration: 0.01ms !important;
                 transition-duration: 0.01ms !important;
             }
-
         }
 
     </style>
-
 </head>
 
 <body class="theme-light">
@@ -383,9 +417,9 @@
 
     </header>
 
-    <!-- Hero section -->
+    <!-- Hero -->
 
-    <div class="hero">
+    <section class="hero">
 
         <h1 id="folderTitle">My Children's Folder 📁</h1>
 
@@ -394,17 +428,19 @@
             educational materials and activities.
         </p>
 
-    </div>
+    </section>
 
-    <!-- Main content -->
+    <!-- Main -->
 
     <main>
 
         <div class="folder-container">
 
-            <div id="welcomeSection">
+            <section id="welcomeSection">
 
-                <h2 id="welcomeHeading">Welcome to Your Folder!</h2>
+                <h2 id="welcomeHeading">
+                    Welcome to Your Folder!
+                </h2>
 
                 <p class="description">
                     This is your personal Children's Folder.
@@ -412,7 +448,7 @@
                     educational content and manage your materials.
                 </p>
 
-            </div>
+            </section>
 
             <!-- Folder information -->
 
@@ -423,18 +459,21 @@
                 </h3>
 
                 <p>
-                    Here you can add your children and manage their educational materials. You can also customize the folder settings to suit your preferences.
+                    Here you can add children and manage their
+                    educational materials. You can also customize
+                    the folder settings to suit your preferences.
                 </p>
 
                 <p>
-                    Use the buttons below to add a child, access folder settings, or return to the main page.
+                    Use the buttons below to add a child,
+                    access folder settings, or return to the main page.
                 </p>
 
             </div>
 
-            <!-- Empty folder -->
+            <!-- Empty folder message -->
 
-            <div class="empty-folder">
+            <div class="empty-folder" id="emptyFolder">
 
                 <div class="empty-folder-icon">
                     📂
@@ -443,7 +482,8 @@
                 <h3>Your Folder Is Ready!</h3>
 
                 <p>
-                    You haven't added any children yet. Once you do, you'll be able to manage their educational materials here.
+                    You haven't added any children yet.
+                    Once you do, their names will appear here.
                 </p>
 
                 <p>
@@ -451,6 +491,25 @@
                 </p>
 
             </div>
+
+            <!-- Children list -->
+
+            <section
+                class="children-section"
+                id="childrenSection"
+                hidden
+            >
+
+                <h2>Your Children 👧👦</h2>
+
+                <p class="description" id="childrenCount"></p>
+
+                <div
+                    class="children-list"
+                    id="childrenList"
+                ></div>
+
+            </section>
 
             <!-- Action buttons -->
 
@@ -460,8 +519,10 @@
                     + Add Child
                 </a>
 
-                <a href="./settingsforchildrensfolder.html"
-                   class="button settings-button">
+                <a
+                    href="./settingsforchildrensfolder.html"
+                    class="button settings-button"
+                >
                     ⚙ Options
                 </a>
 
@@ -470,6 +531,12 @@
                 </a>
 
             </div>
+
+            <p
+                id="folderStatus"
+                role="status"
+                aria-live="polite"
+            ></p>
 
         </div>
 
@@ -498,11 +565,12 @@
 
     </footer>
 
-    <!-- Folder settings connection and animations -->
+    <!-- Folder functionality -->
 
     <script>
 
-        const STORAGE_KEY = "gaw_children_folder_settings";
+        const SETTINGS_KEY = "gaw_children_folder_settings";
+        const CHILDREN_KEY = "gaw_children_folder_children";
 
         const defaultSettings = {
             folderName: "My Children's Folder",
@@ -511,39 +579,41 @@
             animations: true
         };
 
-        // Read settings
+        // Read saved settings
 
         function getSettings() {
 
             try {
 
-                const saved = localStorage.getItem(STORAGE_KEY);
+                const saved = localStorage.getItem(SETTINGS_KEY);
 
-                if (saved) {
-                    return {
+                return saved
+                    ? {
                         ...defaultSettings,
                         ...JSON.parse(saved)
-                    };
-                }
+                    }
+                    : { ...defaultSettings };
 
             } catch (error) {
-                console.error("Could not read folder settings.", error);
-            }
 
-            return { ...defaultSettings };
+                console.error("Could not load settings.", error);
+
+                return { ...defaultSettings };
+
+            }
 
         }
 
-        // Apply settings to the folder
+        // Apply folder settings
 
         function applySettings() {
 
             const settings = getSettings();
 
-            // Folder name
-
-            const name = settings.folderName.trim() ||
-                         defaultSettings.folderName;
+            const name = typeof settings.folderName === "string" &&
+                         settings.folderName.trim()
+                ? settings.folderName.trim()
+                : defaultSettings.folderName;
 
             document.getElementById("folderTitle").textContent =
                 name + " 📁";
@@ -554,15 +624,16 @@
             document.getElementById("welcomeHeading").textContent =
                 "Welcome to " + name + "!";
 
-            document.title =
-                "GenAlpha Workbooks | " + name;
+            document.title = "GenAlpha Workbooks | " + name;
 
-            // Welcome message visibility
+            document.getElementById("welcomeSection").hidden =
+                settings.showWelcome === false;
 
-            document.getElementById("welcomeSection").style.display =
-                settings.showWelcome ? "" : "none";
+            const themes = ["light", "blue", "purple"];
 
-            // Theme
+            const selectedTheme = themes.includes(settings.appearance)
+                ? settings.appearance
+                : "light";
 
             document.body.classList.remove(
                 "theme-light",
@@ -570,32 +641,201 @@
                 "theme-purple"
             );
 
-            const allowedThemes = ["light", "blue", "purple"];
-
-            const selectedTheme = allowedThemes.includes(settings.appearance)
-                ? settings.appearance
-                : "light";
-
             document.body.classList.add("theme-" + selectedTheme);
-
-            // Animations
 
             document.body.classList.toggle(
                 "animations-off",
-                !settings.animations
+                settings.animations === false
             );
 
         }
 
-        // Apply settings on page load
+        // Read saved children
 
-        applySettings();
+        function getChildren() {
 
-        // Button animations and page transitions
+            try {
+
+                const saved = localStorage.getItem(CHILDREN_KEY);
+
+                if (!saved) {
+                    return [];
+                }
+
+                const children = JSON.parse(saved);
+
+                if (!Array.isArray(children)) {
+                    return [];
+                }
+
+                return children.filter(function(child) {
+                    return child &&
+                           typeof child.id === "string" &&
+                           typeof child.name === "string";
+                });
+
+            } catch (error) {
+
+                console.error("Could not load children.", error);
+
+                return [];
+
+            }
+
+        }
+
+        // Display children
+
+        function renderChildren() {
+
+            const children = getChildren();
+
+            const emptyFolder = document.getElementById("emptyFolder");
+            const childrenSection =
+                document.getElementById("childrenSection");
+
+            const childrenList =
+                document.getElementById("childrenList");
+
+            const childrenCount =
+                document.getElementById("childrenCount");
+
+            childrenList.replaceChildren();
+
+            if (children.length === 0) {
+
+                emptyFolder.hidden = false;
+                childrenSection.hidden = true;
+
+                return;
+
+            }
+
+            emptyFolder.hidden = true;
+            childrenSection.hidden = false;
+
+            childrenCount.textContent =
+                children.length === 1
+                    ? "You have added 1 child to your folder."
+                    : "You have added " + children.length +
+                      " children to your folder.";
+
+            children.forEach(function(child) {
+
+                const card = document.createElement("div");
+                card.className = "child-card";
+
+                const nameContainer = document.createElement("div");
+
+                const icon = document.createElement("span");
+                icon.className = "child-icon";
+                icon.textContent = "👤";
+
+                const name = document.createElement("span");
+                name.className = "child-name";
+                name.textContent = child.name;
+
+                nameContainer.append(icon, name);
+
+                const removeButton = document.createElement("button");
+                removeButton.type = "button";
+                removeButton.className = "remove-button";
+                removeButton.textContent = "Remove";
+                removeButton.dataset.childId = child.id;
+                removeButton.setAttribute(
+                    "aria-label",
+                    "Remove " + child.name
+                );
+
+                card.append(nameContainer, removeButton);
+
+                childrenList.appendChild(card);
+
+            });
+
+        }
+
+        // Remove a child
+
+        document.getElementById("childrenList")
+            .addEventListener("click", function(event) {
+
+                const button = event.target.closest(".remove-button");
+
+                if (!button) {
+                    return;
+                }
+
+                const childId = button.dataset.childId;
+                const children = getChildren();
+
+                const child = children.find(function(item) {
+                    return item.id === childId;
+                });
+
+                if (!child) {
+                    return;
+                }
+
+                const confirmed = confirm(
+                    "Are you sure you want to remove " +
+                    child.name + " from your folder?"
+                );
+
+                if (!confirmed) {
+                    return;
+                }
+
+                const updatedChildren = children.filter(function(item) {
+                    return item.id !== childId;
+                });
+
+                try {
+
+                    localStorage.setItem(
+                        CHILDREN_KEY,
+                        JSON.stringify(updatedChildren)
+                    );
+
+                    document.getElementById("folderStatus").textContent =
+                        "✓ " + child.name + " has been removed.";
+
+                    document.getElementById("folderStatus").style.color =
+                        "#16803d";
+
+                    renderChildren();
+
+                } catch (error) {
+
+                    document.getElementById("folderStatus").textContent =
+                        "Unable to remove this child.";
+
+                    document.getElementById("folderStatus").style.color =
+                        "#d32f2f";
+
+                }
+
+            });
+
+        // Update the folder if another tab changes its children
+
+        window.addEventListener("storage", function(event) {
+
+            if (event.key === CHILDREN_KEY) {
+                renderChildren();
+            }
+
+            if (event.key === SETTINGS_KEY) {
+                applySettings();
+            }
+
+        });
+
+        // Page transitions
 
         document.querySelectorAll('a[href]').forEach(function(link) {
 
-            link.addEventListener('click', function(event) {
+            link.addEventListener("click", function(event) {
 
                 if (
                     event.button !== 0 ||
@@ -604,7 +844,7 @@
                     event.altKey ||
                     event.metaKey ||
                     link.target ||
-                    link.hasAttribute('download')
+                    link.hasAttribute("download")
                 ) {
                     return;
                 }
@@ -618,40 +858,30 @@
                     return;
                 }
 
-                const href = link.getAttribute('href');
-
-                if (
-                    !href ||
-                    href.startsWith('#') ||
-                    (
-                        destination.pathname === window.location.pathname &&
-                        destination.hash
-                    )
-                ) {
-                    return;
-                }
+                const animationsOff =
+                    document.body.classList.contains("animations-off");
 
                 event.preventDefault();
 
-                if (!document.body.classList.contains("animations-off")) {
-                    link.classList.add('is-pressed');
-                    document.body.classList.add('page-leaving');
+                if (!animationsOff) {
+                    link.classList.add("is-pressed");
+                    document.body.classList.add("page-leaving");
                 }
-
-                const delay = document.body.classList.contains("animations-off")
-                    ? 0
-                    : 320;
 
                 setTimeout(function() {
                     window.location.assign(destination.href);
-                }, delay);
+                }, animationsOff ? 0 : 320);
 
             });
 
         });
 
+        // Start the folder
+
+        applySettings();
+        renderChildren();
+
     </script>
 
 </body>
-
 </html>
