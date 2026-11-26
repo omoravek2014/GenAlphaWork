@@ -16,11 +16,52 @@
         body {
             margin: 0;
             font-family: 'Trebuchet MS', Arial, sans-serif;
-            background-color: #f4faff;
-            color: #263653;
+            background-color: var(--page-bg, #f4faff);
+            color: var(--text-color, #263653);
             opacity: 1;
             transform: translateY(0);
             transition: opacity 0.32s ease, transform 0.32s ease;
+        }
+
+        /* Theme variables */
+
+        body.theme-light {
+            --page-bg: #f4faff;
+            --text-color: #263653;
+            --hero-bg: linear-gradient(135deg, #54c8ff, #7587ff);
+            --container-bg: white;
+            --info-bg: #e7f6ff;
+            --info-heading: #054c99;
+            --empty-bg: #f4faff;
+            --empty-border: #9bc8f5;
+            --accent: #2878e8;
+            --card-text: #52627a;
+        }
+
+        body.theme-blue {
+            --page-bg: #e5f0ff;
+            --text-color: #16345c;
+            --hero-bg: linear-gradient(135deg, #1765c1, #46a5ff);
+            --container-bg: #ffffff;
+            --info-bg: #d7ebff;
+            --info-heading: #104c91;
+            --empty-bg: #edf6ff;
+            --empty-border: #72a9e9;
+            --accent: #1765c1;
+            --card-text: #395c82;
+        }
+
+        body.theme-purple {
+            --page-bg: #f5edff;
+            --text-color: #3b2856;
+            --hero-bg: linear-gradient(135deg, #a56aff, #7055db);
+            --container-bg: #ffffff;
+            --info-bg: #efe3ff;
+            --info-heading: #6435a5;
+            --empty-bg: #f8f2ff;
+            --empty-border: #c5a5ef;
+            --accent: #8055db;
+            --card-text: #65527e;
         }
 
         /* Page transition */
@@ -74,7 +115,7 @@
         /* Hero section */
 
         .hero {
-            background: linear-gradient(135deg, #54c8ff, #7587ff);
+            background: var(--hero-bg);
             color: white;
             text-align: center;
             padding: 65px 20px;
@@ -101,14 +142,14 @@
         }
 
         .folder-container {
-            background-color: white;
+            background-color: var(--container-bg);
             padding: 35px;
             border-radius: 22px;
             box-shadow: 0 5px 18px rgba(0,0,0,0.06);
         }
 
         .folder-container h2 {
-            color: #2878e8;
+            color: var(--accent);
             font-size: 29px;
             margin-top: 0;
         }
@@ -122,19 +163,19 @@
         /* Folder information */
 
         .folder-info {
-            background-color: #e7f6ff;
+            background-color: var(--info-bg);
             padding: 25px;
             border-radius: 15px;
             margin-top: 25px;
         }
 
         .folder-info h3 {
-            color: #054c99;
+            color: var(--info-heading);
             font-size: 22px;
         }
 
         .folder-info p {
-            color: #52627a;
+            color: var(--card-text);
             font-size: 17px;
             line-height: 1.7;
         }
@@ -142,8 +183,8 @@
         /* Empty folder area */
 
         .empty-folder {
-            background-color: #f4faff;
-            border: 2px dashed #9bc8f5;
+            background-color: var(--empty-bg);
+            border: 2px dashed var(--empty-border);
             border-radius: 18px;
             padding: 45px 20px;
             text-align: center;
@@ -156,7 +197,7 @@
         }
 
         .empty-folder h3 {
-            color: #2878e8;
+            color: var(--accent);
             font-size: 23px;
         }
 
@@ -184,7 +225,7 @@
         }
 
         .add-button {
-            background-color: #2878e8;
+            background-color: var(--accent);
         }
 
         .add-button:hover {
@@ -262,6 +303,16 @@
             text-decoration: underline;
         }
 
+        /* Disable animations when setting is off */
+
+        body.animations-off,
+        body.animations-off *,
+        body.animations-off *::before,
+        body.animations-off *::after {
+            animation: none !important;
+            transition: none !important;
+        }
+
         /* Mobile compatibility */
 
         @media (max-width: 650px) {
@@ -314,7 +365,7 @@
 
 </head>
 
-<body>
+<body class="theme-light">
 
     <!-- Navigation -->
 
@@ -332,12 +383,11 @@
 
     </header>
 
-
     <!-- Hero section -->
 
     <div class="hero">
 
-        <h1>My Children's Folder 📁</h1>
+        <h1 id="folderTitle">My Children's Folder 📁</h1>
 
         <p>
             Your personal space for organizing
@@ -346,27 +396,31 @@
 
     </div>
 
-
     <!-- Main content -->
 
     <main>
 
         <div class="folder-container">
 
-            <h2>Welcome to Your Folder!</h2>
+            <div id="welcomeSection">
 
-            <p class="description">
-                This is your personal Children's Folder.
-                You can use this space to organize your
-                educational content and manage your materials.
-            </p>
+                <h2 id="welcomeHeading">Welcome to Your Folder!</h2>
 
+                <p class="description">
+                    This is your personal Children's Folder.
+                    You can use this space to organize your
+                    educational content and manage your materials.
+                </p>
+
+            </div>
 
             <!-- Folder information -->
 
             <div class="folder-info">
 
-                <h3>📚 Your Children's Folder</h3>
+                <h3 id="folderInfoHeading">
+                    📚 Your Children's Folder
+                </h3>
 
                 <p>
                     Here you can add your children and manage their educational materials. You can also customize the folder settings to suit your preferences.
@@ -377,7 +431,6 @@
                 </p>
 
             </div>
-
 
             <!-- Empty folder -->
 
@@ -398,7 +451,6 @@
                 </p>
 
             </div>
-
 
             <!-- Action buttons -->
 
@@ -423,7 +475,6 @@
 
     </main>
 
-
     <!-- Footer -->
 
     <footer>
@@ -447,10 +498,100 @@
 
     </footer>
 
-
-    <!-- Button animations and page transitions -->
+    <!-- Folder settings connection and animations -->
 
     <script>
+
+        const STORAGE_KEY = "gaw_children_folder_settings";
+
+        const defaultSettings = {
+            folderName: "My Children's Folder",
+            appearance: "light",
+            showWelcome: true,
+            animations: true
+        };
+
+        // Read settings
+
+        function getSettings() {
+
+            try {
+
+                const saved = localStorage.getItem(STORAGE_KEY);
+
+                if (saved) {
+                    return {
+                        ...defaultSettings,
+                        ...JSON.parse(saved)
+                    };
+                }
+
+            } catch (error) {
+                console.error("Could not read folder settings.", error);
+            }
+
+            return { ...defaultSettings };
+
+        }
+
+        // Apply settings to the folder
+
+        function applySettings() {
+
+            const settings = getSettings();
+
+            // Folder name
+
+            const name = settings.folderName.trim() ||
+                         defaultSettings.folderName;
+
+            document.getElementById("folderTitle").textContent =
+                name + " 📁";
+
+            document.getElementById("folderInfoHeading").textContent =
+                "📚 " + name;
+
+            document.getElementById("welcomeHeading").textContent =
+                "Welcome to " + name + "!";
+
+            document.title =
+                "GenAlpha Workbooks | " + name;
+
+            // Welcome message visibility
+
+            document.getElementById("welcomeSection").style.display =
+                settings.showWelcome ? "" : "none";
+
+            // Theme
+
+            document.body.classList.remove(
+                "theme-light",
+                "theme-blue",
+                "theme-purple"
+            );
+
+            const allowedThemes = ["light", "blue", "purple"];
+
+            const selectedTheme = allowedThemes.includes(settings.appearance)
+                ? settings.appearance
+                : "light";
+
+            document.body.classList.add("theme-" + selectedTheme);
+
+            // Animations
+
+            document.body.classList.toggle(
+                "animations-off",
+                !settings.animations
+            );
+
+        }
+
+        // Apply settings on page load
+
+        applySettings();
+
+        // Button animations and page transitions
 
         document.querySelectorAll('a[href]').forEach(function(link) {
 
@@ -492,15 +633,14 @@
 
                 event.preventDefault();
 
-                link.classList.add('is-pressed');
+                if (!document.body.classList.contains("animations-off")) {
+                    link.classList.add('is-pressed');
+                    document.body.classList.add('page-leaving');
+                }
 
-                document.body.classList.add('page-leaving');
-
-                const prefersReducedMotion = window.matchMedia(
-                    '(prefers-reduced-motion: reduce)'
-                ).matches;
-
-                const delay = prefersReducedMotion ? 0 : 320;
+                const delay = document.body.classList.contains("animations-off")
+                    ? 0
+                    : 320;
 
                 setTimeout(function() {
                     window.location.assign(destination.href);
