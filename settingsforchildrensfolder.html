@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GenAlpha Workbooks | Folder Settings</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Trebuchet MS', Arial, sans-serif;
+            background-color: #f4faff;
+            color: #263653;
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.32s ease, transform 0.32s ease;
+        }
+
+        /* Page transition */
+
+        body.page-leaving {
+            opacity: 0;
+            transform: translateY(12px);
+        }
+
+        /* Header */
+
+        header {
+            background-color: white;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #2878e8;
+        }
+
+        nav {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            display: inline-block;
+            text-decoration: none;
+            color: #344563;
+            font-weight: bold;
+            padding: 10px 15px;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #e4f1ff;
+            color: #2878e8;
+            transform: translateY(-3px);
+        }
+
+        /* Hero section */
+
+        .hero {
+            background: linear-gradient(135deg, #54c8ff, #7587ff);
+            color: white;
+            text-align: center;
+            padding: 65px 20px;
+        }
+
+        .hero h1 {
+            font-size: 43px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 19px;
+            max-width: 650px;
+            margin: auto;
+            line-height: 1.6;
+        }
+
+        /* Main content */
+
+        main {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .settings-container {
+            background-color: white;
+            padding: 35px;
+            border-radius: 22px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.06);
+        }
+
+        .settings-container h2 {
+            color: #2878e8;
+            font-size: 29px;
+            margin-top: 0;
+        }
+
+        .description {
+            color: #64748b;
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        /* Settings cards */
+
+        .setting-card {
+            background-color: #f4faff;
+            padding: 25px;
+            border-radius: 17px;
+            margin-top: 25px;
+            border: 1px solid #e0edff;
+        }
+
+        .setting-card h3 {
+            color: #344563;
+            font-size: 22px;
+            margin-top: 0;
+        }
+
+        .setting-card p {
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        /* Input */
+
+        input[type="text"] {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid #c9ddf5;
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 17px;
+            color: #263653;
+            background-color: white;
+            outline: none;
+            transition: border-color 0.25s;
+        }
+
+        input[type="text"]:focus {
+            border-color: #2878e8;
+        }
+
+        /* Select */
+
+        select {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid #c9ddf5;
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 17px;
+            color: #263653;
+            background-color: white;
+            cursor: pointer;
+        }
+
+        select:focus {
+            border-color: #2878e8;
+            outline: none;
+        }
+
+        /* Checkboxes */
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 17px;
+            cursor: pointer;
+            color: #344563;
+            margin-top: 15px;
+        }
+
+        input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            accent-color: #2878e8;
+            cursor: pointer;
+        }
+
+        /* Buttons */
+
+        .button {
+            display: inline-block;
+            text-decoration: none;
+            border: none;
+            border-radius: 12px;
+            padding: 14px 23px;
+            margin: 12px 8px 0 0;
+            font-size: 17px;
+            font-weight: bold;
+            font-family: 'Trebuchet MS', Arial, sans-serif;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.25s ease,
+                        background-color 0.25s ease,
+                        box-shadow 0.25s ease;
+        }
+
+        .save-button {
+            background-color: #2878e8;
+        }
+
+        .save-button:hover {
+            background-color: #145bb5;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(40,120,232,0.25);
+        }
+
+        .reset-button {
+            background-color: #e53935;
+        }
+
+        .reset-button:hover {
+            background-color: #b71c1c;
+            transform: translateY(-3px);
+        }
+
+        .back-button {
+            background-color: #6c63ff;
+        }
+
+        .back-button:hover {
+            background-color: #5146d8;
+            transform: translateY(-3px);
+        }
+
+        /* Status message */
+
+        #statusMessage {
+            margin-top: 20px;
+            font-size: 17px;
+            font-weight: bold;
+            min-height: 24px;
+        }
+
+        /* Button press animation */
+
+        @keyframes buttonPress {
+
+            0% {
+                transform: scale(1);
+            }
+
+            40% {
+                transform: scale(0.90);
+            }
+
+            75% {
+                transform: scale(1.06);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+
+        }
+
+        a.is-pressed {
+            animation: buttonPress 0.32s ease;
+        }
+
+        button.is-pressed {
+            animation: buttonPress 0.32s ease;
+        }
+
+        /* Footer */
+
+        footer {
+            background-color: #263653;
+            color: white;
+            text-align: center;
+            padding: 30px 15px;
+            margin-top: 50px;
+        }
+
+        footer a {
+            display: inline-block;
+            color: #ffdc58;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: 0.25s;
+        }
+
+        footer a:hover {
+            color: white;
+            transform: translateY(-2px);
+            text-decoration: underline;
+        }
+
+        /* Mobile compatibility */
+
+        @media (max-width: 650px) {
+
+            header {
+                justify-content: center;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            .hero {
+                padding: 50px 20px;
+            }
+
+            .hero h1 {
+                font-size: 33px;
+            }
+
+            main {
+                margin: 20px auto;
+                padding: 12px;
+            }
+
+            .settings-container {
+                padding: 22px;
+            }
+
+            .button {
+                font-size: 16px;
+            }
+
+        }
+
+        /* Accessibility */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+
+    <header>
+
+        <div class="logo">
+            📚 GenAlpha Workbooks
+        </div>
+
+        <nav>
+            <a href="./about.html">About Us</a>
+            <a href="./faq.html">FAQ</a>
+            <a href="./loginbackend.html">Log In</a>
+        </nav>
+
+    </header>
+
+
+    <!-- Hero section -->
+
+    <div class="hero">
+
+        <h1>Folder Settings ⚙️</h1>
+
+        <p>
+            Customize your Children's Folder
+            and adjust your preferences.
+        </p>
+
+    </div>
+
+
+    <!-- Main content -->
+
+    <main>
+
+        <div class="settings-container">
+
+            <h2>Manage Your Folder</h2>
+
+            <p class="description">
+                Change the way your Children's Folder
+                looks and behaves. Your settings are
+                saved in this browser.
+            </p>
+
+
+            <!-- Folder name -->
+
+            <div class="setting-card">
+
+                <h3>📁 Folder Name</h3>
+
+                <p>
+                    Choose a name for your personal folder.
+                </p>
+
+                <label for="folderName">
+                    Folder name:
+                </label>
+
+                <br><br>
+
+                <input
+                    type="text"
+                    id="folderName"
+                    maxlength="50"
+                    placeholder="My Children's Folder"
+                >
+
+            </div>
+
+
+            <!-- Appearance -->
+
+            <div class="setting-card">
+
+                <h3>🎨 Appearance</h3>
+
+                <p>
+                    Choose the preferred appearance
+                    of your folder.
+                </p>
+
+                <label for="appearance">
+                    Appearance:
+                </label>
+
+                <br><br>
+
+                <select id="appearance">
+
+                    <option value="light">
+                        Light
+                    </option>
+
+                    <option value="blue">
+                        Blue
+                    </option>
+
+                    <option value="purple">
+                        Purple
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- Preferences -->
+
+            <div class="setting-card">
+
+                <h3>🛠 Preferences</h3>
+
+                <label class="checkbox-label">
+
+                    <input
+                        type="checkbox"
+                        id="showWelcome"
+                    >
+
+                    Show the welcome message
+
+                </label>
+
+                <label class="checkbox-label">
+
+                    <input
+                        type="checkbox"
+                        id="animations"
+                    >
+
+                    Enable button and page animations
+
+                </label>
+
+            </div>
+
+
+            <!-- Save and reset -->
+
+            <div style="text-align: center; margin-top: 25px;">
+
+                <button
+                    type="button"
+                    class="button save-button"
+                    id="saveButton"
+                >
+                    💾 Save Settings
+                </button>
+
+                <button
+                    type="button"
+                    class="button reset-button"
+                    id="resetButton"
+                >
+                    ↺ Reset Settings
+                </button>
+
+                <a
+                    href="./mychildrensfolder.html"
+                    class="button back-button"
+                >
+                    Back
+                </a>
+
+            </div>
+
+
+            <!-- Status message -->
+
+            <p
+                id="statusMessage"
+                role="status"
+                aria-live="polite"
+                style="text-align: center;"
+            ></p>
+
+        </div>
+
+    </main>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>
+            &copy; 2026 GenAlpha Workbooks.
+            All rights reserved.
+        </p>
+
+        <p>
+            <a href="./about.html">About Us</a>
+            |
+            <a href="./faq.html">FAQ</a>
+            |
+            <a href="./loginbackend.html">Log In</a>
+        </p>
+
+        <p>
+            Learn • Create • Discover
+        </p>
+
+    </footer>
+
+
+    <!-- Settings functionality -->
+
+    <script>
+
+        const folderName = document.getElementById("folderName");
+        const appearance = document.getElementById("appearance");
+        const showWelcome = document.getElementById("showWelcome");
+        const animations = document.getElementById("animations");
+        const statusMessage = document.getElementById("statusMessage");
+
+        const STORAGE_KEY = "gaw_children_folder_settings";
+
+
+        // Default settings
+
+        const defaultSettings = {
+            folderName: "My Children's Folder",
+            appearance: "light",
+            showWelcome: true,
+            animations: true
+        };
+
+
+        // Load saved settings
+
+        function loadSettings() {
+
+            let settings = defaultSettings;
+
+            try {
+
+                const saved = localStorage.getItem(STORAGE_KEY);
+
+                if (saved) {
+                    settings = {
+                        ...defaultSettings,
+                        ...JSON.parse(saved)
+                    };
+                }
+
+            } catch (error) {
+
+                settings = defaultSettings;
+
+            }
+
+            folderName.value = settings.folderName;
+            appearance.value = settings.appearance;
+            showWelcome.checked = settings.showWelcome;
+            animations.checked = settings.animations;
+
+        }
+
+
+        // Save settings
+
+        function saveSettings() {
+
+            const settings = {
+
+                folderName: folderName.value.trim() ||
+                            defaultSettings.folderName,
+
+                appearance: appearance.value,
+
+                showWelcome: showWelcome.checked,
+
+                animations: animations.checked
+
+            };
+
+            try {
+
+                localStorage.setItem(
+                    STORAGE_KEY,
+                    JSON.stringify(settings)
+                );
+
+                statusMessage.textContent =
+                    "✓ Your settings have been saved!";
+
+                statusMessage.style.color = "#16803d";
+
+            } catch (error) {
+
+                statusMessage.textContent =
+                    "Unable to save settings in this browser.";
+
+                statusMessage.style.color = "#d32f2f";
+
+            }
+
+        }
+
+
+        // Reset settings
+
+        function resetSettings() {
+
+            const confirmed = confirm(
+                "Are you sure you want to reset all folder settings?"
+            );
+
+            if (!confirmed) {
+                return;
+            }
+
+            try {
+
+                localStorage.removeItem(STORAGE_KEY);
+
+            } catch (error) {
+
+                statusMessage.textContent =
+                    "Unable to reset settings.";
+
+                statusMessage.style.color = "#d32f2f";
+
+                return;
+
+            }
+
+            loadSettings();
+
+            statusMessage.textContent =
+                "✓ Settings have been reset.";
+
+            statusMessage.style.color = "#16803d";
+
+        }
+
+
+        // Save button
+
+        document.getElementById("saveButton")
+            .addEventListener("click", saveSettings);
+
+
+        // Reset button
+
+        document.getElementById("resetButton")
+            .addEventListener("click", resetSettings);
+
+
+        // Load settings when page opens
+
+        loadSettings();
+
+
+        // Page transitions
+
+        document.querySelectorAll('a[href]').forEach(function(link) {
+
+            link.addEventListener('click', function(event) {
+
+                if (
+                    event.button !== 0 ||
+                    event.ctrlKey ||
+                    event.shiftKey ||
+                    event.altKey ||
+                    event.metaKey ||
+                    link.target ||
+                    link.hasAttribute('download')
+                ) {
+                    return;
+                }
+
+                const destination = new URL(
+                    link.href,
+                    window.location.href
+                );
+
+                if (destination.origin !== window.location.origin) {
+                    return;
+                }
+
+                const href = link.getAttribute('href');
+
+                if (
+                    !href ||
+                    href.startsWith('#') ||
+                    (
+                        destination.pathname === window.location.pathname &&
+                        destination.hash
+                    )
+                ) {
+                    return;
+                }
+
+                event.preventDefault();
+
+                link.classList.add('is-pressed');
+
+                document.body.classList.add('page-leaving');
+
+                const prefersReducedMotion = window.matchMedia(
+                    '(prefers-reduced-motion: reduce)'
+                ).matches;
+
+                const delay = prefersReducedMotion ? 0 : 320;
+
+                setTimeout(function() {
+
+                    window.location.assign(destination.href);
+
+                }, delay);
+
+            });
+
+        });
+
+    </script>
+
+</body>
+
+</html>

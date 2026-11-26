@@ -1,43 +1,517 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>gaaboutuspage.com</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GenAlpha Workbooks | My Children's Folder</title>
 
     <style>
-        body {
-            background-color: #ff00f2 ;
-            font-family:Times New Roman;
-            margin: 0;
-            text-align:center
+
+        * {
+            box-sizing: border-box;
         }
+
+        body {
+            margin: 0;
+            font-family: 'Trebuchet MS', Arial, sans-serif;
+            background-color: #f4faff;
+            color: #263653;
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.32s ease, transform 0.32s ease;
+        }
+
+        /* Page transition */
+
+        body.page-leaving {
+            opacity: 0;
+            transform: translateY(12px);
+        }
+
+        /* Header */
+
+        header {
+            background-color: white;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #2878e8;
+        }
+
+        nav {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            display: inline-block;
+            text-decoration: none;
+            color: #344563;
+            font-weight: bold;
+            padding: 10px 15px;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #e4f1ff;
+            color: #2878e8;
+            transform: translateY(-3px);
+        }
+
+        /* Hero section */
+
+        .hero {
+            background: linear-gradient(135deg, #54c8ff, #7587ff);
+            color: white;
+            text-align: center;
+            padding: 65px 20px;
+        }
+
+        .hero h1 {
+            font-size: 43px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 19px;
+            max-width: 650px;
+            margin: auto;
+            line-height: 1.6;
+        }
+
+        /* Main content */
+
+        main {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .folder-container {
+            background-color: white;
+            padding: 35px;
+            border-radius: 22px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.06);
+        }
+
+        .folder-container h2 {
+            color: #2878e8;
+            font-size: 29px;
+            margin-top: 0;
+        }
+
+        .description {
+            color: #64748b;
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        /* Folder information */
+
+        .folder-info {
+            background-color: #e7f6ff;
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 25px;
+        }
+
+        .folder-info h3 {
+            color: #054c99;
+            font-size: 22px;
+        }
+
+        .folder-info p {
+            color: #52627a;
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        /* Empty folder area */
+
+        .empty-folder {
+            background-color: #f4faff;
+            border: 2px dashed #9bc8f5;
+            border-radius: 18px;
+            padding: 45px 20px;
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .empty-folder-icon {
+            font-size: 65px;
+            margin-bottom: 15px;
+        }
+
+        .empty-folder h3 {
+            color: #2878e8;
+            font-size: 23px;
+        }
+
+        .empty-folder p {
+            color: #64748b;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* Buttons */
+
+        .button {
+            display: inline-block;
+            text-decoration: none;
+            border-radius: 12px;
+            padding: 14px 23px;
+            margin: 12px 8px 0 0;
+            font-size: 18px;
+            font-weight: bold;
+            font-family: 'Trebuchet MS', Arial, sans-serif;
+            color: white;
+            transition: transform 0.25s ease,
+                        background-color 0.25s ease,
+                        box-shadow 0.25s ease;
+        }
+
+        .add-button {
+            background-color: #2878e8;
+        }
+
+        .add-button:hover {
+            background-color: #145bb5;
+            transform: translateY(-3px) scale(1.04);
+            box-shadow: 0 6px 15px rgba(40,120,232,0.25);
+        }
+
+        .settings-button {
+            background-color: #6c63ff;
+        }
+
+        .settings-button:hover {
+            background-color: #5146d8;
+            transform: translateY(-3px) scale(1.04);
+            box-shadow: 0 6px 15px rgba(108,99,255,0.25);
+        }
+
+        .back-button {
+            background-color: #dc3030;
+        }
+
+        .back-button:hover {
+            background-color: #ad2020;
+            transform: translateY(-3px) scale(1.04);
+        }
+
+        /* Button press animation */
+
+        @keyframes buttonPress {
+
+            0% {
+                transform: scale(1);
+            }
+
+            40% {
+                transform: scale(0.90);
+            }
+
+            75% {
+                transform: scale(1.06);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+
+        }
+
+        a.is-pressed {
+            animation: buttonPress 0.32s ease;
+        }
+
+        /* Footer */
+
+        footer {
+            background-color: #263653;
+            color: white;
+            text-align: center;
+            padding: 30px 15px;
+            margin-top: 50px;
+        }
+
+        footer a {
+            display: inline-block;
+            color: #ffdc58;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: 0.25s;
+        }
+
+        footer a:hover {
+            color: white;
+            transform: translateY(-2px);
+            text-decoration: underline;
+        }
+
+        /* Mobile compatibility */
+
+        @media (max-width: 650px) {
+
+            header {
+                justify-content: center;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            .hero {
+                padding: 50px 20px;
+            }
+
+            .hero h1 {
+                font-size: 33px;
+            }
+
+            main {
+                margin: 20px auto;
+                padding: 12px;
+            }
+
+            .folder-container {
+                padding: 22px;
+            }
+
+            .button {
+                font-size: 16px;
+            }
+
+        }
+
+        /* Accessibility */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+
+        }
+
     </style>
+
 </head>
 
 <body>
-    <h1>My Children's Folder</h1>
 
-    <p></p>
-        <a  href="settingsforchildrensfolder.html">
-        	<button style="font-size: 30px; background-color: rgb(94, 94, 94); font-family: Times New Roman; color: white; border-radius: 9px"> Options </button>
-            
-       <a href="add.html">
-        <button style="font-size: 30px; background-color: rgb(174, 0, 255); font-family: 'Times New Roman'; color: white; border-radius: 9px;">
-            Add Child
-        </button>
-    </a>
+    <!-- Navigation -->
 
-    <br><br>
+    <header>
 
-    <b style="font-size:larger">! You aren't signed in !</b>
+        <div class="logo">
+            📚 GenAlpha Workbooks
+        </div>
 
-    <br><br>
+        <nav>
+            <a href="./about.html">About Us</a>
+            <a href="./faq.html">FAQ</a>
+            <a href="./loginbackend.html">Log In</a>
+        </nav>
 
-    <a href="gasignuppage.html">
-        <button style="font-size: 29px; background-color: rgb(255, 115, 0); font-family: 'Times New Roman'; color: white; border-radius: 9px;">
-            Back to Signup Page
-        </button>
-    </a>
+    </header>
+
+
+    <!-- Hero section -->
+
+    <div class="hero">
+
+        <h1>My Children's Folder 📁</h1>
+
+        <p>
+            Your personal space for organizing
+            educational materials and activities.
+        </p>
+
+    </div>
+
+
+    <!-- Main content -->
+
+    <main>
+
+        <div class="folder-container">
+
+            <h2>Welcome to Your Folder!</h2>
+
+            <p class="description">
+                This is your personal Children's Folder.
+                You can use this space to organize your
+                educational content and manage your materials.
+            </p>
+
+
+            <!-- Folder information -->
+
+            <div class="folder-info">
+
+                <h3>📚 Your Children's Folder</h3>
+
+                <p>
+                    Here you can add your children and manage their educational materials. You can also customize the folder settings to suit your preferences.
+                </p>
+
+                <p>
+                    Use the buttons below to add a child, access folder settings, or return to the main page.
+                </p>
+
+            </div>
+
+
+            <!-- Empty folder -->
+
+            <div class="empty-folder">
+
+                <div class="empty-folder-icon">
+                    📂
+                </div>
+
+                <h3>Your Folder Is Ready!</h3>
+
+                <p>
+                    You haven't added any children yet. Once you do, you'll be able to manage their educational materials here.
+                </p>
+
+                <p>
+                    Start by adding your first child!
+                </p>
+
+            </div>
+
+
+            <!-- Action buttons -->
+
+            <div style="text-align: center; margin-top: 25px;">
+
+                <a href="./add.html" class="button add-button">
+                    + Add Child
+                </a>
+
+                <a href="./settingsforchildrensfolder.html"
+                   class="button settings-button">
+                    ⚙ Options
+                </a>
+
+                <a href="./index.html" class="button back-button">
+                    Back
+                </a>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>
+            &copy; 2026 GenAlpha Workbooks.
+            All rights reserved.
+        </p>
+
+        <p>
+            <a href="./about.html">About Us</a>
+            |
+            <a href="./faq.html">FAQ</a>
+            |
+            <a href="./loginbackend.html">Log In</a>
+        </p>
+
+        <p>
+            Learn • Create • Discover
+        </p>
+
+    </footer>
+
+
+    <!-- Button animations and page transitions -->
+
+    <script>
+
+        document.querySelectorAll('a[href]').forEach(function(link) {
+
+            link.addEventListener('click', function(event) {
+
+                if (
+                    event.button !== 0 ||
+                    event.ctrlKey ||
+                    event.shiftKey ||
+                    event.altKey ||
+                    event.metaKey ||
+                    link.target ||
+                    link.hasAttribute('download')
+                ) {
+                    return;
+                }
+
+                const destination = new URL(
+                    link.href,
+                    window.location.href
+                );
+
+                if (destination.origin !== window.location.origin) {
+                    return;
+                }
+
+                const href = link.getAttribute('href');
+
+                if (
+                    !href ||
+                    href.startsWith('#') ||
+                    (
+                        destination.pathname === window.location.pathname &&
+                        destination.hash
+                    )
+                ) {
+                    return;
+                }
+
+                event.preventDefault();
+
+                link.classList.add('is-pressed');
+
+                document.body.classList.add('page-leaving');
+
+                const prefersReducedMotion = window.matchMedia(
+                    '(prefers-reduced-motion: reduce)'
+                ).matches;
+
+                const delay = prefersReducedMotion ? 0 : 320;
+
+                setTimeout(function() {
+                    window.location.assign(destination.href);
+                }, delay);
+
+            });
+
+        });
+
+    </script>
 
 </body>
-</html>
 
+</html>

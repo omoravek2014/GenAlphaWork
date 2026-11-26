@@ -18,6 +18,16 @@
             font-family: 'Trebuchet MS', Arial, sans-serif;
             background-color: #e8f4ff;
             color: #263653;
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.35s ease, transform 0.35s ease;
+        }
+
+        /* Page transition */
+
+        body.page-leaving {
+            opacity: 0;
+            transform: translateY(12px);
         }
 
         /* Header */
@@ -99,6 +109,12 @@
             padding: 18px 22px;
             margin: 22px 0;
             border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            transform: translateX(6px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
         }
 
         .timeline-item h3 {
@@ -111,7 +127,7 @@
             margin: 0;
         }
 
-        /* Back button */
+        /* Buttons */
 
         .button {
             display: inline-block;
@@ -122,7 +138,9 @@
             font-size: 18px;
             font-weight: bold;
             text-decoration: none;
-            transition: 0.3s;
+            transition: transform 0.25s ease,
+                        background-color 0.25s ease,
+                        box-shadow 0.25s ease;
         }
 
         .back-button {
@@ -131,7 +149,36 @@
 
         .back-button:hover {
             background-color: #ad2020;
-            transform: translateY(-3px);
+            transform: scale(1.07);
+            box-shadow: 0 6px 15px rgba(220,48,48,0.3);
+        }
+
+        /* Button press animation */
+
+        .button:active {
+            transform: scale(0.90);
+        }
+
+        @keyframes buttonPress {
+            0% {
+                transform: scale(1);
+            }
+
+            40% {
+                transform: scale(0.90);
+            }
+
+            75% {
+                transform: scale(1.06);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .button.is-pressed {
+            animation: buttonPress 0.35s ease;
         }
 
         /* Footer */
@@ -151,9 +198,11 @@
         footer a {
             color: #ffdc58;
             text-decoration: none;
+            transition: color 0.2s ease;
         }
 
         footer a:hover {
+            color: white;
             text-decoration: underline;
         }
 
@@ -180,6 +229,19 @@
 
             .button {
                 font-size: 16px;
+            }
+
+        }
+
+        /* Accessibility: reduce motion when requested */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
             }
 
         }
@@ -365,6 +427,57 @@
         </p>
 
     </footer>
+
+
+    <!-- Button animation and page transition -->
+
+    <script>
+
+        document.querySelectorAll('a[href]').forEach(function(link) {
+
+            link.addEventListener('click', function(event) {
+
+                // Ignore external links and special clicks
+                if (
+                    event.button !== 0 ||
+                    event.ctrlKey ||
+                    event.shiftKey ||
+                    event.altKey ||
+                    event.metaKey ||
+                    link.target ||
+                    link.hasAttribute('download')
+                ) {
+                    return;
+                }
+
+                const destination = link.getAttribute('href');
+
+                if (
+                    !destination ||
+                    destination.startsWith('#') ||
+                    /^(https?:|mailto:|tel:|javascript:)/i.test(destination)
+                ) {
+                    return;
+                }
+
+                event.preventDefault();
+
+                // Animate the clicked link
+                link.classList.add('is-pressed');
+
+                // Fade out the current page
+                document.body.classList.add('page-leaving');
+
+                // Open the destination after the animation
+                setTimeout(function() {
+                    window.location.href = link.href;
+                }, 350);
+
+            });
+
+        });
+
+    </script>
 
 </body>
 

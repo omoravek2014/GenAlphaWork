@@ -18,6 +18,16 @@
             font-family: 'Trebuchet MS', Arial, sans-serif;
             background-color: #f4faff;
             color: #263653;
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.32s ease, transform 0.32s ease;
+        }
+
+        /* Page transition */
+
+        body.page-leaving {
+            opacity: 0;
+            transform: translateY(12px);
         }
 
         /* Navigation */
@@ -46,6 +56,7 @@
         }
 
         nav a {
+            display: inline-block;
             text-decoration: none;
             color: #344563;
             font-weight: bold;
@@ -57,6 +68,7 @@
         nav a:hover {
             background-color: #e4f1ff;
             color: #2878e8;
+            transform: translateY(-3px);
         }
 
         /* Hero section */
@@ -94,7 +106,8 @@
 
         .main-button:hover {
             background-color: #ffe990;
-            transform: translateY(-3px);
+            transform: translateY(-3px) scale(1.04);
+            box-shadow: 0 7px 15px rgba(0,0,0,0.15);
         }
 
         /* General sections */
@@ -160,10 +173,13 @@
             color: #2878e8;
             font-weight: bold;
             text-decoration: none;
+            transition: 0.25s;
         }
 
         .card a:hover {
+            color: #054c99;
             text-decoration: underline;
+            transform: translateY(-3px);
         }
 
         /* About section */
@@ -210,13 +226,43 @@
         }
 
         footer a {
+            display: inline-block;
             color: #ffdc58;
             text-decoration: none;
             margin: 0 10px;
+            transition: 0.25s;
         }
 
         footer a:hover {
+            color: white;
+            transform: translateY(-2px);
             text-decoration: underline;
+        }
+
+        /* Button press animation */
+
+        @keyframes buttonPress {
+
+            0% {
+                transform: scale(1);
+            }
+
+            40% {
+                transform: scale(0.90);
+            }
+
+            75% {
+                transform: scale(1.06);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+
+        }
+
+        a.is-pressed {
+            animation: buttonPress 0.32s ease;
         }
 
         /* Mobile compatibility */
@@ -249,6 +295,19 @@
 
         }
 
+        /* Accessibility */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+
+        }
+
     </style>
 
 </head>
@@ -264,10 +323,9 @@
         </div>
 
         <nav>
-            <a href="index.html">Home</a>
             <a href="./about.html">About Us</a>
             <a href="./faq.html">FAQ</a>
-            <a href="loginbackend.html">Log In</a>
+            <a href="./loginbackend.html">Log In</a>
         </nav>
 
     </header>
@@ -284,7 +342,7 @@
             A place where learning becomes an exciting adventure.
         </p>
 
-        <a href="loginbackend.html" class="main-button">
+        <a href="./loginbackend.html" class="main-button">
             Get Started 🚀
         </a>
 
@@ -303,6 +361,8 @@
 
         <div class="cards">
 
+            <!-- Workbooks -->
+
             <div class="card">
 
                 <div class="card-icon">📖</div>
@@ -314,10 +374,12 @@
                     and exciting learning activities.
                 </p>
 
-                <a href="workbooks.html">Explore →</a>
+                <a href="./workbooks.html">Explore →</a>
 
             </div>
 
+
+            <!-- Children's Folder -->
 
             <div class="card">
 
@@ -330,10 +392,12 @@
                     explore your personal folder.
                 </p>
 
-                <a href="mychildrensfolder.html">Open Folder →</a>
+                <a href="./mychildrensfolder.html">Open Folder →</a>
 
             </div>
 
+
+            <!-- FAQ -->
 
             <div class="card">
 
@@ -350,6 +414,8 @@
 
             </div>
 
+
+            <!-- About Us -->
 
             <div class="card">
 
@@ -400,7 +466,7 @@
                 to offer and start exploring!
             </p>
 
-            <a href="loginbackend.html" class="main-button">
+            <a href="./loginbackend.html" class="main-button">
                 Join Us!
             </a>
 
@@ -419,13 +485,11 @@
         </p>
 
         <p>
-            <a href="index.html">Home</a>
-            |
             <a href="./about.html">About Us</a>
             |
             <a href="./faq.html">FAQ</a>
             |
-            <a href="loginbackend.html">Log In</a>
+            <a href="./loginbackend.html">Log In</a>
         </p>
 
         <p>
@@ -433,6 +497,78 @@
         </p>
 
     </footer>
+
+
+    <!-- Button animations and page transitions -->
+
+    <script>
+
+        document.querySelectorAll('a[href]').forEach(function(link) {
+
+            link.addEventListener('click', function(event) {
+
+                // Ignore special clicks
+                if (
+                    event.button !== 0 ||
+                    event.ctrlKey ||
+                    event.shiftKey ||
+                    event.altKey ||
+                    event.metaKey ||
+                    link.target ||
+                    link.hasAttribute('download')
+                ) {
+                    return;
+                }
+
+                const destination = new URL(
+                    link.href,
+                    window.location.href
+                );
+
+                // Do not animate external links
+                if (destination.origin !== window.location.origin) {
+                    return;
+                }
+
+                const href = link.getAttribute('href');
+
+                // Do not animate empty links or same-page anchors
+                if (
+                    !href ||
+                    href.startsWith('#') ||
+                    (
+                        destination.pathname === window.location.pathname &&
+                        destination.hash
+                    )
+                ) {
+                    return;
+                }
+
+                event.preventDefault();
+
+                // Start button animation
+                link.classList.add('is-pressed');
+
+                // Start page fade-out
+                document.body.classList.add('page-leaving');
+
+                // Respect reduced-motion preferences
+                const prefersReducedMotion = window.matchMedia(
+                    '(prefers-reduced-motion: reduce)'
+                ).matches;
+
+                const delay = prefersReducedMotion ? 0 : 320;
+
+                // Navigate to the next page
+                setTimeout(function() {
+                    window.location.assign(destination.href);
+                }, delay);
+
+            });
+
+        });
+
+    </script>
 
 </body>
 
