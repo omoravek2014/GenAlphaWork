@@ -8,7 +8,6 @@
     <title>GenAlpha Workbooks | FAQ</title>
 
     <style>
-
         * {
             box-sizing: border-box;
         }
@@ -18,11 +17,8 @@
             font-family: 'Trebuchet MS', Arial, sans-serif;
             background-color: #f4faff;
             color: #263653;
-            opacity: 1;
             transition: opacity 0.3s ease, transform 0.3s ease;
         }
-
-        /* HEADER */
 
         header {
             background-color: white;
@@ -30,9 +26,9 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
             flex-wrap: wrap;
             gap: 15px;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
         }
 
         header h1 {
@@ -62,17 +58,15 @@
             background-color: #eef6ff;
         }
 
-        /* HERO */
-
         .hero {
             background: linear-gradient(135deg, #54c8ff, #7587ff);
             color: white;
             text-align: center;
-            padding: 75px 20px;
+            padding: 80px 20px;
         }
 
         .hero h2 {
-            font-size: 42px;
+            font-size: 45px;
             margin-top: 0;
             margin-bottom: 20px;
         }
@@ -84,101 +78,107 @@
             margin: auto;
         }
 
-        /* MAIN CONTENT */
-
         main {
-            max-width: 1000px;
-            margin: 50px auto;
-            padding: 20px;
+            max-width: 1100px;
+            margin: auto;
+            padding: 50px 7%;
         }
 
         .faq-container {
             background-color: white;
             padding: 35px;
-            border-radius: 20px;
+            border-radius: 22px;
             box-shadow: 0 5px 20px rgba(40, 120, 232, 0.08);
         }
 
         .faq-container h2 {
-            text-align: center;
             color: #2878e8;
-            font-size: 35px;
             margin-top: 0;
             margin-bottom: 30px;
-        }
-
-        /* FAQ ITEMS */
-
-        details {
-            background-color: #f4faff;
-            margin: 18px 0;
-            padding: 22px;
-            border-radius: 15px;
-            border: 2px solid #d6eaff;
-            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-        }
-
-        details:hover {
-            background-color: #e8f4ff;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(40, 120, 232, 0.08);
-        }
-
-        details[open] {
-            background-color: #e8f4ff;
-        }
-
-        summary {
-            font-size: 21px;
-            font-weight: bold;
-            color: #2878e8;
-            cursor: pointer;
-            line-height: 1.6;
-        }
-
-        summary::marker {
-            color: #7587ff;
-        }
-
-        details p {
-            font-size: 17px;
-            line-height: 1.8;
-            margin-top: 18px;
-            color: #52657e;
-        }
-
-        /* BACK BUTTON */
-
-        .back-button {
             text-align: center;
-            margin: 35px auto;
+            font-size: 30px;
         }
 
-        .main-button {
-            display: inline-block;
-            background-color: #ffdc58;
-            color: #263653;
-            padding: 16px 30px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 18px;
+        .faq-item {
+            border: 2px solid #e3f0ff;
+            border-radius: 15px;
+            margin-bottom: 18px;
+            overflow: hidden;
             transition: 0.3s;
         }
 
-        .main-button:hover {
-            background-color: #ffca28;
-            transform: translateY(-3px);
-            box-shadow: 0 7px 18px rgba(0, 0, 0, 0.12);
+        .faq-item:hover {
+            border-color: #a9d4ff;
+            box-shadow: 0 4px 12px rgba(40, 120, 232, 0.08);
         }
 
-        /* FOOTER */
+        .faq-item summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 20px;
+            font-size: 19px;
+            font-weight: bold;
+            color: #2878e8;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-item summary::after {
+            content: "+";
+            font-size: 28px;
+            color: #7587ff;
+            flex-shrink: 0;
+            transition: transform 0.3s;
+        }
+
+        .faq-item[open] summary::after {
+            content: "−";
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px;
+            font-size: 17px;
+            line-height: 1.8;
+            color: #52657f;
+        }
+
+        .back-button {
+            display: inline-block;
+            background-color: #ffdc58;
+            color: #263653;
+            padding: 15px 25px;
+            border-radius: 12px;
+            font-size: 20px;
+            font-weight: bold;
+            text-decoration: none;
+            margin-top: 30px;
+            transition: 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: #ffd12a;
+            transform: translateY(-3px);
+        }
+
+        .back-container {
+            text-align: center;
+        }
 
         footer {
             background-color: #263653;
             color: white;
             text-align: center;
             padding: 30px 20px;
+        }
+
+        .footer-links {
+            margin-bottom: 20px;
         }
 
         footer a {
@@ -194,22 +194,16 @@
             opacity: 0.85;
         }
 
-        .footer-links {
-            margin-bottom: 20px;
-        }
-
-        /* REPORT BUTTON */
-
         .report-button {
             display: inline-block;
             background-color: #000000;
             color: white;
             padding: 12px 20px;
             border-radius: 10px;
-            text-decoration: none;
             font-weight: bold;
-            transition: 0.3s;
+            text-decoration: none;
             margin: 8px;
+            transition: 0.3s;
         }
 
         .report-button:hover {
@@ -217,18 +211,16 @@
             transform: translateY(-3px);
         }
 
-        /* FEEDBACK BUTTON */
-
         .feedback-button {
             display: inline-block;
             background-color: #16a34a;
             color: white;
             padding: 12px 20px;
             border-radius: 10px;
-            text-decoration: none;
             font-weight: bold;
-            transition: 0.3s;
+            text-decoration: none;
             margin: 8px;
+            transition: 0.3s;
         }
 
         .feedback-button:hover {
@@ -236,37 +228,22 @@
             transform: translateY(-3px);
         }
 
-        /* BUTTON ANIMATION */
-
         .button-press {
             animation: buttonPress 0.25s ease;
         }
 
         @keyframes buttonPress {
-            0% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(0.94);
-            }
-
-            100% {
-                transform: scale(1);
-            }
+            0% { transform: scale(1); }
+            50% { transform: scale(0.94); }
+            100% { transform: scale(1); }
         }
-
-        /* PAGE TRANSITION */
 
         body.page-leaving {
             opacity: 0;
             transform: translateY(8px);
         }
 
-        /* RESPONSIVE */
-
         @media (max-width: 650px) {
-
             header {
                 flex-direction: column;
                 text-align: center;
@@ -293,8 +270,7 @@
             }
 
             main {
-                margin: 20px auto;
-                padding: 10px;
+                padding: 30px 5%;
             }
 
             .faq-container {
@@ -302,222 +278,129 @@
             }
 
             .faq-container h2 {
-                font-size: 30px;
+                font-size: 26px;
             }
 
-            summary {
-                font-size: 18px;
+            .faq-item summary {
+                font-size: 17px;
+                padding: 16px;
             }
 
-            details p {
+            .faq-answer {
                 font-size: 16px;
             }
-
         }
 
-        /* REDUCED MOTION */
-
         @media (prefers-reduced-motion: reduce) {
-
             * {
                 animation: none !important;
                 transition: none !important;
             }
-
         }
-
     </style>
 </head>
 
 <body>
 
-    <!-- HEADER -->
-
     <header>
-
         <h1>📚 GenAlpha Workbooks</h1>
 
+        <nav>
+            <a href="index.html" data-translate="navHome">Home</a>
+            <a href="about.html" data-translate="navAbout">About Us</a>
+            <a href="loginbackend.html" data-translate="navLogin">Log In</a>
+        </nav>
     </header>
 
-    <!-- HERO -->
-
     <section class="hero">
-
-        <h2 data-translate="heroTitle">
-            Frequently Asked Questions ❓
-        </h2>
+        <h2 data-translate="heroTitle">Frequently Asked Questions ❓</h2>
 
         <p data-translate="heroText">
-            Find answers to some of the most frequently asked
-            questions about GenAlpha Workbooks.
+            Have questions about GenAlpha Workbooks?
+            Here you can find answers to some of the most frequently asked questions.
         </p>
-
     </section>
 
-    <!-- MAIN CONTENT -->
-
     <main>
+        <section class="faq-container">
 
-        <div class="faq-container">
+            <h2 data-translate="faqHeading">Questions & Answers</h2>
 
-            <h2 data-translate="faqHeading">
-                Official FAQ
-            </h2>
-
-            <!-- QUESTION 1 -->
-
-            <details>
-
-                <summary data-translate="q1">
-                    What is GenAlpha Workbooks?
-                </summary>
-
-                <p data-translate="a1">
-                    GenAlpha Workbooks is a project designed to provide
-                    educational workbooks and learning materials.
-                </p>
-
+            <details class="faq-item">
+                <summary data-translate="q1">What is GenAlpha Workbooks?</summary>
+                <div class="faq-answer" data-translate="a1">
+                    GenAlpha Workbooks is a website designed to provide educational workbooks and learning materials to support different learning needs.
+                </div>
             </details>
 
-            <!-- QUESTION 2 -->
-
-            <details>
-
-                <summary data-translate="q2">
-                    How does it work?
-                </summary>
-
-                <p data-translate="a2">
-                    Users can explore educational materials and use
-                    workbooks to support learning and practice.
-                </p>
-
+            <details class="faq-item">
+                <summary data-translate="q2">How does GenAlpha Workbooks work?</summary>
+                <div class="faq-answer" data-translate="a2">
+                    You can explore our workbooks, browse different categories and discover learning materials. The website is designed to make learning easier to explore and organize.
+                </div>
             </details>
 
-            <!-- QUESTION 3 -->
-
-            <details>
-
-                <summary data-translate="q3">
-                    Who can use GenAlpha Workbooks?
-                </summary>
-
-                <p data-translate="a3">
-                    GenAlpha Workbooks is intended for students,
-                    parents and educators who want to explore
-                    educational resources.
-                </p>
-
+            <details class="faq-item">
+                <summary data-translate="q3">Who can use GenAlpha Workbooks?</summary>
+                <div class="faq-answer" data-translate="a3">
+                    Students, parents, educators and anyone interested in learning can explore GenAlpha Workbooks.
+                </div>
             </details>
 
-            <!-- QUESTION 4 -->
-
-            <details>
-
-                <summary data-translate="q4">
-                    Can parents use GenAlpha Workbooks?
-                </summary>
-
-                <p data-translate="a4">
-                    Yes! Parents can use GenAlpha Workbooks to
-                    explore resources and support their children's
-                    learning.
-                </p>
-
+            <details class="faq-item">
+                <summary data-translate="q4">Can parents use GenAlpha Workbooks?</summary>
+                <div class="faq-answer" data-translate="a4">
+                    Yes! Parents can use GenAlpha Workbooks to explore educational resources and support their children's learning.
+                </div>
             </details>
 
-            <!-- QUESTION 5 -->
-
-            <details>
-
-                <summary data-translate="q5">
-                    How can I create an account?
-                </summary>
-
-                <p data-translate="a5">
-                    Visit the Log In page and follow the instructions
-                    provided by the account system to register or
-                    sign in.
-                </p>
-
+            <details class="faq-item">
+                <summary data-translate="q5">How can I create an account?</summary>
+                <div class="faq-answer" data-translate="a5">
+                    Visit the Log In page to explore the available registration and sign-in options.
+                </div>
             </details>
 
-            <!-- QUESTION 6 -->
-
-            <details>
-
-                <summary data-translate="q6">
-                    Is GenAlpha Workbooks free?
-                </summary>
-
-                <p data-translate="a6">
-                    The availability of free materials and features
-                    depends on the resources provided by
-                    GenAlpha Workbooks.
-                </p>
-
+            <details class="faq-item">
+                <summary data-translate="q6">Is GenAlpha Workbooks free?</summary>
+                <div class="faq-answer" data-translate="a6">
+                    The availability and cost of workbooks may depend on the resources offered on the website.
+                </div>
             </details>
 
-            <!-- QUESTION 7 -->
-
-            <details>
-
-                <summary data-translate="q7">
-                    Where can I contact GenAlpha Workbooks?
-                </summary>
-
-                <p data-translate="a7">
-                    You can add your official contact information
-                    or email address here so visitors can get in touch.
-                </p>
-
+            <details class="faq-item">
+                <summary data-translate="q7">Where can I contact GenAlpha Workbooks?</summary>
+                <div class="faq-answer" data-translate="a7">
+                    You can use our Send Feedback page to share your suggestions, questions or feedback.
+                </div>
             </details>
 
-        </div>
+            <div class="back-container">
+                <a href="index.html" class="back-button" data-translate="backButton">
+                    ← Back to Home
+                </a>
+            </div>
 
-        <!-- BACK TO HOME -->
-
-        <div class="back-button">
-
-            <a href="index.html"
-                class="main-button"
-                data-translate="backButton">
-
-                ← Back to Home
-
-            </a>
-
-        </div>
-
+        </section>
     </main>
-
-    <!-- FOOTER -->
 
     <footer>
 
-        <!-- REPORT -->
+        <div class="footer-links">
+            <a href="index.html" data-translate="footerHome">Home</a>
+            <a href="about.html" data-translate="footerAbout">About Us</a>
+            <a href="loginbackend.html" data-translate="footerLogin">Log In</a>
+        </div>
 
-        <a href="report.html"
-            class="report-button"
-            data-translate="report">
-
+        <a href="report.html" class="report-button" data-translate="report">
             🏴 Report
-
         </a>
 
-        <!-- FEEDBACK -->
-
-        <a href="feedback.html"
-            class="feedback-button"
-            data-translate="feedback">
-
+        <a href="feedback.html" class="feedback-button" data-translate="feedback">
             💬 Send Feedback
-
         </a>
 
-        <p data-translate="motto">
-            Learn • Create • Discover
-        </p>
+        <p data-translate="motto">Learn • Create • Discover</p>
 
         <p data-translate="footerText">
             © 2026 GenAlpha Workbooks. All rights reserved.
@@ -525,143 +408,162 @@
 
     </footer>
 
-    <!-- AUTOMATIC LANGUAGE SYSTEM -->
-
     <script>
-
-        /* TRANSLATIONS */
 
         const translations = {
 
             en: {
-
                 navHome: "Home",
                 navAbout: "About Us",
                 navLogin: "Log In",
 
                 heroTitle: "Frequently Asked Questions ❓",
+                heroText: "Have questions about GenAlpha Workbooks? Here you can find answers to some of the most frequently asked questions.",
 
-                heroText:
-                    "Find answers to some of the most frequently asked questions about GenAlpha Workbooks.",
-
-                faqHeading: "Official FAQ",
+                faqHeading: "Questions & Answers",
 
                 q1: "What is GenAlpha Workbooks?",
-                a1: "GenAlpha Workbooks is a project designed to provide educational workbooks and learning materials.",
+                a1: "GenAlpha Workbooks is a website designed to provide educational workbooks and learning materials to support different learning needs.",
 
-                q2: "How does it work?",
-                a2: "Users can explore educational materials and use workbooks to support learning and practice.",
+                q2: "How does GenAlpha Workbooks work?",
+                a2: "You can explore our workbooks, browse different categories and discover learning materials. The website is designed to make learning easier to explore and organize.",
 
                 q3: "Who can use GenAlpha Workbooks?",
-                a3: "GenAlpha Workbooks is intended for students, parents and educators who want to explore educational resources.",
+                a3: "Students, parents, educators and anyone interested in learning can explore GenAlpha Workbooks.",
 
                 q4: "Can parents use GenAlpha Workbooks?",
-                a4: "Yes! Parents can use GenAlpha Workbooks to explore resources and support their children's learning.",
+                a4: "Yes! Parents can use GenAlpha Workbooks to explore educational resources and support their children's learning.",
 
                 q5: "How can I create an account?",
-                a5: "Visit the Log In page and follow the instructions provided by the account system to register or sign in.",
+                a5: "Visit the Log In page to explore the available registration and sign-in options.",
 
                 q6: "Is GenAlpha Workbooks free?",
-                a6: "The availability of free materials and features depends on the resources provided by GenAlpha Workbooks.",
+                a6: "The availability and cost of workbooks may depend on the resources offered on the website.",
 
                 q7: "Where can I contact GenAlpha Workbooks?",
-                a7: "You can add your official contact information or email address here so visitors can get in touch.",
+                a7: "You can use our Send Feedback page to share your suggestions, questions or feedback.",
 
                 backButton: "← Back to Home",
+
+                footerHome: "Home",
+                footerAbout: "About Us",
+                footerLogin: "Log In",
 
                 report: "🏴 Report",
                 feedback: "💬 Send Feedback",
 
-                motto: "Timeless education, Timeless fun",
-
-                footerText:
-                    "© 2026 GenAlpha Workbooks. All rights reserved."
-
+                motto: "Learn • Create • Discover",
+                footerText: "© 2026 GenAlpha Workbooks. All rights reserved."
             },
 
             cs: {
-
                 navHome: "Domů",
                 navAbout: "O nás",
                 navLogin: "Přihlásit se",
 
                 heroTitle: "Často kladené otázky ❓",
+                heroText: "Máš otázky ohledně GenAlpha Workbooks? Zde najdeš odpovědi na některé z nejčastějších otázek.",
 
-                heroText:
-                    "Najdi odpovědi na nejčastěji kladené otázky o GenAlpha Workbooks.",
-
-                faqHeading: "Oficiální FAQ",
+                faqHeading: "Otázky a odpovědi",
 
                 q1: "Co je GenAlpha Workbooks?",
-                a1: "GenAlpha Workbooks je projekt zaměřený na poskytování vzdělávacích pracovních sešitů a učebních materiálů.",
+                a1: "GenAlpha Workbooks je webová stránka, která nabízí vzdělávací pracovní sešity a materiály podporující různé vzdělávací potřeby.",
 
-                q2: "Jak to funguje?",
-                a2: "Uživatelé mohou prozkoumávat vzdělávací materiály a používat pracovní sešity k podpoře učení a procvičování.",
+                q2: "Jak GenAlpha Workbooks funguje?",
+                a2: "Můžeš prozkoumávat naše pracovní sešity, procházet různé kategorie a objevovat vzdělávací materiály. Webová stránka je navržena tak, aby bylo učení snadnější a přehlednější.",
 
                 q3: "Kdo může používat GenAlpha Workbooks?",
-                a3: "GenAlpha Workbooks je určen pro studenty, rodiče a učitele, kteří chtějí prozkoumávat vzdělávací zdroje.",
+                a3: "GenAlpha Workbooks mohou prozkoumávat studenti, rodiče, učitelé i všichni, kteří se zajímají o vzdělávání.",
 
-                q4: "Mohou GenAlpha Workbooks používat i rodiče?",
-                a4: "Ano! Rodiče mohou prozkoumávat vzdělávací zdroje a podporovat své děti v učení.",
+                q4: "Mohou GenAlpha Workbooks používat rodiče?",
+                a4: "Ano! Rodiče mohou využívat GenAlpha Workbooks k prozkoumávání vzdělávacích materiálů a podpoře učení svých dětí.",
 
                 q5: "Jak si mohu vytvořit účet?",
-                a5: "Navštivte stránku Přihlášení a postupujte podle pokynů systému pro vytvoření účtu nebo přihlášení.",
+                a5: "Navštiv stránku Přihlášení, kde najdeš dostupné možnosti registrace a přihlášení.",
 
                 q6: "Je GenAlpha Workbooks zdarma?",
-                a6: "Dostupnost bezplatných materiálů a funkcí závisí na zdrojích, které GenAlpha Workbooks poskytuje.",
+                a6: "Dostupnost a cena pracovních sešitů mohou záviset na materiálech, které jsou na webové stránce nabízeny.",
 
-                q7: "Kde mohu GenAlpha Workbooks kontaktovat?",
-                a7: "Zde můžete přidat oficiální kontaktní údaje nebo e-mailovou adresu, aby vás návštěvníci mohli kontaktovat.",
+                q7: "Kde mohu kontaktovat GenAlpha Workbooks?",
+                a7: "Můžeš použít stránku Odeslat zpětnou vazbu a sdílet své návrhy, otázky nebo připomínky.",
 
-                backButton: "← Zpět na hlavní stránku",
+                backButton: "← Zpět na domovskou stránku",
+
+                footerHome: "Domů",
+                footerAbout: "O nás",
+                footerLogin: "Přihlásit se",
 
                 report: "🏴 Nahlásit",
                 feedback: "💬 Odeslat zpětnou vazbu",
 
-                motto: "Časné vzdělávání, časná zábava",
-
-                footerText:
-                    "© 2026 GenAlpha Workbooks. Všechna práva vyhrazena."
-
+                motto: "Uč se • Tvoř • Objevuj",
+                footerText: "© 2026 GenAlpha Workbooks. Všechna práva vyhrazena."
             }
 
         };
 
-        /* APPLY LANGUAGE */
+        /* LANGUAGE SYSTEM */
+
+        function getSavedLanguage() {
+
+            try {
+                const savedLanguage = localStorage.getItem("gawworkbooksLanguage");
+
+                if (savedLanguage === "cs" || savedLanguage === "en") {
+                    return savedLanguage;
+                }
+
+            } catch (error) {
+                console.warn("Language preference could not be read.");
+            }
+
+            return "en";
+        }
 
         function applyLanguage(language) {
 
-            if (!translations[language]) {
+            if (!Object.prototype.hasOwnProperty.call(translations, language)) {
                 language = "en";
             }
 
-            const selectedLanguage = translations[language];
+            const t = translations[language];
 
-            document.querySelectorAll("[data-translate]").forEach(function(element) {
+            document.documentElement.lang = language;
+
+            document.querySelectorAll("[data-translate]").forEach(element => {
 
                 const key = element.getAttribute("data-translate");
 
-                if (selectedLanguage[key]) {
-                    element.textContent = selectedLanguage[key];
+                if (Object.prototype.hasOwnProperty.call(t, key)) {
+                    element.textContent = t[key];
                 }
 
             });
 
-            document.documentElement.lang = language;
-
         }
 
-        /* LOAD SAVED LANGUAGE */
+        /* INITIAL LANGUAGE */
 
-        const savedLanguage =
-            localStorage.getItem("gawworkbooksLanguage") || "en";
+        applyLanguage(getSavedLanguage());
 
-        applyLanguage(savedLanguage);
+        /* RECHECK LANGUAGE WHEN RETURNING TO PAGE */
 
-        /* BUTTON ANIMATIONS */
+        window.addEventListener("pageshow", function() {
+            applyLanguage(getSavedLanguage());
+        });
+
+        window.addEventListener("storage", function(event) {
+
+            if (event.key === "gawworkbooksLanguage") {
+                applyLanguage(getSavedLanguage());
+            }
+
+        });
+
+        /* BUTTON ANIMATION */
 
         document.querySelectorAll(
-            ".main-button, .report-button, .feedback-button"
+            ".back-button, .report-button, .feedback-button"
         ).forEach(button => {
 
             button.addEventListener("click", function() {
@@ -702,10 +604,8 @@
 
                 document.body.classList.add("page-leaving");
 
-                setTimeout(function() {
-
+                setTimeout(() => {
                     window.location.href = url;
-
                 }, 250);
 
             });

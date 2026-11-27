@@ -1,0 +1,1427 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GenAlpha Workbooks | Workbooks</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Trebuchet MS', Arial, sans-serif;
+            background: #e8f4ff;
+            color: #26364a;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button, select, input {
+            font-family: inherit;
+        }
+
+        /* HEADER */
+
+        header {
+            background: #287bc0;
+            color: white;
+            padding: 18px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            display: block;
+            font-size: 11px;
+            letter-spacing: 2px;
+            font-weight: normal;
+            margin-top: 4px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            font-size: 14px;
+            transition: 0.2s;
+        }
+
+        nav a:hover {
+            opacity: 0.75;
+        }
+
+        nav .current {
+            font-weight: bold;
+            border-bottom: 2px solid white;
+            padding-bottom: 5px;
+        }
+
+        /* HERO */
+
+        .hero {
+            padding: 65px 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #287bc0, #63b2e8);
+            color: white;
+        }
+
+        .hero-label {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.4);
+            border-radius: 30px;
+            padding: 8px 16px;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin: 5px 0 15px;
+        }
+
+        .hero p {
+            max-width: 650px;
+            margin: 0 auto 25px;
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        .hero-button {
+            display: inline-block;
+            background: white;
+            color: #287bc0;
+            padding: 14px 25px;
+            border-radius: 10px;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .hero-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+
+        /* MAIN */
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 22px;
+        }
+
+        .section-title {
+            margin-bottom: 20px;
+        }
+
+        .section-title h2 {
+            color: #287bc0;
+            font-size: 26px;
+            margin-bottom: 7px;
+        }
+
+        .section-title p {
+            color: #64788b;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* STATISTICS */
+
+        .statistics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin: 25px 0 40px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 14px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+        }
+
+        .stat-card strong {
+            display: block;
+            color: #287bc0;
+            font-size: 29px;
+            margin-bottom: 5px;
+        }
+
+        .stat-card span {
+            font-size: 13px;
+            color: #64788b;
+        }
+
+        /* COLLECTION BUTTONS */
+
+        .collections {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .collection-button {
+            border: 2px solid #c8dff2;
+            background: white;
+            color: #287bc0;
+            padding: 11px 18px;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .collection-button:hover,
+        .collection-button.active {
+            background: #287bc0;
+            color: white;
+            border-color: #287bc0;
+        }
+
+        /* FILTERS */
+
+        .filter-panel {
+            background: white;
+            padding: 23px;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            margin: 25px 0;
+        }
+
+        .filter-panel h3 {
+            color: #287bc0;
+            margin-top: 0;
+        }
+
+        .filter-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 14px;
+        }
+
+        .filter-group label {
+            display: block;
+            font-weight: bold;
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+
+        .filter-group input,
+        .filter-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #d4e5f4;
+            border-radius: 9px;
+            background: white;
+            color: #26364a;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .filter-group input:focus,
+        .filter-group select:focus {
+            border-color: #287bc0;
+        }
+
+        .reset-button {
+            margin-top: 18px;
+            background: #e4f1fc;
+            color: #287bc0;
+            border: none;
+            padding: 11px 18px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .reset-button:hover {
+            background: #cfe6fa;
+            transform: translateY(-2px);
+        }
+
+        /* SUBJECTS */
+
+        .subjects {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0 35px;
+        }
+
+        .subject-tag {
+            background: white;
+            border: 1px solid #c8dff2;
+            border-radius: 25px;
+            padding: 10px 15px;
+            color: #41647f;
+            font-size: 13px;
+        }
+
+        /* RESULTS */
+
+        .results-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin: 30px 0 18px;
+        }
+
+        .results-heading h2 {
+            color: #287bc0;
+            margin: 0;
+        }
+
+        #resultCount {
+            color: #64788b;
+            font-size: 13px;
+        }
+
+        /* WORKBOOK GRID */
+
+        .workbook-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .workbook-card {
+            background: white;
+            border-radius: 17px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            transition: transform 0.25s, box-shadow 0.25s;
+            animation: appear 0.35s ease;
+        }
+
+        .workbook-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* BOOK COVERS */
+
+        .book-cover {
+            min-height: 205px;
+            padding: 20px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .book-cover::after {
+            content: "";
+            position: absolute;
+            width: 190px;
+            height: 190px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.12);
+            right: -65px;
+            bottom: -90px;
+        }
+
+        .cover-blue {
+            background: linear-gradient(135deg, #287bc0, #55a9df);
+        }
+
+        .cover-purple {
+            background: linear-gradient(135deg, #7354b8, #a18add);
+        }
+
+        .cover-teal {
+            background: linear-gradient(135deg, #168b91, #5ac6c0);
+        }
+
+        .cover-orange {
+            background: linear-gradient(135deg, #d77b36, #f3ad62);
+        }
+
+        .cover-pink {
+            background: linear-gradient(135deg, #ca608b, #eea2bf);
+        }
+
+        .cover-green {
+            background: linear-gradient(135deg, #438c5d, #80c78e);
+        }
+
+        .cover-brand {
+            position: relative;
+            z-index: 1;
+            font-size: 11px;
+            letter-spacing: 2px;
+            font-weight: bold;
+        }
+
+        .cover-main {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cover-grade {
+            font-size: 33px;
+            font-weight: bold;
+            margin: 10px 0 5px;
+        }
+
+        .cover-subtitle {
+            font-size: 14px;
+        }
+
+        .cover-icon {
+            position: absolute;
+            z-index: 1;
+            right: 20px;
+            top: 65px;
+            font-size: 67px;
+            opacity: 0.85;
+        }
+
+        .cover-bottom {
+            font-size: 11px;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* CARD CONTENT */
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-labels {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin-bottom: 12px;
+        }
+
+        .card-label {
+            background: #e8f4ff;
+            color: #287bc0;
+            border-radius: 20px;
+            padding: 5px 10px;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .card-label.trending {
+            background: #fff0da;
+            color: #a45b16;
+        }
+
+        .card-label.bestseller {
+            background: #e5f7e9;
+            color: #367447;
+        }
+
+        .card-label.personal {
+            background: #f0eafa;
+            color: #7251a3;
+        }
+
+        .card-content h3 {
+            color: #287bc0;
+            font-size: 20px;
+            margin: 0 0 10px;
+        }
+
+        .card-description {
+            color: #64788b;
+            font-size: 13px;
+            line-height: 1.6;
+            min-height: 42px;
+        }
+
+        .card-details {
+            border-top: 1px solid #edf1f5;
+            border-bottom: 1px solid #edf1f5;
+            padding: 13px 0;
+            margin: 15px 0;
+            display: flex;
+            justify-content: space-between;
+            gap: 8px;
+            font-size: 12px;
+            color: #64788b;
+        }
+
+        .card-subjects {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            min-height: 48px;
+        }
+
+        .mini-subject {
+            background: #f0f7fd;
+            color: #41647f;
+            padding: 5px 8px;
+            border-radius: 6px;
+            font-size: 10px;
+        }
+
+        .open-button {
+            display: block;
+            text-align: center;
+            background: #287bc0;
+            color: white;
+            padding: 13px;
+            border-radius: 9px;
+            font-weight: bold;
+            font-size: 14px;
+            margin-top: 18px;
+            transition: 0.2s;
+        }
+
+        .open-button:hover {
+            background: #195e98;
+            transform: translateY(-2px);
+        }
+
+        /* EMPTY RESULTS */
+
+        .empty-results {
+            display: none;
+            text-align: center;
+            padding: 45px 20px;
+            background: white;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+
+        .empty-results h3 {
+            color: #287bc0;
+        }
+
+        .empty-results p {
+            color: #64788b;
+        }
+
+        /* INFORMATION */
+
+        .information {
+            background: white;
+            border-radius: 16px;
+            padding: 25px;
+            margin: 45px 0 20px;
+        }
+
+        .information h2 {
+            color: #287bc0;
+        }
+
+        .information p,
+        .information ul {
+            color: #64788b;
+            line-height: 1.8;
+        }
+
+        .information ul {
+            padding-left: 22px;
+        }
+
+        /* STYLISH RETURN BUTTON */
+
+        .return-container {
+            display: flex;
+            justify-content: center;
+            margin: 45px 0 25px;
+        }
+
+        .return-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 15px 32px;
+            border-radius: 50px;
+            background: linear-gradient(135deg, #287bc0, #55a9df);
+            color: white;
+            font-size: 15px;
+            font-weight: bold;
+            letter-spacing: 0.3px;
+            box-shadow: 0 6px 16px rgba(40, 123, 192, 0.25);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .return-button:hover {
+            background: linear-gradient(135deg, #195e98, #287bc0);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 22px rgba(40, 123, 192, 0.35);
+        }
+
+        .return-button:active {
+            transform: scale(0.96);
+        }
+
+        .return-button .arrow {
+            display: inline-block;
+            font-size: 19px;
+            transition: transform 0.3s ease;
+        }
+
+        .return-button:hover .arrow {
+            transform: translateX(-5px);
+        }
+
+        .return-button:focus-visible {
+            outline: 3px solid #163f67;
+            outline-offset: 4px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #1e5f91;
+            color: white;
+            text-align: center;
+            padding: 35px 20px;
+            margin-top: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .footer-links a {
+            color: white;
+            font-size: 13px;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        footer p {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        /* MOBILE RESPONSIVENESS */
+
+        @media (max-width: 900px) {
+            .workbook-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .filter-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            header {
+                justify-content: center;
+                text-align: center;
+            }
+
+            nav {
+                justify-content: center;
+                gap: 13px;
+            }
+
+            .hero {
+                padding: 45px 18px;
+            }
+
+            .hero h1 {
+                font-size: 30px;
+            }
+
+            .statistics {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .filter-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .workbook-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 20px 14px;
+            }
+
+            .results-heading {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .return-button {
+                padding: 14px 25px;
+                font-size: 14px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+
+    <a href="index.html" class="logo">
+        GenAlpha Workbooks
+        <span>INTERACTIVE LEARNING</span>
+    </a>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <span class="hero-label">GENALPHA WORKBOOK COLLECTION</span>
+
+    <h1>Find Your Next Workbook!</h1>
+
+    <p>
+        Explore interactive workbooks for Grades 1–9.
+        Practice different school subjects, answer questions,
+        track your progress and learn at your own pace.
+    </p>
+
+    <a href="#catalogue" class="hero-button">
+        Explore Workbooks →
+    </a>
+
+</section>
+
+
+<main class="container">
+
+    <!-- STATISTICS -->
+
+    <section class="statistics">
+
+        <div class="stat-card">
+            <strong>9</strong>
+            <span>School Grades</span>
+        </div>
+
+        <div class="stat-card">
+            <strong>10</strong>
+            <span>School Subjects</span>
+        </div>
+
+        <div class="stat-card">
+            <strong>3,600</strong>
+            <span>Planned Exercise Slots</span>
+        </div>
+
+    </section>
+
+
+    <!-- CATALOGUE -->
+
+    <section id="catalogue">
+
+        <div class="section-title">
+
+            <h2>Explore Our Workbooks</h2>
+
+            <p>
+                Choose a collection or find a workbook that matches
+                your grade and learning interests.
+            </p>
+
+        </div>
+
+
+        <!-- COLLECTION BUTTONS -->
+
+        <div class="collections">
+
+            <button class="collection-button active"
+                data-collection="all">
+                All Workbooks
+            </button>
+
+            <button class="collection-button"
+                data-collection="Bestsellers">
+                Bestsellers
+            </button>
+
+            <button class="collection-button"
+                data-collection="Trending">
+                Trending
+            </button>
+
+            <button class="collection-button"
+                data-collection="For You">
+                For You
+            </button>
+
+        </div>
+
+
+        <!-- FILTER PANEL -->
+
+        <div class="filter-panel">
+
+            <h3>Find Your Workbook</h3>
+
+            <div class="filter-grid">
+
+                <div class="filter-group">
+
+                    <label for="search">Search workbooks</label>
+
+                    <input
+                        type="search"
+                        id="search"
+                        placeholder="Search grades or subjects..."
+                    >
+
+                </div>
+
+                <div class="filter-group">
+
+                    <label for="gradeFilter">Grade</label>
+
+                    <select id="gradeFilter">
+                        <option value="all">All Grades</option>
+                        <option value="1">1st Grade</option>
+                        <option value="2">2nd Grade</option>
+                        <option value="3">3rd Grade</option>
+                        <option value="4">4th Grade</option>
+                        <option value="5">5th Grade</option>
+                        <option value="6">6th Grade</option>
+                        <option value="7">7th Grade</option>
+                        <option value="8">8th Grade</option>
+                        <option value="9">9th Grade</option>
+                    </select>
+
+                </div>
+
+                <div class="filter-group">
+
+                    <label for="subjectFilter">Subject</label>
+
+                    <select id="subjectFilter">
+                        <option value="all">All Subjects</option>
+                        <option value="Mathematics">Mathematics</option>
+                        <option value="English">English</option>
+                        <option value="Science">Science</option>
+                        <option value="Geography">Geography</option>
+                        <option value="History">History</option>
+                        <option value="Reading & Literature">Reading & Literature</option>
+                        <option value="Art">Art</option>
+                        <option value="Music">Music</option>
+                        <option value="Computer Science">Computer Science</option>
+                        <option value="Physical Education">Physical Education</option>
+                    </select>
+
+                </div>
+
+                <div class="filter-group">
+
+                    <label for="sortFilter">Sort by</label>
+
+                    <select id="sortFilter">
+                        <option value="ascending">Grade: Low to High</option>
+                        <option value="descending">Grade: High to Low</option>
+                        <option value="alphabetical">Grade: A–Z</option>
+                    </select>
+
+                </div>
+
+            </div>
+
+            <button class="reset-button" id="resetFilters">
+                Reset Filters
+            </button>
+
+        </div>
+
+
+        <!-- SUBJECT OVERVIEW -->
+
+        <div class="section-title">
+
+            <h2>Available Subjects</h2>
+
+            <p>
+                Every grade includes exercises from these ten subjects.
+            </p>
+
+        </div>
+
+
+        <div class="subjects">
+
+            <span class="subject-tag">➗ Mathematics</span>
+            <span class="subject-tag">📖 English</span>
+            <span class="subject-tag">🔬 Science</span>
+            <span class="subject-tag">🌍 Geography</span>
+            <span class="subject-tag">🏛️ History</span>
+            <span class="subject-tag">📚 Reading & Literature</span>
+            <span class="subject-tag">🎨 Art</span>
+            <span class="subject-tag">🎵 Music</span>
+            <span class="subject-tag">💻 Computer Science</span>
+            <span class="subject-tag">⚽ Physical Education</span>
+
+        </div>
+
+
+        <!-- RESULTS -->
+
+        <div class="results-heading">
+
+            <h2>Grade Workbooks</h2>
+
+            <span id="resultCount">Showing 9 workbooks</span>
+
+        </div>
+
+
+        <div class="workbook-grid" id="workbookGrid">
+        </div>
+
+
+        <!-- EMPTY RESULTS -->
+
+        <div class="empty-results" id="emptyResults">
+
+            <h3>No Workbooks Found</h3>
+
+            <p>
+                We couldn't find a workbook matching your search.
+                Try changing your filters.
+            </p>
+
+            <button class="reset-button" onclick="resetFilters()">
+                Show All Workbooks
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- INFORMATION -->
+
+    <section class="information">
+
+        <h2>About Our Interactive Workbooks</h2>
+
+        <p>
+            GenAlpha Workbooks provides interactive school practice
+            for students in Grades 1–9. The workbooks are designed
+            to support different learning needs and offer a variety
+            of ways to practice school subjects.
+        </p>
+
+        <p>Each grade workbook is planned to include:</p>
+
+        <ul>
+            <li>400 exercises in total.</li>
+            <li>40 exercises in each of 10 subjects.</li>
+            <li>Multiple-choice questions.</li>
+            <li>True-or-false exercises.</li>
+            <li>Fill-in-the-blank questions.</li>
+            <li>Automatic answer checking.</li>
+            <li>Explanations and progress tracking.</li>
+        </ul>
+
+        <p>
+            Students can work through the exercises at their own pace
+            and return to their learning whenever they are ready.
+        </p>
+
+    </section>
+
+
+    <!-- STYLISH RETURN BUTTON -->
+
+    <div class="return-container">
+
+        <a href="index.html" class="return-button">
+            <span class="arrow">←</span>
+            Return to Home
+        </a>
+
+    </div>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <h3>GenAlpha Workbooks</h3>
+
+    <p>Interactive learning for every student.</p>
+
+    <p>
+        © 2026 GenAlpha Workbooks. All rights reserved.
+    </p>
+
+</footer>
+
+
+<script>
+
+// ========================================
+// SUBJECT DATA
+// ========================================
+
+const subjects = [
+    "Mathematics",
+    "English",
+    "Science",
+    "Geography",
+    "History",
+    "Reading & Literature",
+    "Art",
+    "Music",
+    "Computer Science",
+    "Physical Education"
+];
+
+
+// ========================================
+// GRADE DATA
+// ========================================
+
+const gradeNames = [
+    "1st", "2nd", "3rd",
+    "4th", "5th", "6th",
+    "7th", "8th", "9th"
+];
+
+const gradeDescriptions = [
+    "Build strong foundations through fun and accessible school practice.",
+    "Continue developing essential knowledge and everyday learning skills.",
+    "Explore new ideas and strengthen important school skills.",
+    "Practice increasingly complex topics across different subjects.",
+    "Build confidence through broader and more challenging exercises.",
+    "Develop knowledge and apply skills to new situations.",
+    "Explore more advanced concepts and improve independent learning.",
+    "Strengthen subject knowledge and prepare for advanced studies.",
+    "Practice advanced school topics and develop confidence for the next stage."
+];
+
+
+// ========================================
+// COVER DESIGNS
+// ========================================
+
+const coverColors = [
+    "cover-blue",
+    "cover-purple",
+    "cover-teal",
+    "cover-orange",
+    "cover-pink",
+    "cover-green",
+    "cover-blue",
+    "cover-purple",
+    "cover-teal"
+];
+
+const coverIcons = [
+    "📘",
+    "📚",
+    "📝",
+    "🎓",
+    "🔎",
+    "🧠",
+    "📖",
+    "✏️",
+    "🌟"
+];
+
+
+// ========================================
+// COLLECTIONS
+// ========================================
+
+const collections = {
+    "Bestsellers": [1, 3, 5],
+    "Trending": [2, 6, 8],
+    "For You": [4, 7, 9]
+};
+
+
+// ========================================
+// CREATE GRADE WORKBOOKS
+// ========================================
+
+const workbooks = gradeNames.map((name, index) => {
+
+    const grade = index + 1;
+
+    let labels = [];
+
+    for (const [collection, grades] of Object.entries(collections)) {
+
+        if (grades.includes(grade)) {
+            labels.push(collection);
+        }
+
+    }
+
+    return {
+        grade: grade,
+        name: name,
+        description: gradeDescriptions[index],
+        subjects: subjects,
+        exercises: 400,
+        exercisesPerSubject: 40,
+        color: coverColors[index],
+        icon: coverIcons[index],
+        labels: labels
+    };
+
+});
+
+
+// ========================================
+// PAGE ELEMENTS
+// ========================================
+
+const grid = document.getElementById("workbookGrid");
+const searchInput = document.getElementById("search");
+const gradeFilter = document.getElementById("gradeFilter");
+const subjectFilter = document.getElementById("subjectFilter");
+const sortFilter = document.getElementById("sortFilter");
+const resultCount = document.getElementById("resultCount");
+const emptyResults = document.getElementById("emptyResults");
+
+let activeCollection = "all";
+
+
+// ========================================
+// CREATE WORKBOOK CARD
+// ========================================
+
+function createCard(book) {
+
+    const labelsHTML = book.labels.map(label => {
+
+        let className = "";
+
+        if (label === "Bestsellers") className = "bestseller";
+        if (label === "Trending") className = "trending";
+        if (label === "For You") className = "personal";
+
+        return `
+            <span class="card-label ${className}">
+                ${label}
+            </span>
+        `;
+
+    }).join("");
+
+    const subjectsHTML = book.subjects
+        .slice(0, 4)
+        .map(subject => `
+            <span class="mini-subject">${subject}</span>
+        `)
+        .join("");
+
+    return `
+
+        <article class="workbook-card">
+
+            <div class="book-cover ${book.color}">
+
+                <div class="cover-brand">
+                    GENALPHA WORKBOOKS
+                </div>
+
+                <div class="cover-icon">
+                    ${book.icon}
+                </div>
+
+                <div class="cover-main">
+
+                    <div class="cover-grade">
+                        ${book.name} Grade
+                    </div>
+
+                    <div class="cover-subtitle">
+                        Interactive School Workbook
+                    </div>
+
+                </div>
+
+                <div class="cover-bottom">
+                    LEARN • PRACTICE • PROGRESS
+                </div>
+
+            </div>
+
+            <div class="card-content">
+
+                <div class="card-labels">
+                    ${labelsHTML}
+                </div>
+
+                <h3>${book.name} Grade Workbook</h3>
+
+                <p class="card-description">
+                    ${book.description}
+                </p>
+
+                <div class="card-details">
+
+                    <span>📝 ${book.exercises} Exercises</span>
+
+                    <span>📚 10 Subjects</span>
+
+                </div>
+
+                <div class="card-subjects">
+                    ${subjectsHTML}
+                    <span class="mini-subject">+6 more</span>
+                </div>
+
+                <a
+                    class="open-button"
+                    href="workbook.html"
+                    aria-label="Open interactive workbook for ${book.name} Grade"
+                >
+                    Open Interactive Workbook →
+                </a>
+
+                <p style="
+                    color:#8293a2;
+                    font-size:11px;
+                    text-align:center;
+                    margin-bottom:0;
+                ">
+                    Select ${book.name} Grade in the workbook selector.
+                </p>
+
+            </div>
+
+        </article>
+
+    `;
+
+}
+
+
+// ========================================
+// FILTER AND DISPLAY WORKBOOKS
+// ========================================
+
+function renderWorkbooks() {
+
+    const search = searchInput.value.toLowerCase().trim();
+
+    const selectedGrade = gradeFilter.value;
+    const selectedSubject = subjectFilter.value;
+    const sort = sortFilter.value;
+
+    let filtered = workbooks.filter(book => {
+
+        const matchesSearch =
+            (`${book.name} grade workbook ${book.subjects.join(" ")}`
+                .toLowerCase()
+                .includes(search));
+
+        const matchesGrade =
+            selectedGrade === "all" ||
+            String(book.grade) === selectedGrade;
+
+        const matchesSubject =
+            selectedSubject === "all" ||
+            book.subjects.includes(selectedSubject);
+
+        const matchesCollection =
+            activeCollection === "all" ||
+            book.labels.includes(activeCollection);
+
+        return (
+            matchesSearch &&
+            matchesGrade &&
+            matchesSubject &&
+            matchesCollection
+        );
+
+    });
+
+
+    // SORTING
+
+    if (sort === "ascending") {
+
+        filtered.sort((a, b) => a.grade - b.grade);
+
+    } else if (sort === "descending") {
+
+        filtered.sort((a, b) => b.grade - a.grade);
+
+    } else if (sort === "alphabetical") {
+
+        filtered.sort((a, b) =>
+            a.name.localeCompare(b.name)
+        );
+
+    }
+
+
+    // DISPLAY RESULTS
+
+    grid.innerHTML = filtered.map(createCard).join("");
+
+    resultCount.textContent =
+        `Showing ${filtered.length} of 9 workbooks`;
+
+    emptyResults.style.display =
+        filtered.length === 0 ? "block" : "none";
+
+    grid.style.display =
+        filtered.length === 0 ? "none" : "grid";
+
+}
+
+
+// ========================================
+// COLLECTION BUTTONS
+// ========================================
+
+document.querySelectorAll(".collection-button").forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        document.querySelectorAll(".collection-button")
+            .forEach(item => item.classList.remove("active"));
+
+        button.classList.add("active");
+
+        activeCollection = button.dataset.collection;
+
+        renderWorkbooks();
+
+    });
+
+});
+
+
+// ========================================
+// FILTER EVENTS
+// ========================================
+
+searchInput.addEventListener("input", renderWorkbooks);
+
+gradeFilter.addEventListener("change", renderWorkbooks);
+
+subjectFilter.addEventListener("change", renderWorkbooks);
+
+sortFilter.addEventListener("change", renderWorkbooks);
+
+
+// ========================================
+// RESET FILTERS
+// ========================================
+
+function resetFilters() {
+
+    searchInput.value = "";
+    gradeFilter.value = "all";
+    subjectFilter.value = "all";
+    sortFilter.value = "ascending";
+
+    activeCollection = "all";
+
+    document.querySelectorAll(".collection-button")
+        .forEach(button => {
+
+            button.classList.toggle(
+                "active",
+                button.dataset.collection === "all"
+            );
+
+        });
+
+    renderWorkbooks();
+
+}
+
+document.getElementById("resetFilters")
+    .addEventListener("click", resetFilters);
+
+
+// ========================================
+// INITIALIZE PAGE
+// ========================================
+
+renderWorkbooks();
+
+</script>
+
+</body>
+</html>

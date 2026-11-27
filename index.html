@@ -447,7 +447,7 @@
                     new ways to learn.
                 </p>
 
-                <a href="workbooks.html"
+                <a href="workbooks (1).html"
                     class="card-button"
                     data-translate="workbooksButton">
 
@@ -767,9 +767,55 @@
 
         /* LANGUAGE SYSTEM */
 
+        const LANGUAGE_KEY = "gawworkbooksLanguage";
+
+        function saveLanguage(language) {
+
+            try {
+
+                localStorage.setItem(LANGUAGE_KEY, language);
+
+            } catch (error) {
+
+                console.warn("Language preference could not be saved.");
+
+            }
+
+        }
+
+        function getSavedLanguage() {
+
+            try {
+
+                const savedLanguage = localStorage.getItem(LANGUAGE_KEY);
+
+                if (
+                    Object.prototype.hasOwnProperty.call(
+                        translations,
+                        savedLanguage
+                    )
+                ) {
+                    return savedLanguage;
+                }
+
+            } catch (error) {
+
+                console.warn("Language preference could not be read.");
+
+            }
+
+            return "en";
+
+        }
+
         function applyLanguage(language) {
 
-            if (!translations[language]) {
+            if (
+                !Object.prototype.hasOwnProperty.call(
+                    translations,
+                    language
+                )
+            ) {
                 language = "en";
             }
 
@@ -781,27 +827,32 @@
 
                 const key = element.dataset.translate;
 
-                if (t[key]) {
+                if (
+                    Object.prototype.hasOwnProperty.call(t, key)
+                ) {
+
                     element.textContent = t[key];
+
                 }
 
             });
 
-            localStorage.setItem("gaworkbooksLanguage", language);
+            languageSelector.value = language;
+
+            saveLanguage(language);
 
         }
 
-        /* LOAD SAVED LANGUAGE */
+        /* LANGUAGE SELECTOR */
 
         const languageSelector =
             document.getElementById("languageSelector");
 
-        const savedLanguage =
-            localStorage.getItem("gaworkbooksLanguage") || "en";
+        /* LOAD SAVED LANGUAGE */
 
-        languageSelector.value = savedLanguage;
+        applyLanguage(getSavedLanguage());
 
-        applyLanguage(savedLanguage);
+        /* CHANGE LANGUAGE */
 
         languageSelector.addEventListener("change", function() {
 
