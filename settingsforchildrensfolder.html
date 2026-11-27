@@ -8,7 +8,6 @@
     <title>GenAlpha Workbooks | Folder Settings</title>
 
     <style>
-
         * {
             box-sizing: border-box;
         }
@@ -23,14 +22,10 @@
             transition: opacity 0.32s ease, transform 0.32s ease;
         }
 
-        /* Page transition */
-
         body.page-leaving {
             opacity: 0;
             transform: translateY(12px);
         }
-
-        /* Header */
 
         header {
             background-color: white;
@@ -71,8 +66,6 @@
             transform: translateY(-3px);
         }
 
-        /* Hero section */
-
         .hero {
             background: linear-gradient(135deg, #54c8ff, #7587ff);
             color: white;
@@ -91,8 +84,6 @@
             margin: auto;
             line-height: 1.6;
         }
-
-        /* Main content */
 
         main {
             max-width: 1000px;
@@ -119,8 +110,6 @@
             line-height: 1.7;
         }
 
-        /* Settings cards */
-
         .setting-card {
             background-color: #f4faff;
             padding: 25px;
@@ -140,8 +129,6 @@
             line-height: 1.6;
         }
 
-        /* Input */
-
         input[type="text"] {
             width: 100%;
             padding: 14px;
@@ -158,8 +145,6 @@
         input[type="text"]:focus {
             border-color: #2878e8;
         }
-
-        /* Select */
 
         select {
             width: 100%;
@@ -178,8 +163,6 @@
             outline: none;
         }
 
-        /* Checkboxes */
-
         .checkbox-label {
             display: flex;
             align-items: center;
@@ -196,8 +179,6 @@
             accent-color: #2878e8;
             cursor: pointer;
         }
-
-        /* Buttons */
 
         .button {
             display: inline-block;
@@ -244,8 +225,6 @@
             transform: translateY(-3px);
         }
 
-        /* Status message */
-
         #statusMessage {
             margin-top: 20px;
             font-size: 17px;
@@ -253,26 +232,11 @@
             min-height: 24px;
         }
 
-        /* Button press animation */
-
         @keyframes buttonPress {
-
-            0% {
-                transform: scale(1);
-            }
-
-            40% {
-                transform: scale(0.90);
-            }
-
-            75% {
-                transform: scale(1.06);
-            }
-
-            100% {
-                transform: scale(1);
-            }
-
+            0% { transform: scale(1); }
+            40% { transform: scale(0.90); }
+            75% { transform: scale(1.06); }
+            100% { transform: scale(1); }
         }
 
         a.is-pressed {
@@ -282,8 +246,6 @@
         button.is-pressed {
             animation: buttonPress 0.32s ease;
         }
-
-        /* Footer */
 
         footer {
             background-color: #263653;
@@ -307,10 +269,7 @@
             text-decoration: underline;
         }
 
-        /* Mobile compatibility */
-
         @media (max-width: 650px) {
-
             header {
                 justify-content: center;
             }
@@ -339,85 +298,66 @@
             .button {
                 font-size: 16px;
             }
-
         }
 
-        /* Accessibility */
-
         @media (prefers-reduced-motion: reduce) {
-
             *,
             *::before,
             *::after {
                 animation-duration: 0.01ms !important;
                 transition-duration: 0.01ms !important;
             }
-
         }
-
     </style>
-
 </head>
 
 <body>
 
-    <!-- Navigation -->
-
     <header>
-
         <div class="logo">
             📚 GenAlpha Workbooks
         </div>
 
         <nav>
-            <a href="./about.html">About Us</a>
-            <a href="./faq.html">FAQ</a>
-            <a href="./loginbackend.html">Log In</a>
+            <a href="./about.html" data-translate="about">About Us</a>
+            <a href="./faq.html" data-translate="faq">FAQ</a>
+            <a href="./loginbackend.html" data-translate="login">Log In</a>
         </nav>
-
     </header>
 
-
-    <!-- Hero section -->
-
     <div class="hero">
+        <h1 data-translate="heroTitle">Folder Settings ⚙️</h1>
 
-        <h1>Folder Settings ⚙️</h1>
-
-        <p>
+        <p data-translate="heroDescription">
             Customize your Children's Folder
             and adjust your preferences.
         </p>
-
     </div>
 
-
-    <!-- Main content -->
-
     <main>
-
         <div class="settings-container">
 
-            <h2>Manage Your Folder</h2>
+            <h2 data-translate="manageTitle">Manage Your Folder</h2>
 
-            <p class="description">
+            <p class="description" data-translate="manageDescription">
                 Change the way your Children's Folder
                 looks and behaves. Your settings are
                 saved in this browser.
             </p>
 
-
             <!-- Folder name -->
 
             <div class="setting-card">
 
-                <h3>📁 Folder Name</h3>
+                <h3 data-translate="folderNameTitle">
+                    📁 Folder Name
+                </h3>
 
-                <p>
+                <p data-translate="folderNameDescription">
                     Choose a name for your personal folder.
                 </p>
 
-                <label for="folderName">
+                <label for="folderName" data-translate="folderNameLabel">
                     Folder name:
                 </label>
 
@@ -432,19 +372,20 @@
 
             </div>
 
-
             <!-- Appearance -->
 
             <div class="setting-card">
 
-                <h3>🎨 Appearance</h3>
+                <h3 data-translate="appearanceTitle">
+                    🎨 Appearance
+                </h3>
 
-                <p>
+                <p data-translate="appearanceDescription">
                     Choose the preferred appearance
                     of your folder.
                 </p>
 
-                <label for="appearance">
+                <label for="appearance" data-translate="appearanceLabel">
                     Appearance:
                 </label>
 
@@ -452,15 +393,15 @@
 
                 <select id="appearance">
 
-                    <option value="light">
+                    <option value="light" data-translate="light">
                         Light
                     </option>
 
-                    <option value="blue">
+                    <option value="blue" data-translate="blue">
                         Blue
                     </option>
 
-                    <option value="purple">
+                    <option value="purple" data-translate="purple">
                         Purple
                     </option>
 
@@ -468,12 +409,13 @@
 
             </div>
 
-
             <!-- Preferences -->
 
             <div class="setting-card">
 
-                <h3>🛠 Preferences</h3>
+                <h3 data-translate="preferencesTitle">
+                    🛠 Preferences
+                </h3>
 
                 <label class="checkbox-label">
 
@@ -482,7 +424,9 @@
                         id="showWelcome"
                     >
 
-                    Show the welcome message
+                    <span data-translate="showWelcome">
+                        Show the welcome message
+                    </span>
 
                 </label>
 
@@ -493,12 +437,13 @@
                         id="animations"
                     >
 
-                    Enable button and page animations
+                    <span data-translate="animations">
+                        Enable button and page animations
+                    </span>
 
                 </label>
 
             </div>
-
 
             <!-- Save and reset -->
 
@@ -508,6 +453,7 @@
                     type="button"
                     class="button save-button"
                     id="saveButton"
+                    data-translate="saveButton"
                 >
                     💾 Save Settings
                 </button>
@@ -516,6 +462,7 @@
                     type="button"
                     class="button reset-button"
                     id="resetButton"
+                    data-translate="resetButton"
                 >
                     ↺ Reset Settings
                 </button>
@@ -523,12 +470,12 @@
                 <a
                     href="./mychildrensfolder.html"
                     class="button back-button"
+                    data-translate="backButton"
                 >
                     Back
                 </a>
 
             </div>
-
 
             <!-- Status message -->
 
@@ -540,37 +487,175 @@
             ></p>
 
         </div>
-
     </main>
-
-
-    <!-- Footer -->
 
     <footer>
 
-        <p>
+        <p data-translate="copyright">
             &copy; 2026 GenAlpha Workbooks.
             All rights reserved.
         </p>
 
         <p>
-            <a href="./about.html">About Us</a>
+            <a href="./about.html" data-translate="about">About Us</a>
             |
-            <a href="./faq.html">FAQ</a>
+            <a href="./faq.html" data-translate="faq">FAQ</a>
             |
-            <a href="./loginbackend.html">Log In</a>
+            <a href="./loginbackend.html" data-translate="login">Log In</a>
         </p>
 
-        <p>
+        <p data-translate="motto">
             Learn • Create • Discover
         </p>
 
     </footer>
 
-
-    <!-- Settings functionality -->
-
     <script>
+
+        /* ==========================
+           LANGUAGE SYSTEM
+        ========================== */
+
+        const translations = {
+
+            en: {
+                about: "About Us",
+                faq: "FAQ",
+                login: "Log In",
+
+                heroTitle: "Folder Settings ⚙️",
+                heroDescription:
+                    "Customize your Children's Folder and adjust your preferences.",
+
+                manageTitle: "Manage Your Folder",
+                manageDescription:
+                    "Change the way your Children's Folder looks and behaves. Your settings are saved in this browser.",
+
+                folderNameTitle: "📁 Folder Name",
+                folderNameDescription:
+                    "Choose a name for your personal folder.",
+                folderNameLabel: "Folder name:",
+
+                appearanceTitle: "🎨 Appearance",
+                appearanceDescription:
+                    "Choose the preferred appearance of your folder.",
+                appearanceLabel: "Appearance:",
+
+                light: "Light",
+                blue: "Blue",
+                purple: "Purple",
+
+                preferencesTitle: "🛠 Preferences",
+                showWelcome: "Show the welcome message",
+                animations: "Enable button and page animations",
+
+                saveButton: "💾 Save Settings",
+                resetButton: "↺ Reset Settings",
+                backButton: "Back",
+
+                copyright:
+                    "© 2026 GenAlpha Workbooks. All rights reserved.",
+                motto: "Learn • Create • Discover",
+
+                saved: "✓ Your settings have been saved!",
+                saveError: "Unable to save settings in this browser.",
+                resetConfirm:
+                    "Are you sure you want to reset all folder settings?",
+                resetSuccess: "✓ Settings have been reset.",
+                resetError: "Unable to reset settings.",
+                resetUnavailable:
+                    "Unable to reset settings in this browser."
+            },
+
+            cs: {
+                about: "O nás",
+                faq: "Často kladené otázky",
+                login: "Přihlásit se",
+
+                heroTitle: "Nastavení složky ⚙️",
+                heroDescription:
+                    "Přizpůsobte si složku pro děti a upravte své preference.",
+
+                manageTitle: "Správa složky",
+                manageDescription:
+                    "Změňte vzhled a chování své složky pro děti. Nastavení se ukládají v tomto prohlížeči.",
+
+                folderNameTitle: "📁 Název složky",
+                folderNameDescription:
+                    "Vyberte název své osobní složky.",
+                folderNameLabel: "Název složky:",
+
+                appearanceTitle: "🎨 Vzhled",
+                appearanceDescription:
+                    "Vyberte preferovaný vzhled své složky.",
+                appearanceLabel: "Vzhled:",
+
+                light: "Světlý",
+                blue: "Modrý",
+                purple: "Fialový",
+
+                preferencesTitle: "🛠 Předvolby",
+                showWelcome: "Zobrazovat uvítací zprávu",
+                animations: "Povolit animace tlačítek a stránek",
+
+                saveButton: "💾 Uložit nastavení",
+                resetButton: "↺ Obnovit nastavení",
+                backButton: "Zpět",
+
+                copyright:
+                    "© 2026 GenAlpha Workbooks. Všechna práva vyhrazena.",
+                motto: "Uč se • Tvoř • Objevuj",
+
+                saved: "✓ Nastavení bylo úspěšně uloženo!",
+                saveError:
+                    "Nastavení nelze uložit v tomto prohlížeči.",
+                resetConfirm:
+                    "Opravdu chcete obnovit všechna nastavení složky?",
+                resetSuccess:
+                    "✓ Nastavení bylo obnoveno.",
+                resetError:
+                    "Nastavení nelze obnovit.",
+                resetUnavailable:
+                    "Nastavení nelze obnovit v tomto prohlížeči."
+            }
+
+        };
+
+        const language =
+            localStorage.getItem("gaworkbooksLanguage") || "en";
+
+        const currentLanguage =
+            translations[language] ? language : "en";
+
+        document.documentElement.lang = currentLanguage;
+
+        function translatePage() {
+
+            document.querySelectorAll("[data-translate]").forEach(element => {
+
+                const key = element.dataset.translate;
+
+                if (translations[currentLanguage][key]) {
+                    element.textContent =
+                        translations[currentLanguage][key];
+                }
+
+            });
+
+        }
+
+        function t(key) {
+            return translations[currentLanguage][key] ||
+                   translations.en[key] ||
+                   key;
+        }
+
+        translatePage();
+
+
+        /* ==========================
+           SETTINGS FUNCTIONALITY
+        ========================== */
 
         const folderName = document.getElementById("folderName");
         const appearance = document.getElementById("appearance");
@@ -580,9 +665,6 @@
 
         const STORAGE_KEY = "gaw_children_folder_settings";
 
-
-        // Default settings
-
         const defaultSettings = {
             folderName: "My Children's Folder",
             appearance: "light",
@@ -591,7 +673,7 @@
         };
 
 
-        // Load saved settings
+        /* Load saved settings */
 
         function loadSettings() {
 
@@ -622,7 +704,7 @@
         }
 
 
-        // Save settings
+        /* Save settings */
 
         function saveSettings() {
 
@@ -646,16 +728,12 @@
                     JSON.stringify(settings)
                 );
 
-                statusMessage.textContent =
-                    "✓ Your settings have been saved!";
-
+                statusMessage.textContent = t("saved");
                 statusMessage.style.color = "#16803d";
 
             } catch (error) {
 
-                statusMessage.textContent =
-                    "Unable to save settings in this browser.";
-
+                statusMessage.textContent = t("saveError");
                 statusMessage.style.color = "#d32f2f";
 
             }
@@ -663,13 +741,11 @@
         }
 
 
-        // Reset settings
+        /* Reset settings */
 
         function resetSettings() {
 
-            const confirmed = confirm(
-                "Are you sure you want to reset all folder settings?"
-            );
+            const confirmed = confirm(t("resetConfirm"));
 
             if (!confirmed) {
                 return;
@@ -681,43 +757,40 @@
 
             } catch (error) {
 
-                statusMessage.textContent =
-                    "Unable to reset settings.";
-
+                statusMessage.textContent = t("resetError");
                 statusMessage.style.color = "#d32f2f";
-
                 return;
 
             }
 
             loadSettings();
 
-            statusMessage.textContent =
-                "✓ Settings have been reset.";
-
+            statusMessage.textContent = t("resetSuccess");
             statusMessage.style.color = "#16803d";
 
         }
 
 
-        // Save button
+        /* Save button */
 
         document.getElementById("saveButton")
             .addEventListener("click", saveSettings);
 
 
-        // Reset button
+        /* Reset button */
 
         document.getElementById("resetButton")
             .addEventListener("click", resetSettings);
 
 
-        // Load settings when page opens
+        /* Load settings when page opens */
 
         loadSettings();
 
 
-        // Page transitions
+        /* ==========================
+           PAGE TRANSITIONS
+        ========================== */
 
         document.querySelectorAll('a[href]').forEach(function(link) {
 

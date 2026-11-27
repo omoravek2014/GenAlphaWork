@@ -14,134 +14,366 @@
         }
 
         body {
-            background-color: #117f85;
-            font-family: 'Times New Roman', serif;
             margin: 0;
-            color: white;
+            font-family: 'Trebuchet MS', Arial, sans-serif;
+            background-color: #eaf4ff;
+            color: #263653;
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.35s ease, transform 0.35s ease;
         }
 
-        /* Header box */
+        body.page-leaving {
+            opacity: 0;
+            transform: translateY(12px);
+        }
+
+        /* Header */
 
         header {
-            background-color: #054c99;
-            color: white;
-            text-align: center;
-            padding: 60px 20px;
+            background-color: white;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.06);
         }
 
-        header h1 {
-            font-size: 45px;
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #2878e8;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        nav a {
+            display: inline-block;
+            text-decoration: none;
+            color: #344563;
+            font-weight: bold;
+            padding: 10px 15px;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #e4f1ff;
+            color: #2878e8;
+            transform: translateY(-3px);
+        }
+
+        /* Hero */
+
+        .hero {
+            background: linear-gradient(135deg, #2878e8, #67c8ff, #7587ff);
+            color: white;
+            text-align: center;
+            padding: 85px 20px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin: 0 0 20px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 750px;
+            margin: auto;
+            line-height: 1.7;
         }
 
         /* Main layout */
 
         .container {
-            display: flex;
+            max-width: 1200px;
+            margin: 45px auto;
             padding: 20px;
-            gap: 20px;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 25px;
         }
 
-        /* Side box */
+        /* Sidebar */
 
         aside {
-            background-color: #131c57;
-            padding: 30px;
-            flex: 1;
-            min-width: 250px;
-            border-radius: 12px;
-        }
-
-        /* Main content box */
-
-        main {
-            background-color: #09019e;
+            background: linear-gradient(160deg, #123f91, #131c57);
+            color: white;
             padding: 35px;
-            flex: 2;
-            min-width: 280px;
-            border-radius: 12px;
+            border-radius: 22px;
+            box-shadow: 0 8px 20px rgba(19,28,87,0.15);
         }
 
-        main p {
-            font-size: 21px;
-            line-height: 1.7;
+        aside h2 {
+            font-size: 28px;
+            margin-top: 0;
         }
 
         aside p {
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        .aside-icon {
+            font-size: 55px;
+            margin-bottom: 15px;
+        }
+
+        /* Main card */
+
+        main {
+            background-color: white;
+            padding: 40px;
+            border-radius: 22px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+        }
+
+        main h2 {
+            color: #2878e8;
+            font-size: 32px;
+            margin-top: 0;
+        }
+
+        main p {
             font-size: 19px;
-            line-height: 1.6;
+            line-height: 1.9;
+            color: #465672;
+        }
+
+        /* Mission card */
+
+        .mission {
+            margin-top: 30px;
+            background-color: #f0f7ff;
+            border-left: 6px solid #2878e8;
+            padding: 25px;
+            border-radius: 14px;
+        }
+
+        .mission h3 {
+            color: #2878e8;
+            font-size: 24px;
+            margin-top: 0;
+        }
+
+        .mission p {
+            font-size: 18px;
+            margin-bottom: 0;
+        }
+
+        /* Feature cards */
+
+        .features {
+            max-width: 1200px;
+            margin: 10px auto 50px;
+            padding: 20px;
+        }
+
+        .features-title {
+            text-align: center;
+            font-size: 35px;
+            color: #2878e8;
+            margin-bottom: 30px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .feature-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 5px 16px rgba(0,0,0,0.06);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 12px 25px rgba(40,120,232,0.12);
+        }
+
+        .feature-card h3 {
+            color: #2878e8;
+            font-size: 23px;
+        }
+
+        .feature-card p {
+            font-size: 17px;
+            line-height: 1.7;
+            color: #64748b;
+        }
+
+        .feature-icon {
+            font-size: 48px;
         }
 
         /* Buttons */
 
         .button {
             display: inline-block;
-            font-size: 22px;
-            font-family: 'Times New Roman', serif;
-            color: white;
             text-decoration: none;
-            border-radius: 9px;
-            padding: 12px 20px;
-            margin: 10px 5px;
-            transition: 0.3s;
+            border: none;
+            border-radius: 12px;
+            padding: 15px 24px;
+            margin: 12px 8px 0 0;
+            font-size: 17px;
+            font-weight: bold;
+            font-family: 'Trebuchet MS', Arial, sans-serif;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.25s ease,
+                        background-color 0.25s ease,
+                        box-shadow 0.25s ease;
         }
 
         .learn-more {
-            background-color: rgb(0, 255, 34);
+            background-color: #16a34a;
         }
 
         .learn-more:hover {
-            background-color: rgb(0, 200, 25);
+            background-color: #15803d;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(22,163,74,0.25);
         }
 
         .back-button {
-            background-color: rgb(196, 22, 22);
+            background-color: #6c63ff;
         }
 
         .back-button:hover {
-            background-color: rgb(150, 15, 15);
+            background-color: #5146d8;
+            transform: translateY(-3px);
+        }
+
+        /* Button press animation */
+
+        @keyframes buttonPress {
+            0% { transform: scale(1); }
+            40% { transform: scale(0.90); }
+            75% { transform: scale(1.06); }
+            100% { transform: scale(1); }
+        }
+
+        a.is-pressed {
+            animation: buttonPress 0.32s ease;
         }
 
         /* Footer */
 
         footer {
-            background-color: #05156e;
+            background-color: #263653;
             color: white;
             text-align: center;
-            padding: 35px;
-            margin-top: 20px;
+            padding: 35px 20px;
+            margin-top: 30px;
         }
 
         footer p {
-            font-size: 18px;
+            font-size: 17px;
+            line-height: 1.7;
         }
 
-        /* Mobile compatibility */
+        footer a {
+            display: inline-block;
+            color: #ffdc58;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: 0.25s;
+        }
 
-        @media (max-width: 700px) {
+        footer a:hover {
+            color: white;
+            transform: translateY(-2px);
+            text-decoration: underline;
+        }
 
-            header {
-                padding: 35px 15px;
+        /* Mobile */
+
+        @media (max-width: 850px) {
+
+            .container {
+                grid-template-columns: 1fr;
             }
 
-            header h1 {
-                font-size: 32px;
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+        @media (max-width: 650px) {
+
+            header {
+                justify-content: center;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            .hero {
+                padding: 55px 20px;
+            }
+
+            .hero h1 {
+                font-size: 35px;
+            }
+
+            .hero p {
+                font-size: 18px;
             }
 
             .container {
-                flex-direction: column;
+                margin: 20px auto;
+                padding: 12px;
             }
 
             aside, main {
-                width: 100%;
+                padding: 25px;
+            }
+
+            main h2 {
+                font-size: 27px;
             }
 
             main p {
-                font-size: 18px;
+                font-size: 17px;
+            }
+
+            .features {
+                padding: 12px;
+            }
+
+            .features-title {
+                font-size: 29px;
             }
 
             .button {
-                font-size: 18px;
+                font-size: 16px;
+            }
+
+        }
+
+        /* Accessibility */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
             }
 
         }
@@ -155,21 +387,45 @@
     <!-- Header -->
 
     <header>
-        <h1>ABOUT OUR BUSINESS</h1>
+
+        <div class="logo">
+            📚 GenAlpha Workbooks
+        </div>
+
     </header>
 
 
-    <!-- Main layout -->
+    <!-- Hero -->
+
+    <section class="hero">
+
+        <h1 data-translate="heroTitle">
+            About GenAlpha Workbooks
+        </h1>
+
+        <p data-translate="heroDescription">
+            Discover who we are, what we do and
+            why we believe learning matters.
+        </p>
+
+    </section>
+
+
+    <!-- Main content -->
 
     <div class="container">
 
-        <!-- Side box -->
+        <!-- Sidebar -->
 
         <aside>
 
-            <h2>GenAlpha Workbooks</h2>
+            <div class="aside-icon">📚</div>
 
-            <p>
+            <h2 data-translate="sideTitle">
+                GenAlpha Workbooks
+            </h2>
+
+            <p data-translate="sideDescription">
                 Learn more about our business,
                 our goals and our mission.
             </p>
@@ -177,13 +433,15 @@
         </aside>
 
 
-        <!-- Main content -->
+        <!-- Main section -->
 
         <main>
 
-            <h2>Who Are We?</h2>
+            <h2 data-translate="whoTitle">
+                Who Are We?
+            </h2>
 
-            <p>
+            <p data-translate="whoDescription">
                 This is our first helpful webpage. We are here to
                 encourage children born in Gen Alpha to learn more
                 and focus on their studies. Our business was made
@@ -195,29 +453,307 @@
                 2000$ for the treatment.
             </p>
 
-            <a href="learnmore.about.html" class="button learn-more">
-                Learn More About GenAlpha Co.
-            </a>
+            <div class="mission">
 
-            <a href="index.html" class="button back-button">
-                Back to homescreen
-            </a>
+                <h3 data-translate="missionTitle">
+                    🎯 Our Mission
+                </h3>
+
+                <p data-translate="missionDescription">
+                    Our goal is to encourage children to discover,
+                    learn, create and improve their knowledge
+                    through educational resources.
+                </p>
+
+            </div>
+
+            <div style="text-align: center; margin-top: 25px;">
+
+                <a
+                    href="./learnmore.about.html"
+                    class="button learn-more"
+                    data-translate="learnMore"
+                >
+                    Learn More About GenAlpha Co.
+                </a>
+
+                <a
+                    href="./index.html"
+                    class="button back-button"
+                    data-translate="back"
+                >
+                    Back to Home
+                </a>
+
+            </div>
 
         </main>
 
     </div>
 
 
+    <!-- Features -->
+
+    <section class="features">
+
+        <h2 class="features-title" data-translate="featuresTitle">
+            What We Offer
+        </h2>
+
+        <div class="feature-grid">
+
+            <div class="feature-card">
+
+                <div class="feature-icon">📖</div>
+
+                <h3 data-translate="feature1Title">
+                    Learning
+                </h3>
+
+                <p data-translate="feature1Description">
+                    Explore educational content and
+                    discover new things.
+                </p>
+
+            </div>
+
+            <div class="feature-card">
+
+                <div class="feature-icon">🎨</div>
+
+                <h3 data-translate="feature2Title">
+                    Creativity
+                </h3>
+
+                <p data-translate="feature2Description">
+                    Encourage imagination, curiosity
+                    and creative thinking.
+                </p>
+
+            </div>
+
+            <div class="feature-card">
+
+                <div class="feature-icon">🌟</div>
+
+                <h3 data-translate="feature3Title">
+                    Discovery
+                </h3>
+
+                <p data-translate="feature3Description">
+                    Discover opportunities to grow,
+                    explore and improve.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
     <!-- Footer -->
 
     <footer>
 
-        <p>
+        <p data-translate="copyright">
             &copy; 2026 GenAlpha Workbooks.
             All rights reserved.
         </p>
 
+        <p data-translate="motto">
+            Learn • Create • Discover
+        </p>
+
     </footer>
+
+    <!-- Language system -->
+
+    <script>
+
+        const translations = {
+
+            en: {
+
+                home: "Home",
+                faq: "FAQ",
+                login: "Log In",
+
+                heroTitle: "About GenAlpha Workbooks",
+                heroDescription:
+                    "Discover who we are, what we do and why we believe learning matters.",
+
+                sideTitle: "GenAlpha Workbooks",
+                sideDescription:
+                    "Learn more about our business, our goals and our mission.",
+
+                whoTitle: "Who Are We?",
+                whoDescription:
+                    "This is our first helpful webpage. We are here to encourage children born in Gen Alpha to learn more and focus on their studies. Our business was made in 2016 in Úholičky by a famous 12 year old Ing. Tung Tung Sahurr. To this day, we are still offering some cash for the cure of the Tungsahur disease. Don't worry! We will take care of your child as soon as possible! We will offer you 2000$ for the treatment.",
+
+                missionTitle: "🎯 Our Mission",
+                missionDescription:
+                    "Our goal is to encourage children to discover, learn, create and improve their knowledge through educational resources.",
+
+                learnMore: "Learn More About GenAlpha Co.",
+                back: "Back to Home",
+
+                featuresTitle: "What We Offer",
+
+                feature1Title: "Learning",
+                feature1Description:
+                    "Explore educational content and discover new things.",
+
+                feature2Title: "Creativity",
+                feature2Description:
+                    "Encourage imagination, curiosity and creative thinking.",
+
+                feature3Title: "Discovery",
+                feature3Description:
+                    "Discover opportunities to grow, explore and improve.",
+
+                copyright:
+                    "© 2026 GenAlpha Workbooks. All rights reserved.",
+                motto: "Learn • Create • Discover"
+
+            },
+
+            cs: {
+
+                home: "Domů",
+                faq: "FAQ",
+                login: "Přihlásit se",
+
+                heroTitle: "O GenAlpha Workbooks",
+                heroDescription:
+                    "Zjistěte, kdo jsme, co děláme a proč věříme, že vzdělávání je důležité.",
+
+                sideTitle: "GenAlpha Workbooks",
+                sideDescription:
+                    "Zjistěte více o našem podnikání, cílech a poslání.",
+
+                whoTitle: "Kdo jsme?",
+                whoDescription:
+                    "Toto je naše první užitečná webová stránka. Jsme zde, abychom povzbuzovali děti narozené v generaci Alpha k dalšímu vzdělávání a soustředění na studium. Naše podnikání vzniklo v roce 2016 v Úholičkách díky slavnému dvanáctiletému Ing. Tung Tung Sahurr. Dodnes nabízíme určité finanční prostředky na léčbu nemoci Tungsahur. Nemusíte se obávat! O vaše dítě se postaráme co nejdříve! Nabídneme vám 2000 dolarů na léčbu.",
+
+                missionTitle: "🎯 Naše poslání",
+                missionDescription:
+                    "Naším cílem je povzbuzovat děti k objevování, učení, tvoření a rozšiřování znalostí prostřednictvím vzdělávacích materiálů.",
+
+                learnMore: "Zjistit více o GenAlpha Co.",
+                back: "Zpět na domovskou stránku",
+
+                featuresTitle: "Co nabízíme",
+
+                feature1Title: "Vzdělávání",
+                feature1Description:
+                    "Prozkoumávejte vzdělávací obsah a objevujte nové věci.",
+
+                feature2Title: "Kreativita",
+                feature2Description:
+                    "Podporujte představivost, zvídavost a kreativní myšlení.",
+
+                feature3Title: "Objevování",
+                feature3Description:
+                    "Objevujte příležitosti k růstu, poznávání a zlepšování.",
+
+                copyright:
+                    "© 2026 GenAlpha Workbooks. Všechna práva vyhrazena.",
+                motto: "Uč se • Tvoř • Objevuj"
+
+            }
+
+        };
+
+
+        /* Read language from homepage */
+
+        const language =
+            localStorage.getItem("gaworkbooksLanguage") || "en";
+
+        const currentLanguage =
+            translations[language] ? language : "en";
+
+        document.documentElement.lang = currentLanguage;
+
+
+        /* Translate the page */
+
+        document.querySelectorAll("[data-translate]").forEach(element => {
+
+            const key = element.dataset.translate;
+
+            if (translations[currentLanguage][key]) {
+                element.textContent =
+                    translations[currentLanguage][key];
+            }
+
+        });
+
+
+        /* Page transitions */
+
+        document.querySelectorAll('a[href]').forEach(function(link) {
+
+            link.addEventListener('click', function(event) {
+
+                if (
+                    event.button !== 0 ||
+                    event.ctrlKey ||
+                    event.shiftKey ||
+                    event.altKey ||
+                    event.metaKey ||
+                    link.target ||
+                    link.hasAttribute('download')
+                ) {
+                    return;
+                }
+
+                const destination = new URL(
+                    link.href,
+                    window.location.href
+                );
+
+                if (destination.origin !== window.location.origin) {
+                    return;
+                }
+
+                const href = link.getAttribute('href');
+
+                if (
+                    !href ||
+                    href.startsWith('#') ||
+                    (
+                        destination.pathname === window.location.pathname &&
+                        destination.hash
+                    )
+                ) {
+                    return;
+                }
+
+                event.preventDefault();
+
+                link.classList.add('is-pressed');
+
+                document.body.classList.add('page-leaving');
+
+                const prefersReducedMotion = window.matchMedia(
+                    '(prefers-reduced-motion: reduce)'
+                ).matches;
+
+                const delay = prefersReducedMotion ? 0 : 320;
+
+                setTimeout(function() {
+
+                    window.location.assign(destination.href);
+
+                }, delay);
+
+            });
+
+        });
+
+    </script>
 
 </body>
 

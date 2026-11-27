@@ -355,6 +355,7 @@
         /* Mobile */
 
         @media (max-width: 650px) {
+
             header {
                 justify-content: center;
             }
@@ -388,6 +389,7 @@
         /* Accessibility */
 
         @media (prefers-reduced-motion: reduce) {
+
             *,
             *::before,
             *::after {
@@ -410,9 +412,9 @@
         </div>
 
         <nav>
-            <a href="./about.html">About Us</a>
-            <a href="./faq.html">FAQ</a>
-            <a href="./loginbackend.html">Log In</a>
+            <a href="./about.html" data-translate="about">About Us</a>
+            <a href="./faq.html" data-translate="faq">FAQ</a>
+            <a href="./loginbackend.html" data-translate="login">Log In</a>
         </nav>
 
     </header>
@@ -423,7 +425,7 @@
 
         <h1 id="folderTitle">My Children's Folder 📁</h1>
 
-        <p>
+        <p data-translate="heroDescription">
             Your personal space for organizing
             educational materials and activities.
         </p>
@@ -442,7 +444,7 @@
                     Welcome to Your Folder!
                 </h2>
 
-                <p class="description">
+                <p class="description" data-translate="welcomeDescription">
                     This is your personal Children's Folder.
                     You can use this space to organize your
                     educational content and manage your materials.
@@ -458,13 +460,13 @@
                     📚 Your Children's Folder
                 </h3>
 
-                <p>
+                <p data-translate="folderInfoText1">
                     Here you can add children and manage their
                     educational materials. You can also customize
                     the folder settings to suit your preferences.
                 </p>
 
-                <p>
+                <p data-translate="folderInfoText2">
                     Use the buttons below to add a child,
                     access folder settings, or return to the main page.
                 </p>
@@ -479,14 +481,16 @@
                     📂
                 </div>
 
-                <h3>Your Folder Is Ready!</h3>
+                <h3 data-translate="emptyHeading">
+                    Your Folder Is Ready!
+                </h3>
 
-                <p>
+                <p data-translate="emptyText1">
                     You haven't added any children yet.
                     Once you do, their names will appear here.
                 </p>
 
-                <p>
+                <p data-translate="emptyText2">
                     Start by adding your first child!
                 </p>
 
@@ -500,7 +504,9 @@
                 hidden
             >
 
-                <h2>Your Children 👧👦</h2>
+                <h2 data-translate="childrenHeading">
+                    Your Children 👧👦
+                </h2>
 
                 <p class="description" id="childrenCount"></p>
 
@@ -515,18 +521,21 @@
 
             <div style="text-align: center; margin-top: 25px;">
 
-                <a href="./add.html" class="button add-button">
+                <a href="./add.html" class="button add-button"
+                   data-translate="addChild">
                     + Add Child
                 </a>
 
                 <a
                     href="./settingsforchildrensfolder.html"
                     class="button settings-button"
+                    data-translate="options"
                 >
                     ⚙ Options
                 </a>
 
-                <a href="./index.html" class="button back-button">
+                <a href="./index.html" class="button back-button"
+                   data-translate="back">
                     Back
                 </a>
 
@@ -546,31 +555,33 @@
 
     <footer>
 
-        <p>
+        <p data-translate="footerCopyright">
             &copy; 2026 GenAlpha Workbooks.
             All rights reserved.
         </p>
 
         <p>
-            <a href="./about.html">About Us</a>
+            <a href="./about.html" data-translate="about">About Us</a>
             |
-            <a href="./faq.html">FAQ</a>
+            <a href="./faq.html" data-translate="faq">FAQ</a>
             |
-            <a href="./loginbackend.html">Log In</a>
+            <a href="./loginbackend.html" data-translate="login">Log In</a>
         </p>
 
-        <p>
+        <p data-translate="footerSlogan">
             Learn • Create • Discover
         </p>
 
     </footer>
 
-    <!-- Folder functionality -->
+
+    <!-- Folder functionality and language system -->
 
     <script>
 
         const SETTINGS_KEY = "gaw_children_folder_settings";
         const CHILDREN_KEY = "gaw_children_folder_children";
+        const LANGUAGE_KEY = "gaworkbooksLanguage";
 
         const defaultSettings = {
             folderName: "My Children's Folder",
@@ -579,7 +590,216 @@
             animations: true
         };
 
-        // Read saved settings
+
+        /* Translation dictionary */
+
+        const translations = {
+
+            en: {
+
+                about: "About Us",
+                faq: "FAQ",
+                login: "Log In",
+
+                heroDescription:
+                    "Your personal space for organizing educational materials and activities.",
+
+                welcomeHeading: "Welcome to Your Folder!",
+                welcomeDescription:
+                    "This is your personal Children's Folder. You can use this space to organize your educational content and manage your materials.",
+
+                folderInfoHeading: "📚 Your Children's Folder",
+
+                folderInfoText1:
+                    "Here you can add children and manage their educational materials. You can also customize the folder settings to suit your preferences.",
+
+                folderInfoText2:
+                    "Use the buttons below to add a child, access folder settings, or return to the main page.",
+
+                emptyHeading: "Your Folder Is Ready!",
+
+                emptyText1:
+                    "You haven't added any children yet. Once you do, their names will appear here.",
+
+                emptyText2:
+                    "Start by adding your first child!",
+
+                childrenHeading: "Your Children 👧👦",
+
+                addChild: "+ Add Child",
+                options: "⚙ Options",
+                back: "Back",
+
+                remove: "Remove",
+
+                footerCopyright:
+                    "© 2026 GenAlpha Workbooks. All rights reserved.",
+
+                footerSlogan:
+                    "Learn • Create • Discover",
+
+                childCountOne:
+                    "You have added 1 child to your folder.",
+
+                childCountMany:
+                    "You have added {count} children to your folder.",
+
+                removeConfirm:
+                    "Are you sure you want to remove {name} from your folder?",
+
+                removed:
+                    "✓ {name} has been removed.",
+
+                removeError:
+                    "Unable to remove this child.",
+
+                folderNameDefault:
+                    "My Children's Folder",
+
+                welcomeCustom:
+                    "Welcome to {name}!",
+
+                folderNameHeading:
+                    "📚 {name}"
+
+            },
+
+
+            cs: {
+
+                about: "O nás",
+                faq: "FAQ",
+                login: "Přihlásit se",
+
+                heroDescription:
+                    "Vaše osobní místo pro organizování vzdělávacích materiálů a aktivit.",
+
+                welcomeHeading:
+                    "Vítejte ve své složce!",
+
+                welcomeDescription:
+                    "Toto je vaše osobní složka pro děti. Můžete zde organizovat vzdělávací obsah a spravovat své materiály.",
+
+                folderInfoHeading:
+                    "📚 Vaše dětská složka",
+
+                folderInfoText1:
+                    "Zde můžete přidávat děti a spravovat jejich vzdělávací materiály. Můžete také upravit nastavení složky podle svých preferencí.",
+
+                folderInfoText2:
+                    "Pomocí tlačítek níže můžete přidat dítě, otevřít nastavení složky nebo se vrátit na hlavní stránku.",
+
+                emptyHeading:
+                    "Vaše složka je připravena!",
+
+                emptyText1:
+                    "Zatím jste nepřidali žádné děti. Jakmile je přidáte, jejich jména se zde zobrazí.",
+
+                emptyText2:
+                    "Začněte přidáním prvního dítěte!",
+
+                childrenHeading:
+                    "Vaše děti 👧👦",
+
+                addChild:
+                    "+ Přidat dítě",
+
+                options:
+                    "⚙ Nastavení",
+
+                back:
+                    "Zpět",
+
+                remove:
+                    "Odstranit",
+
+                footerCopyright:
+                    "© 2026 GenAlpha Workbooks. Všechna práva vyhrazena.",
+
+                footerSlogan:
+                    "Uč se • Tvoř • Objevuj",
+
+                childCountOne:
+                    "Do své složky jste přidali 1 dítě.",
+
+                childCountMany:
+                    "Do své složky jste přidali {count} dětí.",
+
+                removeConfirm:
+                    "Opravdu chcete odstranit {name} ze své složky?",
+
+                removed:
+                    "✓ {name} byl/a odstraněn/a.",
+
+                removeError:
+                    "Dítě se nepodařilo odstranit.",
+
+                folderNameDefault:
+                    "Moje dětská složka",
+
+                welcomeCustom:
+                    "Vítejte ve složce {name}!",
+
+                folderNameHeading:
+                    "📚 {name}"
+
+            }
+
+        };
+
+
+        /* Get the current language */
+
+        function getLanguage() {
+
+            const savedLanguage =
+                localStorage.getItem(LANGUAGE_KEY);
+
+            return savedLanguage === "cs" ? "cs" : "en";
+
+        }
+
+
+        /* Translation helper */
+
+        function translate(key) {
+
+            const language = getLanguage();
+
+            return translations[language][key] ||
+                   translations.en[key] ||
+                   key;
+
+        }
+
+
+        /* Apply static translations */
+
+        function applyLanguage() {
+
+            const language = getLanguage();
+            const dictionary = translations[language];
+
+            document.querySelectorAll("[data-translate]")
+                .forEach(function(element) {
+
+                    const key = element.dataset.translate;
+
+                    if (dictionary[key]) {
+                        element.textContent = dictionary[key];
+                    }
+
+                });
+
+            document.documentElement.lang = language;
+
+            applySettings();
+            renderChildren();
+
+        }
+
+
+        /* Read saved settings */
 
         function getSettings() {
 
@@ -604,27 +824,40 @@
 
         }
 
-        // Apply folder settings
+
+        /* Apply folder settings */
 
         function applySettings() {
 
             const settings = getSettings();
+            const language = getLanguage();
 
-            const name = typeof settings.folderName === "string" &&
-                         settings.folderName.trim()
+            let name = typeof settings.folderName === "string" &&
+                       settings.folderName.trim()
                 ? settings.folderName.trim()
                 : defaultSettings.folderName;
+
+            /* Translate the default folder name */
+
+            if (name === defaultSettings.folderName) {
+
+                name = translations[language].folderNameDefault;
+
+            }
 
             document.getElementById("folderTitle").textContent =
                 name + " 📁";
 
             document.getElementById("folderInfoHeading").textContent =
-                "📚 " + name;
+                translations[language].folderNameHeading
+                    .replace("{name}", name);
 
             document.getElementById("welcomeHeading").textContent =
-                "Welcome to " + name + "!";
+                translations[language].welcomeCustom
+                    .replace("{name}", name);
 
-            document.title = "GenAlpha Workbooks | " + name;
+            document.title =
+                "GenAlpha Workbooks | " + name;
 
             document.getElementById("welcomeSection").hidden =
                 settings.showWelcome === false;
@@ -650,7 +883,8 @@
 
         }
 
-        // Read saved children
+
+        /* Read saved children */
 
         function getChildren() {
 
@@ -669,9 +903,11 @@
                 }
 
                 return children.filter(function(child) {
+
                     return child &&
                            typeof child.id === "string" &&
                            typeof child.name === "string";
+
                 });
 
             } catch (error) {
@@ -684,13 +920,16 @@
 
         }
 
-        // Display children
+
+        /* Display children */
 
         function renderChildren() {
 
             const children = getChildren();
 
-            const emptyFolder = document.getElementById("emptyFolder");
+            const emptyFolder =
+                document.getElementById("emptyFolder");
+
             const childrenSection =
                 document.getElementById("childrenSection");
 
@@ -714,11 +953,20 @@
             emptyFolder.hidden = true;
             childrenSection.hidden = false;
 
-            childrenCount.textContent =
-                children.length === 1
-                    ? "You have added 1 child to your folder."
-                    : "You have added " + children.length +
-                      " children to your folder.";
+            const language = getLanguage();
+
+            if (children.length === 1) {
+
+                childrenCount.textContent =
+                    translations[language].childCountOne;
+
+            } else {
+
+                childrenCount.textContent =
+                    translations[language].childCountMany
+                        .replace("{count}", children.length);
+
+            }
 
             children.forEach(function(child) {
 
@@ -737,14 +985,20 @@
 
                 nameContainer.append(icon, name);
 
-                const removeButton = document.createElement("button");
+                const removeButton =
+                    document.createElement("button");
+
                 removeButton.type = "button";
                 removeButton.className = "remove-button";
-                removeButton.textContent = "Remove";
+                removeButton.textContent =
+                    translations[language].remove;
+
                 removeButton.dataset.childId = child.id;
+
                 removeButton.setAttribute(
                     "aria-label",
-                    "Remove " + child.name
+                    translations[language].remove +
+                    " " + child.name
                 );
 
                 card.append(nameContainer, removeButton);
@@ -755,12 +1009,14 @@
 
         }
 
-        // Remove a child
+
+        /* Remove a child */
 
         document.getElementById("childrenList")
             .addEventListener("click", function(event) {
 
-                const button = event.target.closest(".remove-button");
+                const button =
+                    event.target.closest(".remove-button");
 
                 if (!button) {
                     return;
@@ -770,25 +1026,32 @@
                 const children = getChildren();
 
                 const child = children.find(function(item) {
+
                     return item.id === childId;
+
                 });
 
                 if (!child) {
                     return;
                 }
 
+                const language = getLanguage();
+
                 const confirmed = confirm(
-                    "Are you sure you want to remove " +
-                    child.name + " from your folder?"
+                    translations[language].removeConfirm
+                        .replace("{name}", child.name)
                 );
 
                 if (!confirmed) {
                     return;
                 }
 
-                const updatedChildren = children.filter(function(item) {
-                    return item.id !== childId;
-                });
+                const updatedChildren =
+                    children.filter(function(item) {
+
+                        return item.id !== childId;
+
+                    });
 
                 try {
 
@@ -797,27 +1060,31 @@
                         JSON.stringify(updatedChildren)
                     );
 
-                    document.getElementById("folderStatus").textContent =
-                        "✓ " + child.name + " has been removed.";
+                    document.getElementById("folderStatus")
+                        .textContent =
+                        translations[language].removed
+                            .replace("{name}", child.name);
 
-                    document.getElementById("folderStatus").style.color =
-                        "#16803d";
+                    document.getElementById("folderStatus")
+                        .style.color = "#16803d";
 
                     renderChildren();
 
                 } catch (error) {
 
-                    document.getElementById("folderStatus").textContent =
-                        "Unable to remove this child.";
+                    document.getElementById("folderStatus")
+                        .textContent =
+                        translations[language].removeError;
 
-                    document.getElementById("folderStatus").style.color =
-                        "#d32f2f";
+                    document.getElementById("folderStatus")
+                        .style.color = "#d32f2f";
 
                 }
 
             });
 
-        // Update the folder if another tab changes its children
+
+        /* Update folder when another tab changes data */
 
         window.addEventListener("storage", function(event) {
 
@@ -829,55 +1096,73 @@
                 applySettings();
             }
 
+            if (event.key === LANGUAGE_KEY) {
+                applyLanguage();
+            }
+
         });
 
-        // Page transitions
 
-        document.querySelectorAll('a[href]').forEach(function(link) {
+        /* Page transitions */
 
-            link.addEventListener("click", function(event) {
+        document.querySelectorAll('a[href]')
+            .forEach(function(link) {
 
-                if (
-                    event.button !== 0 ||
-                    event.ctrlKey ||
-                    event.shiftKey ||
-                    event.altKey ||
-                    event.metaKey ||
-                    link.target ||
-                    link.hasAttribute("download")
-                ) {
-                    return;
-                }
+                link.addEventListener("click", function(event) {
 
-                const destination = new URL(
-                    link.href,
-                    window.location.href
-                );
+                    if (
+                        event.button !== 0 ||
+                        event.ctrlKey ||
+                        event.shiftKey ||
+                        event.altKey ||
+                        event.metaKey ||
+                        link.target ||
+                        link.hasAttribute("download")
+                    ) {
+                        return;
+                    }
 
-                if (destination.origin !== window.location.origin) {
-                    return;
-                }
+                    const destination = new URL(
+                        link.href,
+                        window.location.href
+                    );
 
-                const animationsOff =
-                    document.body.classList.contains("animations-off");
+                    if (destination.origin !==
+                        window.location.origin) {
+                        return;
+                    }
 
-                event.preventDefault();
+                    const animationsOff =
+                        document.body.classList.contains(
+                            "animations-off"
+                        );
 
-                if (!animationsOff) {
-                    link.classList.add("is-pressed");
-                    document.body.classList.add("page-leaving");
-                }
+                    event.preventDefault();
 
-                setTimeout(function() {
-                    window.location.assign(destination.href);
-                }, animationsOff ? 0 : 320);
+                    if (!animationsOff) {
+
+                        link.classList.add("is-pressed");
+
+                        document.body.classList.add(
+                            "page-leaving"
+                        );
+
+                    }
+
+                    setTimeout(function() {
+
+                        window.location.assign(destination.href);
+
+                    }, animationsOff ? 0 : 320);
+
+                });
 
             });
 
-        });
 
-        // Start the folder
+        /* Start the folder */
 
+        applyLanguage();
         applySettings();
         renderChildren();
 

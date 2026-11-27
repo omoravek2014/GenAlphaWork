@@ -1,32 +1,697 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>gaaboutuspage.com</title>
-    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GenAlpha Workbooks | Report</title>
+
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            background-color: #12b4ff ;
-            font-family:Times New Roman;
-            font-size: larger;
             margin: 0;
-            text-align:center
+            font-family: 'Trebuchet MS', Arial, sans-serif;
+            background-color: #f4faff;
+            color: #263653;
+            opacity: 1;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        /* HEADER */
+
+        header {
+            background-color: white;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        header h1 {
+            color: #2878e8;
+            margin: 0;
+            font-size: 26px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #263653;
+            font-weight: bold;
+            margin-left: 15px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #2878e8;
+        }
+
+        /* HERO */
+
+        .hero {
+            text-align: center;
+            padding: 65px 20px 45px;
+        }
+
+        .hero h2 {
+            font-size: 42px;
+            color: #2878e8;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 17px;
+            color: #64748b;
+            max-width: 650px;
+            margin: auto;
+            line-height: 1.7;
+        }
+
+        /* REPORT CONTAINER */
+
+        .report-container {
+            max-width: 750px;
+            margin: 0 auto 60px;
+            padding: 0 20px;
+        }
+
+        .report-card {
+            background-color: white;
+            border-radius: 22px;
+            padding: 35px;
+            box-shadow: 0 8px 30px rgba(40, 120, 232, 0.10);
+            border: 1px solid #e4efff;
+            animation: fadeIn 0.6s ease;
+        }
+
+        .report-card h3 {
+            font-size: 25px;
+            color: #2878e8;
+            margin-top: 0;
+        }
+
+        .report-card p {
+            color: #64748b;
+            line-height: 1.7;
+        }
+
+        /* INFORMATION BOX */
+
+        .info-box {
+            background-color: #eef6ff;
+            border-left: 5px solid #2878e8;
+            border-radius: 12px;
+            padding: 18px;
+            margin: 25px 0;
+            line-height: 1.7;
+            color: #334e70;
+        }
+
+        .info-box strong {
+            color: #2878e8;
+        }
+
+        /* FORM */
+
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 9px;
+            font-weight: bold;
+            color: #263653;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid #dce8f7;
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 16px;
+            background-color: white;
+            color: #263653;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #2878e8;
+            box-shadow: 0 0 0 3px rgba(40, 120, 232, 0.12);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 170px;
+        }
+
+        /* SUBMIT BUTTON */
+
+        .submit-button {
+            width: 100%;
+            padding: 16px;
+            border: none;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #2878e8, #7587ff);
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            font-family: inherit;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 18px rgba(40, 120, 232, 0.25);
+        }
+
+        .submit-button:active {
+            transform: scale(0.97);
+        }
+
+        /* BACK BUTTON */
+
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 13px 25px;
+            background-color: #e8f4ff;
+            color: #2878e8;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: #d6eaff;
+            transform: translateY(-2px);
+        }
+
+        /* CONFIRMATION */
+
+        #confirmation {
+            display: none;
+            text-align: center;
+            margin-top: 25px;
+            padding: 20px;
+            border-radius: 14px;
+            background-color: #e8f9ee;
+            color: #15803d;
+            font-weight: bold;
+            line-height: 1.7;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background-color: #263653;
+            color: white;
+            text-align: center;
+            padding: 25px 20px;
+        }
+
+        footer p {
+            margin: 8px;
+        }
+
+        /* ANIMATIONS */
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        button {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 650px) {
+
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav a {
+                margin: 8px;
+                display: inline-block;
+            }
+
+            .hero h2 {
+                font-size: 32px;
+            }
+
+            .report-card {
+                padding: 23px;
+            }
+        }
+
+        /* REDUCED MOTION */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
 
         }
+
     </style>
+</head>
 
-<label for="message" style="font-size:x-large">Write your own improvement ideas/bugs that we could work on the next time:</label><br>
-<textarea id="message" style="font-size:larger" name="message" rows="8" cols="70" placeholder="Write your improvement ideas here..."></textarea>
+<body>
 
-<br>
+    <!-- HEADER -->
 
-<p style="color:aqua; font-size:larger"> Thanks to your improvement ideas, we'll be able to update things that need a rework. </p>
+    <header>
 
-<b style="font-size:x-large"> We will review your reports as soon as possible.</b>
-<br>
-<b style="color:rgb(255, 0, 0); font-size:larger;"> These bugs or errors won't happen again.</b>
-<br>
-<a href="index.html" style="text-decoration: none;">
-    <button style="font-size: 34px; background-color: rgb(202, 5, 5); font-family: 'Times New Roman'; color: white; border-radius: 9px;">
-        Back
-    </button>
-</a>
+        <h1>📚 GenAlpha Workbooks</h1>
+
+    </header>
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <h2 data-translate="title">🏴 Report a Problem</h2>
+
+        <p data-translate="subtitle">
+            Found a problem or something that needs our attention?
+            Let us know so we can improve GenAlpha Workbooks.
+        </p>
+
+    </section>
+
+    <!-- REPORT FORM -->
+
+    <main class="report-container">
+
+        <div class="report-card">
+
+            <h3 data-translate="formTitle">
+                Submit a Report 📝
+            </h3>
+
+            <p data-translate="formDescription">
+                Please describe the problem as clearly as possible
+                so it can be understood.
+            </p>
+
+            <!-- INFORMATION BOX -->
+
+            <div class="info-box">
+
+                <strong data-translate="infoTitle">
+                    ℹ️ Before submitting
+                </strong>
+
+                <p data-translate="infoText" style="margin-bottom: 0;">
+                    Please avoid including passwords, private information
+                    or sensitive personal details in your report.
+                </p>
+
+            </div>
+
+            <form id="reportForm">
+
+                <!-- NAME -->
+
+                <div class="form-group">
+
+                    <label for="name" data-translate="nameLabel">
+                        Name (optional)
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Enter your name"
+                        data-translate-placeholder="namePlaceholder">
+
+                </div>
+
+                <!-- CATEGORY -->
+
+                <div class="form-group">
+
+                    <label for="category" data-translate="categoryLabel">
+                        Report Category
+                    </label>
+
+                    <select id="category" name="category" required>
+
+                        <option value="" data-translate="categoryDefault">
+                            Choose a category
+                        </option>
+
+                        <option value="bug" data-translate="bug">
+                            🐛 Bug or Technical Problem
+                        </option>
+
+                        <option value="content" data-translate="content">
+                            📖 Workbook or Content Problem
+                        </option>
+
+                        <option value="inappropriate" data-translate="inappropriate">
+                            ⚠️ Inappropriate Content
+                        </option>
+
+                        <option value="security" data-translate="security">
+                            🔒 Privacy or Security Concern
+                        </option>
+
+                        <option value="other" data-translate="other">
+                            💬 Other Problem
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <!-- SUBJECT -->
+
+                <div class="form-group">
+
+                    <label for="subject" data-translate="subjectLabel">
+                        Subject
+                    </label>
+
+                    <input
+                        type="text"
+                        id="subject"
+                        name="subject"
+                        placeholder="Briefly describe the problem"
+                        data-translate-placeholder="subjectPlaceholder"
+                        required>
+
+                </div>
+
+                <!-- DESCRIPTION -->
+
+                <div class="form-group">
+
+                    <label for="message" data-translate="messageLabel">
+                        Problem Description
+                    </label>
+
+                    <textarea
+                        id="message"
+                        name="message"
+                        placeholder="Describe the problem here..."
+                        data-translate-placeholder="messagePlaceholder"
+                        required></textarea>
+
+                </div>
+
+                <!-- SUBMIT -->
+
+                <button
+                    type="submit"
+                    class="submit-button"
+                    data-translate="submit">
+
+                    🏴 Submit Report
+
+                </button>
+
+            </form>
+
+            <!-- CONFIRMATION -->
+
+            <div id="confirmation" role="status"></div>
+
+            <!-- BACK BUTTON -->
+
+            <div style="text-align: center;">
+
+                <a href="index.html"
+                    class="back-button"
+                    data-translate="back">
+
+                    ← Back to Home
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p data-translate="footer">
+            GenAlpha Workbooks | Learn • Create • Discover
+        </p>
+
+        <p>© 2026 GenAlpha Workbooks</p>
+
+    </footer>
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        /* TRANSLATIONS */
+
+        const translations = {
+
+            en: {
+
+                home: "Home",
+                about: "About Us",
+                faq: "FAQ",
+
+                title: "🏴 Report a Problem",
+
+                subtitle:
+                    "Found a problem or something that needs our attention? Let us know so we can improve GenAlpha Workbooks.",
+
+                formTitle: "Submit a Report 📝",
+
+                formDescription:
+                    "Please describe the problem as clearly as possible so it can be understood.",
+
+                infoTitle: "ℹ️ Before submitting",
+
+                infoText:
+                    "Please avoid including passwords, private information or sensitive personal details in your report.",
+
+                nameLabel: "Name (optional)",
+                namePlaceholder: "Enter your name",
+
+                categoryLabel: "Report Category",
+                categoryDefault: "Choose a category",
+
+                bug: "🐛 Bug or Technical Problem",
+                content: "📖 Workbook or Content Problem",
+                inappropriate: "⚠️ Inappropriate Content",
+                security: "🔒 Privacy or Security Concern",
+                other: "💬 Other Problem",
+
+                subjectLabel: "Subject",
+                subjectPlaceholder: "Briefly describe the problem",
+
+                messageLabel: "Problem Description",
+                messagePlaceholder: "Describe the problem here...",
+
+                submit: "🏴 Submit Report",
+
+                back: "← Back to Home",
+
+                confirmation:
+                    "Thank you for submitting your report! 💙 This confirmation does not mean your report has been delivered. The website needs a connected backend or reporting service to actually receive reports.",
+
+                footer:
+                    "GenAlpha Workbooks | Learn • Create • Discover"
+
+            },
+
+            cs: {
+
+                home: "Domů",
+                about: "O nás",
+                faq: "FAQ",
+
+                title: "🏴 Nahlásit problém",
+
+                subtitle:
+                    "Našel/našla jsi problém nebo něco, co vyžaduje naši pozornost? Dej nám vědět, abychom mohli GenAlpha Workbooks vylepšit.",
+
+                formTitle: "Odeslat hlášení 📝",
+
+                formDescription:
+                    "Popiš problém co nejjasněji, aby mu bylo možné porozumět.",
+
+                infoTitle: "ℹ️ Než odešleš hlášení",
+
+                infoText:
+                    "Do hlášení prosím nevkládej hesla, soukromé informace ani citlivé osobní údaje.",
+
+                nameLabel: "Jméno (nepovinné)",
+                namePlaceholder: "Zadej své jméno",
+
+                categoryLabel: "Kategorie hlášení",
+                categoryDefault: "Vyber kategorii",
+
+                bug: "🐛 Chyba nebo technický problém",
+                content: "📖 Problém s pracovním sešitem nebo obsahem",
+                inappropriate: "⚠️ Nevhodný obsah",
+                security: "🔒 Problém s ochranou soukromí nebo bezpečností",
+                other: "💬 Jiný problém",
+
+                subjectLabel: "Předmět",
+                subjectPlaceholder: "Stručně popiš problém",
+
+                messageLabel: "Popis problému",
+                messagePlaceholder: "Popiš problém zde...",
+
+                submit: "🏴 Odeslat hlášení",
+
+                back: "← Zpět na domovskou stránku",
+
+                confirmation:
+                    "Děkujeme za odeslání hlášení! 💙 Toto potvrzení neznamená, že bylo hlášení skutečně doručeno. Web potřebuje propojený backend nebo službu pro přijímání hlášení.",
+
+                footer:
+                    "GenAlpha Workbooks | Uč se • Tvoř • Objevuj"
+
+            }
+
+        };
+
+        /* APPLY LANGUAGE */
+
+        function applyLanguage(language) {
+
+            if (!translations[language]) {
+                language = "en";
+            }
+
+            const t = translations[language];
+
+            document.documentElement.lang = language;
+
+            document.querySelectorAll("[data-translate]").forEach(element => {
+
+                const key = element.dataset.translate;
+
+                if (t[key]) {
+                    element.textContent = t[key];
+                }
+
+            });
+
+            document.querySelectorAll("[data-translate-placeholder]").forEach(element => {
+
+                const key = element.dataset.translatePlaceholder;
+
+                if (t[key]) {
+                    element.placeholder = t[key];
+                }
+
+            });
+
+            window.currentLanguage = language;
+
+            document.getElementById("confirmation").textContent =
+                t.confirmation;
+
+        }
+
+        /* LOAD LANGUAGE */
+
+        const savedLanguage =
+            localStorage.getItem("gaworkbooksLanguage") || "en";
+
+        applyLanguage(savedLanguage);
+
+        /* FORM SUBMISSION */
+
+        document.getElementById("reportForm").addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            const confirmation =
+                document.getElementById("confirmation");
+
+            confirmation.style.display = "block";
+
+            confirmation.textContent =
+                translations[window.currentLanguage].confirmation;
+
+            confirmation.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+
+        });
+
+        /* PAGE TRANSITION */
+
+        document.querySelectorAll("a").forEach(link => {
+
+            link.addEventListener("click", function(event) {
+
+                if (
+                    event.ctrlKey ||
+                    event.shiftKey ||
+                    event.altKey ||
+                    event.metaKey ||
+                    link.target === "_blank"
+                ) {
+                    return;
+                }
+
+                const url = link.getAttribute("href");
+
+                if (!url || url.startsWith("#")) {
+                    return;
+                }
+
+                event.preventDefault();
+
+                document.body.style.opacity = "0";
+                document.body.style.transform = "translateY(8px)";
+
+                setTimeout(() => {
+
+                    window.location.href = url;
+
+                }, 250);
+
+            });
+
+        });
+
+    </script>
+
+</body>
+</html>

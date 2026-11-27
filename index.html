@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>GenAlpha Workbooks | Keep your child entertained with learning activities! </title>
+    <title>GenAlpha Workbooks | Home</title>
 
     <style>
 
@@ -19,18 +19,10 @@
             background-color: #f4faff;
             color: #263653;
             opacity: 1;
-            transform: translateY(0);
-            transition: opacity 0.32s ease, transform 0.32s ease;
+            transition: opacity 0.3s ease, transform 0.3s ease;
         }
 
-        /* Page transition */
-
-        body.page-leaving {
-            opacity: 0;
-            transform: translateY(12px);
-        }
-
-        /* Navigation */
+        /* HEADER */
 
         header {
             background-color: white;
@@ -38,40 +30,52 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
             flex-wrap: wrap;
             gap: 15px;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.06);
         }
 
-        .logo {
-            font-size: 25px;
-            font-weight: bold;
+        header h1 {
             color: #2878e8;
+            margin: 0;
+            font-size: 26px;
         }
 
         nav {
             display: flex;
-            gap: 12px;
+            align-items: center;
             flex-wrap: wrap;
+            gap: 10px;
         }
 
         nav a {
-            display: inline-block;
             text-decoration: none;
-            color: #344563;
+            color: #263653;
             font-weight: bold;
             padding: 10px 15px;
-            border-radius: 20px;
+            border-radius: 10px;
             transition: 0.3s;
         }
 
         nav a:hover {
-            background-color: #e4f1ff;
             color: #2878e8;
-            transform: translateY(-3px);
+            background-color: #eef6ff;
         }
 
-        /* Hero section */
+        /* LANGUAGE SELECTOR */
+
+        #languageSelector {
+            padding: 10px 14px;
+            border: 1px solid #c9ddf5;
+            border-radius: 10px;
+            background-color: white;
+            color: #263653;
+            font-family: inherit;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* HERO */
 
         .hero {
             background: linear-gradient(135deg, #54c8ff, #7587ff);
@@ -80,355 +84,443 @@
             padding: 100px 20px;
         }
 
-        .hero h1 {
-            font-size: 52px;
-            margin-bottom: 15px;
+        .hero h2 {
+            font-size: 46px;
+            margin-top: 0;
+            margin-bottom: 20px;
         }
 
         .hero p {
-            font-size: 20px;
-            max-width: 650px;
+            font-size: 19px;
+            line-height: 1.8;
+            max-width: 800px;
             margin: 0 auto 30px;
-            line-height: 1.6;
         }
 
         .main-button {
             display: inline-block;
             background-color: #ffdc58;
             color: #263653;
-            padding: 15px 30px;
-            border-radius: 30px;
+            padding: 16px 30px;
+            border-radius: 12px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 17px;
+            font-size: 18px;
             transition: 0.3s;
         }
 
         .main-button:hover {
-            background-color: #ffe990;
-            transform: translateY(-3px) scale(1.04);
-            box-shadow: 0 7px 15px rgba(0,0,0,0.15);
+            background-color: #ffca28;
+            transform: translateY(-3px);
+            box-shadow: 0 7px 18px rgba(0, 0, 0, 0.12);
         }
 
-        /* General sections */
+        /* SECTIONS */
 
-        section {
-            padding: 65px 8%;
+        .section {
+            padding: 70px 7%;
             text-align: center;
         }
 
-        section h2 {
-            font-size: 34px;
-            margin-bottom: 15px;
+        .section h2 {
             color: #2878e8;
+            font-size: 35px;
+            margin-bottom: 20px;
         }
 
-        .section-description {
-            color: #64748b;
+        .section p {
             font-size: 17px;
-            margin-bottom: 35px;
+            line-height: 1.8;
         }
 
-        /* Feature cards */
+        /* FEATURE CARDS */
 
         .cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
             gap: 25px;
-            max-width: 1100px;
-            margin: auto;
+            margin-top: 40px;
         }
 
         .card {
             background-color: white;
-            padding: 30px 22px;
-            border-radius: 22px;
-            box-shadow: 0 5px 18px rgba(0,0,0,0.06);
-            transition: 0.3s;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(40, 120, 232, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .card:hover {
             transform: translateY(-7px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-        }
-
-        .card-icon {
-            font-size: 48px;
-            margin-bottom: 15px;
+            box-shadow: 0 10px 25px rgba(40, 120, 232, 0.15);
         }
 
         .card h3 {
-            font-size: 22px;
-            color: #344563;
+            color: #2878e8;
+            font-size: 24px;
         }
 
         .card p {
             color: #64748b;
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
-        .card a {
+        .card-button {
             display: inline-block;
-            margin-top: 12px;
+            margin-top: 15px;
+            padding: 12px 20px;
+            background-color: #e8f4ff;
             color: #2878e8;
-            font-weight: bold;
             text-decoration: none;
-            transition: 0.25s;
+            border-radius: 10px;
+            font-weight: bold;
+            transition: 0.3s;
         }
 
-        .card a:hover {
-            color: #054c99;
-            text-decoration: underline;
-            transform: translateY(-3px);
+        .card-button:hover {
+            background-color: #d6eaff;
+            transform: translateY(-2px);
         }
 
-        /* About section */
+        /* ABOUT SECTION */
 
-        .about {
-            background-color: #e7f6ff;
+        .about-section {
+            background-color: #e8f4ff;
         }
 
-        .about p {
-            max-width: 750px;
+        .about-section p {
+            max-width: 800px;
             margin: auto;
-            line-height: 1.8;
-            font-size: 18px;
-            color: #52627a;
         }
 
-        /* Call to action */
+        /* CTA SECTION */
 
         .cta {
-            background-color: #fff0b8;
-            border-radius: 25px;
-            max-width: 1000px;
-            margin: 20px auto;
-            padding: 55px 25px;
+            background-color: #fff8d8;
+            padding: 70px 20px;
+            text-align: center;
         }
 
         .cta h2 {
-            color: #344563;
+            font-size: 35px;
+            color: #263653;
         }
 
         .cta p {
-            font-size: 17px;
-            margin-bottom: 25px;
+            font-size: 18px;
+            line-height: 1.7;
         }
 
-        /* Footer */
+        /* FOOTER */
 
         footer {
             background-color: #263653;
             color: white;
             text-align: center;
-            padding: 30px 15px;
-            margin-top: 50px;
+            padding: 30px 20px;
         }
 
         footer a {
-            display: inline-block;
-            color: #ffdc58;
+            color: white;
             text-decoration: none;
-            margin: 0 10px;
-            transition: 0.25s;
+            margin: 8px;
+            display: inline-block;
+            transition: 0.3s;
         }
 
         footer a:hover {
-            color: white;
-            transform: translateY(-2px);
             text-decoration: underline;
+            opacity: 0.85;
         }
 
-        /* Button press animation */
+        .footer-links {
+            margin-bottom: 20px;
+        }
+
+        /* REPORT BUTTON */
+
+        .report-button {
+            display: inline-block;
+            background-color: #000000;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+            margin: 8px;
+        }
+
+        .report-button:hover {
+            background-color: #333333;
+            transform: translateY(-3px);
+        }
+
+        /* FEEDBACK BUTTON */
+
+        .feedback-button {
+            display: inline-block;
+            background-color: #16a34a;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+            margin: 8px;
+        }
+
+        .feedback-button:hover {
+            background-color: #15803d;
+            transform: translateY(-3px);
+        }
+
+        /* BUTTON ANIMATION */
+
+        button,
+        .main-button,
+        .card-button,
+        .report-button,
+        .feedback-button {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .button-press {
+            animation: buttonPress 0.25s ease;
+        }
 
         @keyframes buttonPress {
-
             0% {
                 transform: scale(1);
             }
 
-            40% {
-                transform: scale(0.90);
-            }
-
-            75% {
-                transform: scale(1.06);
+            50% {
+                transform: scale(0.94);
             }
 
             100% {
                 transform: scale(1);
             }
-
         }
 
-        a.is-pressed {
-            animation: buttonPress 0.32s ease;
+        /* PAGE TRANSITION */
+
+        body.page-leaving {
+            opacity: 0;
+            transform: translateY(8px);
         }
 
-        /* Mobile compatibility */
+        /* RESPONSIVE */
 
         @media (max-width: 650px) {
 
             header {
-                justify-content: center;
+                flex-direction: column;
+                text-align: center;
             }
 
             nav {
                 justify-content: center;
             }
 
+            nav a {
+                margin: 4px;
+            }
+
             .hero {
                 padding: 70px 20px;
             }
 
-            .hero h1 {
-                font-size: 36px;
+            .hero h2 {
+                font-size: 34px;
             }
 
             .hero p {
                 font-size: 17px;
             }
 
-            section {
-                padding: 45px 6%;
+            .section h2,
+            .cta h2 {
+                font-size: 30px;
+            }
+
+            .section {
+                padding: 50px 6%;
             }
 
         }
 
-        /* Accessibility */
+        /* REDUCED MOTION */
 
         @media (prefers-reduced-motion: reduce) {
 
-            *,
-            *::before,
-            *::after {
-                animation-duration: 0.01ms !important;
-                transition-duration: 0.01ms !important;
+            * {
+                animation: none !important;
+                transition: none !important;
             }
 
         }
 
     </style>
-
 </head>
 
 <body>
 
-    <!-- Navigation -->
+    <!-- HEADER -->
 
     <header>
 
-        <div class="logo">
-            📚 GenAlpha Workbooks
-        </div>
+        <h1>📚 GenAlpha Workbooks</h1>
 
         <nav>
-            <a href="./about.html">About Us</a>
-            <a href="./faq.html">FAQ</a>
-            <a href="./loginbackend.html">Log In</a>
+
+            <a href="about.html" data-translate="navAbout">
+                About Us
+            </a>
+
+            <a href="faq.html" data-translate="navFAQ">
+                FAQ
+            </a>
+
+            <a href="loginbackend.html" data-translate="navLogin">
+                Log In
+            </a>
+
+            <select id="languageSelector" aria-label="Select language">
+
+                <option value="en">🇬🇧 English</option>
+                <option value="cs">🇨🇿 Čeština</option>
+
+            </select>
+
         </nav>
 
     </header>
 
+    <!-- HERO -->
 
-    <!-- Welcome section -->
+    <section class="hero">
 
-    <div class="hero">
+        <h2 data-translate="heroTitle">
+            Welcome to GenAlpha Workbooks! 🌟
+        </h2>
 
-        <h1>Welcome to GenAlpha Workbooks! 🌟</h1>
-
-        <p>
-            Discover, learn, create and explore!
-            A place where learning becomes an exciting adventure.
+        <p data-translate="heroText">
+            Discover, learn, create and explore! GenAlpha Workbooks
+            is a place where learning becomes fun and exciting.
         </p>
 
-        <a href="./loginbackend.html" class="main-button">
+        <a href="loginbackend.html"
+            class="main-button"
+            data-translate="getStarted">
+
             Get Started 🚀
+
         </a>
 
-    </div>
+    </section>
 
+    <!-- FEATURES -->
 
-    <!-- Features -->
+    <section class="section">
 
-    <section>
+        <h2 data-translate="featuresTitle">
+            Explore Our Website 🎨
+        </h2>
 
-        <h2>What Can You Discover? 🎨</h2>
-
-        <p class="section-description">
-            Explore the different features of GenAlpha Workbooks.
+        <p data-translate="featuresText">
+            Discover the different parts of GenAlpha Workbooks.
         </p>
 
         <div class="cards">
 
-            <!-- Workbooks -->
+            <!-- WORKBOOKS -->
 
             <div class="card">
 
-                <div class="card-icon">📖</div>
+                <h3 data-translate="workbooksTitle">
+                    Workbooks 📖
+                </h3>
 
-                <h3>Workbooks</h3>
-
-                <p>
-                    Discover educational materials
-                    and exciting learning activities.
+                <p data-translate="workbooksText">
+                    Explore educational workbooks and discover
+                    new ways to learn.
                 </p>
 
-                <a href="./workbooks.html">Explore →</a>
+                <a href="workbooks.html"
+                    class="card-button"
+                    data-translate="workbooksButton">
+
+                    Explore Workbooks
+
+                </a>
 
             </div>
 
-
-            <!-- Children's Folder -->
+            <!-- CHILDREN'S FOLDER -->
 
             <div class="card">
 
-                <div class="card-icon">📁</div>
+                <h3 data-translate="folderTitle">
+                    Children's Folder 📁
+                </h3>
 
-                <h3>Children's Folder</h3>
-
-                <p>
-                    Organize your content and
-                    explore your personal folder.
+                <p data-translate="folderText">
+                    Organize and manage your children's learning space.
                 </p>
 
-                <a href="./mychildrensfolder.html">Open Folder →</a>
+                <a href="mychildrensfolder.html"
+                    class="card-button"
+                    data-translate="folderButton">
+
+                    Open Folder
+
+                </a>
 
             </div>
-
 
             <!-- FAQ -->
 
             <div class="card">
 
-                <div class="card-icon">❓</div>
+                <h3 data-translate="faqTitle">
+                    FAQ ❓
+                </h3>
 
-                <h3>Frequently Asked Questions</h3>
-
-                <p>
-                    Find answers to common questions
-                    about our project.
+                <p data-translate="faqText">
+                    Find answers to frequently asked questions.
                 </p>
 
-                <a href="./faq.html">Read FAQ →</a>
+                <a href="faq.html"
+                    class="card-button"
+                    data-translate="faqButton">
+
+                    Read FAQ
+
+                </a>
 
             </div>
 
-
-            <!-- About Us -->
+            <!-- ABOUT -->
 
             <div class="card">
 
-                <div class="card-icon">👋</div>
+                <h3 data-translate="aboutTitle">
+                    About Us 👋
+                </h3>
 
-                <h3>About Us</h3>
-
-                <p>
+                <p data-translate="aboutText">
                     Learn more about GenAlpha Workbooks
-                    and what makes our project special.
+                    and what we do.
                 </p>
 
-                <a href="./about.html">Learn More →</a>
+                <a href="about.html"
+                    class="card-button"
+                    data-translate="aboutButton">
+
+                    Learn More
+
+                </a>
 
             </div>
 
@@ -436,133 +528,336 @@
 
     </section>
 
+    <!-- ABOUT SECTION -->
 
-    <!-- About section -->
+    <section class="section about-section">
 
-    <section class="about">
+        <h2 data-translate="learningTitle">
+            Learning Should Be Fun! 💡
+        </h2>
 
-        <h2>Learning Should Be Fun! 💡</h2>
-
-        <p>
-            GenAlpha Workbooks aims to make learning
-            more interesting, accessible and enjoyable.
-            We believe that curiosity and creativity
-            are important parts of education.
+        <p data-translate="learningText">
+            At GenAlpha Workbooks, we believe learning should be
+            creative, enjoyable and accessible. Explore new ideas,
+            discover new skills and make learning your own adventure!
         </p>
 
     </section>
 
+    <!-- CTA -->
 
-    <!-- Call to action -->
+    <section class="cta">
 
-    <section>
+        <h2 data-translate="ctaTitle">
+            Ready to Explore? 🚀
+        </h2>
 
-        <div class="cta">
+        <p data-translate="ctaText">
+            Join GenAlpha Workbooks and start discovering
+            new learning opportunities!
+        </p>
 
-            <h2>Ready to Explore? 🚀</h2>
+        <a href="loginbackend.html"
+            class="main-button"
+            data-translate="ctaButton">
 
-            <p>
-                Discover what GenAlpha Workbooks has
-                to offer and start exploring!
-            </p>
+            Join Us
 
-            <a href="./loginbackend.html" class="main-button">
-                Join Us!
+        </a>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-links">
+
+            <a href="about.html" data-translate="footerAbout">
+                About Us
+            </a>
+
+            <a href="faq.html" data-translate="footerFAQ">
+                FAQ
+            </a>
+
+            <a href="loginbackend.html" data-translate="footerLogin">
+                Log In
             </a>
 
         </div>
 
-    </section>
+        <!-- REPORT -->
 
+        <a href="report.html"
+            class="report-button"
+            data-translate="report">
 
-    <!-- Footer -->
+            🏴 Report
 
-    <footer>
+        </a>
 
-        <p>
-            © 2026 GenAlpha Workbooks.
-            All rights reserved.
-        </p>
+        <!-- FEEDBACK -->
 
-        <p>
-            <a href="./about.html">About Us</a>
-            |
-            <a href="./faq.html">FAQ</a>
-            |
-            <a href="./loginbackend.html">Log In</a>
-        </p>
+        <a href="feedback.html"
+            class="feedback-button"
+            data-translate="feedback">
 
-        <p>
+            💬 Send Feedback
+
+        </a>
+
+        <p data-translate="motto">
             Learn • Create • Discover
         </p>
 
+        <p>© 2026 GenAlpha Workbooks</p>
+
     </footer>
 
-
-    <!-- Button animations and page transitions -->
+    <!-- JAVASCRIPT -->
 
     <script>
 
-        document.querySelectorAll('a[href]').forEach(function(link) {
+        /* TRANSLATIONS */
 
-            link.addEventListener('click', function(event) {
+        const translations = {
 
-                // Ignore special clicks
+            en: {
+
+                navAbout: "About Us",
+                navFAQ: "FAQ",
+                navLogin: "Log In",
+
+                heroTitle: "Timeless education, Timeless fun! 🌟",
+
+                heroText:
+                    "This website is intended for children and parents to explore, learn, create and discover! GenAlpha Workbooks is a place where learning becomes fun and exciting.",
+
+                getStarted: "Get Started 🚀",
+
+                featuresTitle: "Explore Our Website 🎨",
+
+                featuresText:
+                    "Discover the different parts of GenAlpha Workbooks.",
+
+                workbooksTitle: "Workbooks 📖",
+
+                workbooksText:
+                    "Explore educational workbooks and discover new ways to learn.",
+
+                workbooksButton: "Explore Workbooks",
+
+                folderTitle: "Children's Folder 📁",
+
+                folderText:
+                    "Organize and manage your children's learning space.",
+
+                folderButton: "Open Folder",
+
+                faqTitle: "FAQ ❓",
+
+                faqText:
+                    "Find answers to frequently asked questions.",
+
+                faqButton: "Read FAQ",
+
+                aboutTitle: "About Us 👋",
+
+                aboutText:
+                    "Learn more about GenAlpha Workbooks and what we do.",
+
+                aboutButton: "Learn More",
+
+                learningTitle: "Learning Should Be Fun! 💡",
+
+                learningText:
+                    "At GenAlpha Workbooks, we believe learning should be creative, enjoyable and accessible. Explore new ideas, discover new skills and make learning your own adventure!",
+
+                ctaTitle: "Ready to Explore? 🚀",
+
+                ctaText:
+                    "Join GenAlpha Workbooks and start discovering new learning opportunities!",
+
+                ctaButton: "Join Us",
+
+                footerAbout: "About Us",
+                footerFAQ: "FAQ",
+                footerLogin: "Log In",
+
+                report: "🏴 Report",
+
+                feedback: "💬 Send Feedback",
+
+                motto: "Learn • Create • Discover"
+
+            },
+
+            cs: {
+
+                navAbout: "O nás",
+                navFAQ: "FAQ",
+                navLogin: "Přihlásit se",
+
+                heroTitle: "Časné vzdělávání, časná zábava! 🌟",
+
+                heroText:
+                    "Objevuj, uč se, tvoř a poznávej! GenAlpha Workbooks je místo, kde se učení stává zábavou.",
+
+                getStarted: "Začít 🚀",
+
+                featuresTitle: "Prozkoumej náš web 🎨",
+
+                featuresText:
+                    "Objev různé části GenAlpha Workbooks.",
+
+                workbooksTitle: "Pracovní sešity 📖",
+
+                workbooksText:
+                    "Prozkoumej vzdělávací pracovní sešity a objev nové způsoby učení.",
+
+                workbooksButton: "Prozkoumat sešity",
+
+                folderTitle: "Dětská složka 📁",
+
+                folderText:
+                    "Organizuj a spravuj vzdělávací prostor svých dětí.",
+
+                folderButton: "Otevřít složku",
+
+                faqTitle: "FAQ ❓",
+
+                faqText:
+                    "Najdi odpovědi na často kladené otázky.",
+
+                faqButton: "Přečíst FAQ",
+
+                aboutTitle: "O nás 👋",
+
+                aboutText:
+                    "Zjisti více o GenAlpha Workbooks a o tom, co děláme.",
+
+                aboutButton: "Zjistit více",
+
+                learningTitle: "Učení by mělo být zábavné! 💡",
+
+                learningText:
+                    "V GenAlpha Workbooks věříme, že učení by mělo být kreativní, příjemné a dostupné. Objevuj nové nápady, získávej nové dovednosti a udělej si z učení vlastní dobrodružství!",
+
+                ctaTitle: "Připraven/a objevovat? 🚀",
+
+                ctaText:
+                    "Připoj se ke GenAlpha Workbooks a začni objevovat nové možnosti učení!",
+
+                ctaButton: "Připojit se",
+
+                footerAbout: "O nás",
+                footerFAQ: "FAQ",
+                footerLogin: "Přihlásit se",
+
+                report: "🏴 Nahlásit",
+
+                feedback: "💬 Odeslat zpětnou vazbu",
+
+                motto: "Uč se • Tvoř • Objevuj"
+
+            }
+
+        };
+
+        /* LANGUAGE SYSTEM */
+
+        function applyLanguage(language) {
+
+            if (!translations[language]) {
+                language = "en";
+            }
+
+            const t = translations[language];
+
+            document.documentElement.lang = language;
+
+            document.querySelectorAll("[data-translate]").forEach(element => {
+
+                const key = element.dataset.translate;
+
+                if (t[key]) {
+                    element.textContent = t[key];
+                }
+
+            });
+
+            localStorage.setItem("gaworkbooksLanguage", language);
+
+        }
+
+        /* LOAD SAVED LANGUAGE */
+
+        const languageSelector =
+            document.getElementById("languageSelector");
+
+        const savedLanguage =
+            localStorage.getItem("gaworkbooksLanguage") || "en";
+
+        languageSelector.value = savedLanguage;
+
+        applyLanguage(savedLanguage);
+
+        languageSelector.addEventListener("change", function() {
+
+            applyLanguage(this.value);
+
+        });
+
+        /* BUTTON ANIMATIONS */
+
+        document.querySelectorAll(
+            "button, .main-button, .card-button, .report-button, .feedback-button"
+        ).forEach(button => {
+
+            button.addEventListener("click", function() {
+
+                this.classList.remove("button-press");
+
+                void this.offsetWidth;
+
+                this.classList.add("button-press");
+
+            });
+
+        });
+
+        /* PAGE TRANSITIONS */
+
+        document.querySelectorAll("a").forEach(link => {
+
+            link.addEventListener("click", function(event) {
+
                 if (
-                    event.button !== 0 ||
                     event.ctrlKey ||
                     event.shiftKey ||
                     event.altKey ||
                     event.metaKey ||
-                    link.target ||
-                    link.hasAttribute('download')
+                    link.target === "_blank"
                 ) {
                     return;
                 }
 
-                const destination = new URL(
-                    link.href,
-                    window.location.href
-                );
+                const url = link.getAttribute("href");
 
-                // Do not animate external links
-                if (destination.origin !== window.location.origin) {
-                    return;
-                }
-
-                const href = link.getAttribute('href');
-
-                // Do not animate empty links or same-page anchors
-                if (
-                    !href ||
-                    href.startsWith('#') ||
-                    (
-                        destination.pathname === window.location.pathname &&
-                        destination.hash
-                    )
-                ) {
+                if (!url || url.startsWith("#")) {
                     return;
                 }
 
                 event.preventDefault();
 
-                // Start button animation
-                link.classList.add('is-pressed');
+                document.body.classList.add("page-leaving");
 
-                // Start page fade-out
-                document.body.classList.add('page-leaving');
+                setTimeout(() => {
 
-                // Respect reduced-motion preferences
-                const prefersReducedMotion = window.matchMedia(
-                    '(prefers-reduced-motion: reduce)'
-                ).matches;
+                    window.location.href = url;
 
-                const delay = prefersReducedMotion ? 0 : 320;
-
-                // Navigate to the next page
-                setTimeout(function() {
-                    window.location.assign(destination.href);
-                }, delay);
+                }, 250);
 
             });
 
@@ -571,5 +866,4 @@
     </script>
 
 </body>
-
 </html>

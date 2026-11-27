@@ -1,37 +1,744 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>gaaboutuspage.com</title>
-    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GenAlpha Workbooks | Feedback</title>
+
     <style>
+        * {
+            box-sizing: border-box;
+        }
 
-
-         body {
-            background-color: #12b4ff ;
-            font-family:Times New Roman;
+        body {
             margin: 0;
-            text-align:center
-         }
+            font-family: 'Trebuchet MS', Arial, sans-serif;
+            background-color: #f4faff;
+            color: #263653;
+            opacity: 1;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        /* Header */
+        header {
+            background-color: white;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        header h1 {
+            color: #2878e8;
+            margin: 0;
+            font-size: 26px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #263653;
+            font-weight: bold;
+            margin-left: 15px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #2878e8;
+        }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 65px 20px 45px;
+        }
+
+        .hero h2 {
+            font-size: 42px;
+            color: #2878e8;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 17px;
+            color: #64748b;
+            max-width: 650px;
+            margin: auto;
+            line-height: 1.7;
+        }
+
+        /* Feedback container */
+        .feedback-container {
+            max-width: 750px;
+            margin: 0 auto 60px;
+            padding: 0 20px;
+        }
+
+        .feedback-card {
+            background-color: white;
+            border-radius: 22px;
+            padding: 35px;
+            box-shadow: 0 8px 30px rgba(40, 120, 232, 0.10);
+            border: 1px solid #e4efff;
+        }
+
+        .feedback-card h3 {
+            font-size: 25px;
+            color: #2878e8;
+            margin-top: 0;
+        }
+
+        .feedback-card p {
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        /* Rating */
+        .rating-section {
+            margin: 25px 0;
+            text-align: center;
+            background-color: #f4faff;
+            padding: 25px;
+            border-radius: 16px;
+        }
+
+        .rating-section h4 {
+            font-size: 18px;
+            margin-top: 0;
+            color: #263653;
+        }
+
+        .stars {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .star {
+            font-size: 40px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #cbd5e1;
+            transition: transform 0.2s, color 0.2s;
+        }
+
+        .star:hover {
+            transform: scale(1.2);
+        }
+
+        .star.active {
+            color: #ffca28;
+        }
+
+        #ratingText {
+            font-weight: bold;
+            color: #2878e8;
+        }
+
+        /* Form */
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 9px;
+            font-weight: bold;
+            color: #263653;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid #dce8f7;
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 16px;
+            background-color: #ffffff;
+            color: #263653;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #2878e8;
+            box-shadow: 0 0 0 3px rgba(40, 120, 232, 0.12);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        /* Buttons */
+        .submit-button {
+            width: 100%;
+            padding: 16px;
+            border: none;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #2878e8, #7587ff);
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            font-family: inherit;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 18px rgba(40, 120, 232, 0.25);
+        }
+
+        .submit-button:active {
+            transform: scale(0.97);
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 13px 25px;
+            background-color: #e8f4ff;
+            color: #2878e8;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: #d6eaff;
+            transform: translateY(-2px);
+        }
+
+        /* Confirmation */
+        #confirmation {
+            display: none;
+            text-align: center;
+            margin-top: 25px;
+            padding: 20px;
+            border-radius: 14px;
+            background-color: #e8f9ee;
+            color: #15803d;
+            font-weight: bold;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #263653;
+            color: white;
+            text-align: center;
+            padding: 25px 20px;
+        }
+
+        footer p {
+            margin: 8px;
+        }
+
+        /* Animation */
+        .feedback-card {
+            animation: fadeIn 0.6s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        button {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Responsive */
+        @media (max-width: 650px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav a {
+                margin: 8px;
+                display: inline-block;
+            }
+
+            .hero h2 {
+                font-size: 32px;
+            }
+
+            .feedback-card {
+                padding: 23px;
+            }
+
+            .star {
+                font-size: 34px;
+            }
+        }
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
     </style>
+</head>
 
-<label for="message" style="font-size:x-large">Send us your feedback:</label>
-<br>
-    <textarea id="message" name="message" rows="8" cols="100" placeholder="Write your feedback ideas here..."></textarea>
+<body>
 
-<br>
+    <!-- Header -->
+    <header>
+        <h1>📚 GenAlpha Workbooks</h1>
 
-<p style="color:aqua; font-size:x-large"> Thanks to your improvement ideas, we'll be able to update things that need a rework.</p>
+    </header>
 
-<b style="font-size:x-large"> We will review your feedback as soon as possible.</b>
+    <!-- Hero -->
+    <section class="hero">
+        <h2 data-translate="title">💬 Send Feedback</h2>
 
-<br>
+        <p data-translate="subtitle">
+            Your thoughts matter to us! Help us improve GenAlpha Workbooks
+            by sharing your ideas, suggestions or experiences.
+        </p>
+    </section>
 
-<b style="color:red; font-size:larger; "> Our corporation will try to create new updates that will make the website even better.</b>
+    <!-- Feedback form -->
+    <main class="feedback-container">
 
-<br>
+        <div class="feedback-card">
 
-<a href="index.html" style="text-decoration: none;">
-    <button style="font-size: 34px; background-color: rgb(165, 0, 0); font-family: 'Times New Roman'; color: white; border-radius: 9px;">
-        Back
-    </button>
-</a>
+            <h3 data-translate="formTitle">Share Your Thoughts ✨</h3>
+
+            <p data-translate="formDescription">
+                We would love to hear what you think about GenAlpha Workbooks!
+            </p>
+
+            <!-- Rating -->
+            <div class="rating-section">
+
+                <h4 data-translate="ratingTitle">
+                    How would you rate your experience?
+                </h4>
+
+                <div class="stars" id="stars">
+
+                    <button type="button" class="star" data-rating="1"
+                        aria-label="1 star">★</button>
+
+                    <button type="button" class="star" data-rating="2"
+                        aria-label="2 stars">★</button>
+
+                    <button type="button" class="star" data-rating="3"
+                        aria-label="3 stars">★</button>
+
+                    <button type="button" class="star" data-rating="4"
+                        aria-label="4 stars">★</button>
+
+                    <button type="button" class="star" data-rating="5"
+                        aria-label="5 stars">★</button>
+
+                </div>
+
+                <p id="ratingText" data-translate="ratingDefault">
+                    Select a rating!
+                </p>
+
+            </div>
+
+            <form id="feedbackForm">
+
+                <!-- Name -->
+                <div class="form-group">
+
+                    <label for="name" data-translate="nameLabel">
+                        Name (optional)
+                    </label>
+
+                    <input type="text" id="name" name="name"
+                        data-translate-placeholder="namePlaceholder"
+                        placeholder="Enter your name">
+
+                </div>
+
+                <!-- Category -->
+                <div class="form-group">
+
+                    <label for="category" data-translate="categoryLabel">
+                        Feedback Category
+                    </label>
+
+                    <select id="category" name="category" required>
+
+                        <option value="" data-translate="categoryDefault">
+                            Choose a category
+                        </option>
+
+                        <option value="suggestion" data-translate="suggestion">
+                            💡 Suggestion
+                        </option>
+
+                        <option value="website" data-translate="website">
+                            🌐 Website Problem
+                        </option>
+
+                        <option value="workbooks" data-translate="workbooks">
+                            📖 Workbooks
+                        </option>
+
+                        <option value="other" data-translate="other">
+                            💬 Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <!-- Subject -->
+                <div class="form-group">
+
+                    <label for="subject" data-translate="subjectLabel">
+                        Subject
+                    </label>
+
+                    <input type="text" id="subject" name="subject"
+                        data-translate-placeholder="subjectPlaceholder"
+                        placeholder="What is your feedback about?"
+                        required>
+
+                </div>
+
+                <!-- Message -->
+                <div class="form-group">
+
+                    <label for="message" data-translate="messageLabel">
+                        Your Message
+                    </label>
+
+                    <textarea id="message" name="message"
+                        data-translate-placeholder="messagePlaceholder"
+                        placeholder="Write your feedback here..."
+                        required></textarea>
+
+                </div>
+
+                <!-- Submit -->
+                <button type="submit" class="submit-button"
+                    data-translate="submit">
+                    Send Feedback 🚀
+                </button>
+
+            </form>
+
+            <!-- Confirmation -->
+            <div id="confirmation" role="status"></div>
+
+            <!-- Back -->
+            <div style="text-align: center;">
+
+                <a href="index.html" class="back-button"
+                    data-translate="back">
+                    ← Back to Home
+                </a>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+
+        <p data-translate="footer">
+            GenAlpha Workbooks | Learn • Create • Discover
+        </p>
+
+        <p>© 2026 GenAlpha Workbooks</p>
+
+    </footer>
+
+    <script>
+
+        /* LANGUAGE SYSTEM */
+
+        const translations = {
+
+            en: {
+                home: "Home",
+                about: "About Us",
+                faq: "FAQ",
+
+                title: "💬 Send Feedback",
+
+                subtitle:
+                    "Your thoughts matter to us! Help us improve GenAlpha Workbooks by sharing your ideas, suggestions or experiences.",
+
+                formTitle: "Share Your Thoughts ✨",
+
+                formDescription:
+                    "We would love to hear what you think about GenAlpha Workbooks!",
+
+                ratingTitle:
+                    "How would you rate your experience?",
+
+                ratingDefault:
+                    "Select a rating!",
+
+                ratingMessages: [
+                    "Very poor",
+                    "Poor",
+                    "Okay",
+                    "Good",
+                    "Excellent!"
+                ],
+
+                nameLabel: "Name (optional)",
+                namePlaceholder: "Enter your name",
+
+                categoryLabel: "Feedback Category",
+                categoryDefault: "Choose a category",
+
+                suggestion: "💡 Suggestion",
+                updateWebsite: "🌐 Update Website",
+                workbooks: "📖 Workbooks",
+                other: "💬 Other",
+
+                subjectLabel: "Subject",
+                subjectPlaceholder: "What is your feedback about?",
+
+                messageLabel: "Your Message",
+                messagePlaceholder: "Write your feedback here...",
+
+                submit: "Send Feedback 🚀",
+                back: "← Back to Home",
+
+                confirmation:
+                    "Thank you for your feedback! 💙 Your message has been prepared, but it has not been sent to us yet. This website needs a connected backend or email service to actually receive feedback.",
+
+                footer:
+                    "GenAlpha Workbooks | Learn • Create • Discover"
+            },
+
+            cs: {
+                home: "Domů",
+                about: "O nás",
+                faq: "FAQ",
+
+                title: "💬 Zpětná vazba",
+
+                subtitle:
+                    "Na tvém názoru nám záleží! Pomoz nám vylepšit GenAlpha Workbooks tím, že s námi sdílíš své nápady, návrhy nebo zkušenosti.",
+
+                formTitle: "Poděl se o svůj názor ✨",
+
+                formDescription:
+                    "Rádi se dozvíme, co si myslíš o GenAlpha Workbooks!",
+
+                ratingTitle:
+                    "Jak hodnotíš svou zkušenost?",
+
+                ratingDefault:
+                    "Vyber hodnocení!",
+
+                ratingMessages: [
+                    "Velmi špatné",
+                    "Špatné",
+                    "Ujde to",
+                    "Dobré",
+                    "Výborné!"
+                ],
+
+                nameLabel: "Jméno (nepovinné)",
+                namePlaceholder: "Zadej své jméno",
+
+                categoryLabel: "Kategorie zpětné vazby",
+                categoryDefault: "Vyber kategorii",
+
+                suggestion: "💡 Návrh",
+                updateWebsite: "🌐 Aktualizovaní webu",
+                workbooks: "📖 Pracovní sešity",
+                other: "💬 Jiné",
+
+                subjectLabel: "Předmět",
+                subjectPlaceholder: "Čeho se tvá zpětná vazba týká?",
+
+                messageLabel: "Tvá zpráva",
+                messagePlaceholder: "Napiš svou zpětnou vazbu sem...",
+
+                submit: "Odeslat zpětnou vazbu 🚀",
+                back: "← Zpět na domovskou stránku",
+
+                confirmation:
+                    "Děkujeme za zpětnou vazbu! 💙 Zpráva je připravena, ale zatím nebyla odeslána. Web potřebuje propojený backend nebo e-mailovou službu, aby mohl zpětnou vazbu skutečně přijímat.",
+
+                footer:
+                    "GenAlpha Workbooks | Uč se • Tvoř • Objevuj"
+            }
+
+        };
+
+        /* APPLY LANGUAGE */
+
+        function applyLanguage(language) {
+
+            if (!translations[language]) {
+                language = "en";
+            }
+
+            const t = translations[language];
+
+            document.documentElement.lang = language;
+
+            document.querySelectorAll("[data-translate]").forEach(element => {
+
+                const key = element.dataset.translate;
+
+                if (t[key]) {
+                    element.textContent = t[key];
+                }
+
+            });
+
+            document.querySelectorAll("[data-translate-placeholder]").forEach(element => {
+
+                const key = element.dataset.translatePlaceholder;
+
+                if (t[key]) {
+                    element.placeholder = t[key];
+                }
+
+            });
+
+            document.getElementById("ratingText").textContent =
+                t.ratingDefault;
+
+            document.getElementById("confirmation").textContent =
+                t.confirmation;
+
+            window.currentLanguage = language;
+
+        }
+
+        /* LOAD SAVED LANGUAGE */
+
+        const savedLanguage =
+            localStorage.getItem("gaworkbooksLanguage") || "en";
+
+        applyLanguage(savedLanguage);
+
+        /* RATING SYSTEM */
+
+        let selectedRating = 0;
+
+        const stars = document.querySelectorAll(".star");
+
+        stars.forEach(star => {
+
+            star.addEventListener("click", function () {
+
+                selectedRating = Number(this.dataset.rating);
+
+                updateStars();
+
+            });
+
+        });
+
+        function updateStars() {
+
+            stars.forEach(star => {
+
+                const rating = Number(star.dataset.rating);
+
+                star.classList.toggle(
+                    "active",
+                    rating <= selectedRating
+                );
+
+            });
+
+            const t = translations[window.currentLanguage];
+
+            document.getElementById("ratingText").textContent =
+                t.ratingMessages[selectedRating - 1];
+
+        }
+
+        /* FORM */
+
+        document.getElementById("feedbackForm").addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            const confirmation =
+                document.getElementById("confirmation");
+
+            confirmation.style.display = "block";
+
+            confirmation.textContent =
+                translations[window.currentLanguage].confirmation;
+
+            confirmation.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+
+        });
+
+        /* PAGE TRANSITION */
+
+        document.querySelectorAll("a").forEach(link => {
+
+            link.addEventListener("click", function(event) {
+
+                if (
+                    event.ctrlKey ||
+                    event.shiftKey ||
+                    event.altKey ||
+                    event.metaKey ||
+                    link.target === "_blank"
+                ) {
+                    return;
+                }
+
+                const url = link.getAttribute("href");
+
+                if (!url || url.startsWith("#")) {
+                    return;
+                }
+
+                event.preventDefault();
+
+                document.body.style.opacity = "0";
+                document.body.style.transform = "translateY(8px)";
+
+                setTimeout(() => {
+                    window.location.href = url;
+                }, 250);
+
+            });
+
+        });
+
+    </script>
+
+</body>
+</html>
